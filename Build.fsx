@@ -43,7 +43,7 @@ module Helpers =
     // Create the content for new SPI files
     let CreateServiceFile(filePath : string) = 
         Seq.fold (fun (acc : string list) (elem : string) -> 
-            if elem.StartsWith("org.apache") then ConvertNamingConvention elem :: acc
+            if elem.StartsWith("org.apache") || elem.StartsWith("Flex") then ConvertNamingConvention elem :: acc
             else acc) [] (File.ReadAllLines(filePath))
     
     /// <summary>
