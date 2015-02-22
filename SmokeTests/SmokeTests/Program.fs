@@ -1,13 +1,11 @@
-﻿// Learn more about F# at http://fsharp.net
-// See the 'F# Tutorial' project for more help.
-open Xunit
-open FlexLucene.Analysis.Standard
-open FlexLucene.Index
-open FlexLucene.Document
-open FlexLucene.Queryparser.Classic
-open FlexLucene.Store
-open FlexLucene.Search
+﻿open FlexLucene.Analysis.Standard
 open FlexLucene.Codecs
+open FlexLucene.Document
+open FlexLucene.Index
+open FlexLucene.Queryparser.Classic
+open FlexLucene.Search
+open FlexLucene.Store
+open Xunit
 
 let mutable hasErrors = false
 
@@ -18,15 +16,24 @@ let exceptionWrapper (meth : unit -> unit) =
         hasErrors <- true
         printfn "%A" e
 
+let ShouldHaveFlexCodec50() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec50"))
+let ShouldHaveFlexCodec410() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec410"))
+let ShouldHaveFlexPerFieldPostingsFormat() = 
+    Assert.True(PostingsFormat.AvailablePostingsFormats().contains("FlexPerFieldPostingsFormat"))
+
 [<Fact>]
 let CodecsShouldLoadProperly() = 
     let codecs = Codec.AvailableCodecs()
     Assert.True(codecs.size() > 0)
+    ShouldHaveFlexCodec410()
+    ShouldHaveFlexCodec50()
 
 [<Fact>]
 let PostingsFormatShouldLoadProperly() = 
     let formats = PostingsFormat.AvailablePostingsFormats()
     Assert.True(formats.size() > 0)
+    ShouldHaveFlexPerFieldPostingsFormat()
+    ShouldHaveFlexPerFieldPostingsFormat()
 
 [<Fact>]
 let SimpleIndexingTest() = 
@@ -36,9 +43,9 @@ let SimpleIndexingTest() =
     let iwriter = new IndexWriter(directory, config)
     let doc = new Document()
     let text = "This is the text to be indexed."
-    doc.add(new Field("fieldname", text, TextField.TYPE_STORED))
+    doc.Add(new Field("fieldname", text, TextField.TYPE_STORED))
     iwriter.AddDocument(doc)
-    iwriter.close()
+    iwriter.Close()
     // Now search the index:
     let ireader = DirectoryReader.Open(directory)
     let isearcher = new IndexSearcher(ireader)
@@ -52,14 +59,13 @@ let SimpleIndexingTest() =
     for i = 0 to hits.Length - 1 do
         let hitDoc = isearcher.Doc(hits.[i].Doc)
         Assert.Equal<string>("This is the text to be indexed.", hitDoc.Get("fieldname"))
-    ireader.close()
-    directory.close()
+    ireader.Close()
+    directory.Close()
 
 [<Fact>]
 let BooleanQueryCreationTests() = 
     let query = new BooleanQuery(true)
-    
-    query.add (new BooleanClause(new TermQuery(new Term("dummy")), BooleanClause.Occur.MUST))
+    query.Add(new BooleanClause(new TermQuery(new Term("dummy")), BooleanClause.Occur.MUST))
 
 [<Fact>]
 let RangeQueryCreationTests() = 
@@ -68,6 +74,10 @@ let RangeQueryCreationTests() =
 
 [<EntryPoint>]
 let main argv = 
+    let loader = ikvm.runtime.AssemblyClassLoader(typeof<FlexLucene.Codecs.FlexSearch.FlexCodec410>.Assembly)
+    PostingsFormat.ReloadPostingsFormats(loader)
+    Codec.ReloadCodecs(loader)
+    
     [| CodecsShouldLoadProperly; PostingsFormatShouldLoadProperly; SimpleIndexingTest; BooleanQueryCreationTests; 
        RangeQueryCreationTests |] |> Array.iter (fun meth -> exceptionWrapper meth)
     printfn "Done"
