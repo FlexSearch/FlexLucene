@@ -1,0 +1,1 @@
+mvn package -f "FlexSearch.Codecs\pom.xml"
