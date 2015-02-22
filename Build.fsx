@@ -7,13 +7,13 @@
 #r "dll/Mono.Cecil.Rocks.dll"
 
 open Mono.Cecil
+open Mono.Cecil.Cil
 open System
+open System.ComponentModel
 open System.Diagnostics
 open System.IO
 open System.IO.Compression
 open System.Linq
-open System.ComponentModel
-open Mono.Cecil.Cil
 
 // Generic helpers
 let (<!!>) (path1 : string) (path2 : string) = Path.Combine([| path1; path2 |])
@@ -21,7 +21,7 @@ let loopDir (dir : string) = Directory.EnumerateDirectories(dir)
 let loopFiles (dir : string) = Directory.EnumerateFiles(dir)
 let createDir (dir : string) = Directory.CreateDirectory(dir) |> ignore
 let (!>) (content : string) = printfn "%s" content |> ignore
-let (!>>) (content : string) = printfn @"/t%s" content |> ignore
+let (!>>) (content : string) = printfn "\t%s" content |> ignore
 let OK() = printfn "[SUCCESS]"
 let FAIL() = printfn "[FAILED]"
 
@@ -83,6 +83,7 @@ let IkvmPath = sprintf @"%s\ikvm\ikvmc.exe" RootDirectory
 let VersionPatchPath = RootDirectory <!!> "verpatch.exe"
 let LibSrcDirectory = RootDirectory <!!> "Lib"
 let LibTargetDirectory = WorkDirectory <!!> "Lib" |> CreateAndEmptyDirectory
+let FlexSearchJar = RootDirectory <!!> "FlexSearch.Codecs"
 let TempDirectory = WorkDirectory <!!> "Temp" |> CreateAndEmptyDirectory
 let MetaDirectory = WorkDirectory <!!> "Meta" |> CreateAndEmptyDirectory
 let ServicesDirectory = MetaDirectory <!!> @"META-INF\services" |> CreateAndEmptyDirectory
@@ -110,15 +111,31 @@ let LuceneJars =
        sprintf "lucene-spatial-%s" LuceneVersion
        sprintf "lucene-sandbox-%s" LuceneVersion |]
 
-let JarFiles = Directory.GetFiles(RootDirectory, "*.jar", System.IO.SearchOption.AllDirectories)
-let cmdExec (args : string) = Exec(@"C:\Program Files\Java\jre7\bin\java.exe", args)
+!>"Starting FlexLucene Build"
+!>"Getting Environment Variable JAVA_HOME"
 
-// Copy lucene files to be compiled
+let JAVA_HOME = Environment.GetEnvironmentVariable("JAVA_HOME")
+
+!>>(sprintf "JAVA_HOME: %s" JAVA_HOME)
+
+let JarFiles = Directory.GetFiles(RootDirectory, "*.jar", System.IO.SearchOption.AllDirectories)
+let javaExec (args : string) = Exec(JAVA_HOME <!!> @"bin\java.exe", args)
+
+!>"FlexSearch.Codec compilation phase"
+if not (File.Exists(FlexSearchJar <!!> @"target\FlexSearch.Codec-0.0.0.jar")) then 
+    !>>"Pre-compiled binary not found. Compiling using MAVEN."
+    Exec(FlexSearchJar <!!> "compile.bat", "")
+!>>"Copy FlexSearch.Codec-0.0.0.jar to Lucene Files directory"
+assert File.Exists(FlexSearchJar <!!> @"target\FlexSearch.Codec-0.0.0.jar")
+File.Copy(FlexSearchJar <!!> @"target\FlexSearch.Codec-0.0.0.jar", LuceneDirectory <!!> @"FlexSearch.Codec.jar")
+!>"Copy Lucene files to be compiled"
 LuceneJars |> Array.iter (fun jar -> 
                   match JarFiles.FirstOrDefault(fun x -> x.Contains(jar)) with
                   | null -> failwithf "Jar not found: %s" jar
-                  | filePath -> File.Copy(filePath, LuceneDirectory <!!> (Path.GetFileName(filePath))))
-// Extract meta information from packages
+                  | filePath -> 
+                      !>>(sprintf "Copying: %s" filePath)
+                      File.Copy(filePath, LuceneDirectory <!!> (Path.GetFileName(filePath))))
+!>"Extract meta information from packages"
 loopFiles LuceneDirectory |> Seq.iter (fun file -> 
                                  use archive = ZipFile.Open(file, ZipArchiveMode.Update)
                                  
@@ -131,25 +148,20 @@ loopFiles LuceneDirectory |> Seq.iter (fun file ->
                                          else if entry.FullName.StartsWith("META-INF") then entry.FullName :: acc
                                          else acc) [] archive.Entries
                                  toBeDeleted |> Seq.iter (fun res -> archive.GetEntry(res).Delete()))
-// Generate new meta data information
+!>"Generate new meta data information"
 loopDir TempDirectory |> Seq.iter (fun dir -> 
                              loopFiles dir |> Seq.iter (fun file -> 
                                                   let dirInfo = new DirectoryInfo(Path.GetDirectoryName(file))
                                                   let targetFileName = ConvertNamingConvention(dirInfo.Name)
                                                   let targetPath = ServicesDirectory <!!> targetFileName
                                                   File.AppendAllLines(targetPath, CreateServiceFile(file))))
-// Create meta data jar
+!>"Create meta data jar"
 ZipFile.CreateFromDirectory(MetaDirectory, LuceneDirectory <!!> "Metadata.jar")
 loopFiles LibSrcDirectory |> Seq.iter (fun f -> File.Copy(f, LibTargetDirectory <!!> (Path.GetFileName(f))))
-
-let CreateFatJar() = 
-    loopFiles LuceneDirectory |> Seq.iter (fun x -> ZipFile.ExtractToDirectory(x, MetaDirectory))
-    ZipFile.CreateFromDirectory(MetaDirectory, WorkDirectory <!!> "FlexLucene.jar")
-
-!>"Execute ProGuard pass 1"
-!>"Move proguard.cfg to work directory"
+!>"Execute ProGuard"
+!>>"Move proguard.cfg to work directory"
 File.Copy(RootDirectory <!!> "proguard.cfg", WorkDirectory <!!> "proguard.cfg")
-cmdExec """-jar ProGuard.jar @work\proguard.cfg"""
+javaExec """-jar ProGuard.jar @work\proguard.cfg"""
 
 let GetIkvmBuildString() = 
     let sb = new System.Text.StringBuilder()
@@ -158,6 +170,7 @@ let GetIkvmBuildString() =
     sb.Append(sprintf " -target:library -out:%s/%s.dll -version:%s -fileversion:%s" OutputDirectory "FlexLucene" 
                   LuceneFullVersion FileVersion).ToString()
 
+!>"Execute IKVM"
 Exec(IkvmPath, GetIkvmBuildString())
 !>"Append build information"
 
@@ -190,92 +203,66 @@ let GetObsAttr() = new CustomAttribute(obsoleteCtor)
 let ProcessMethods(typ : TypeDefinition) = 
     let newMethods = new ResizeArray<MethodDefinition>()
     for meth in typ.Methods do
-        if meth.Name <> null 
-            && not meth.IsRuntimeSpecialName 
-            && not meth.IsSpecialName 
-            && not meth.IsConstructor 
-            && not meth.IsNative 
-            && not meth.IsAssembly
-            && not meth.IsPInvokeImpl 
-            && not meth.IsUnmanaged 
-            && meth.IsPublic 
-        then 
-            if meth.IsAbstract then () //meth.Name <- ConvertNamingConvention(meth.Name)
+        if meth.Name <> null && not meth.IsRuntimeSpecialName && not meth.IsSpecialName && not meth.IsConstructor 
+           && not meth.IsNative && not meth.IsAssembly && not meth.IsPInvokeImpl && not meth.IsUnmanaged 
+           && meth.IsPublic then 
+            if meth.IsAbstract then ()
             else 
                 let newMeth = new MethodDefinition(ConvertNamingConvention(meth.Name), meth.Attributes, meth.ReturnType)
                 meth.Parameters |> Seq.iter (fun x -> newMeth.Parameters.Add(x))
-                //newMeth.IsVirtual <- false
+                // Adding it to make sure that the newly generated method are similar to Ikvm
+                meth.NoInlining <- true
                 newMeth.Body <- meth.Body
                 newMethods.Add(newMeth)
                 meth.CustomAttributes.Add(GetEditorBrowsableAttr())
                 meth.CustomAttributes.Add(GetObsAttr())
-
     newMethods |> Seq.iter (fun x -> typ.Methods.Add(x))
 
-let regenerateImplementsAtt (_type : TypeDefinition) =
-    if _type.HasCustomAttributes
-    then
-        let implAtts = 
-            _type.CustomAttributes
-            |> Seq.filter (fun a -> a.AttributeType.Name = "ImplementsAttribute")
-        if implAtts |> Seq.length > 0
-        then
+let regenerateImplementsAtt (_type : TypeDefinition) = 
+    if _type.HasCustomAttributes then 
+        let implAtts = _type.CustomAttributes |> Seq.filter (fun a -> a.AttributeType.Name = "ImplementsAttribute")
+        if implAtts
+           |> Seq.length
+           > 0 then 
             let implAtt = implAtts |> Seq.head
             let arg = implAtt.ConstructorArguments |> Seq.head
-            if arg.Type.Name <> "String[]" 
-            then failwithf "Expected type of argument to be String[], but found %s" arg.Type.Name
-
-            let javaTypes = arg.Value :?> CustomAttributeArgument[]
-
-            let newJavaTypes =
+            if arg.Type.Name <> "String[]" then 
+                failwithf "Expected type of argument to be String[], but found %s" arg.Type.Name
+            let javaTypes = arg.Value :?> CustomAttributeArgument []
+            
+            let newJavaTypes = 
                 javaTypes
                 |> Seq.map (fun jt -> 
-                    if (jt.Value :?> System.String).StartsWith("org.apache.lucene")
-                    then ConvertNamingConvention (jt.Value :?> System.String)
-                    else (jt.Value :?> System.String))
-                |> Seq.map (fun strJt -> new CustomAttributeArgument((javaTypes |> Seq.head).Type , strJt))
-
+                       if (jt.Value :?> System.String).StartsWith("org.apache.lucene") then 
+                           ConvertNamingConvention(jt.Value :?> System.String)
+                       else (jt.Value :?> System.String))
+                |> Seq.map (fun strJt -> new CustomAttributeArgument((javaTypes |> Seq.head).Type, strJt))
             // Replace the Attribute arguments with the new ones
             implAtt.ConstructorArguments.Clear()
-            implAtt.ConstructorArguments.Add(
-                new CustomAttributeArgument(
-                    arg.Type,
-                    newJavaTypes.ToArray()))
+            implAtt.ConstructorArguments.Add(new CustomAttributeArgument(arg.Type, newJavaTypes.ToArray()))
 
 let rec ProcessType(typ : TypeDefinition) = 
     let classCondition (t : TypeDefinition) = 
-        t.Namespace.StartsWith("FlexLucene")
-        && not t.IsRuntimeSpecialName 
-        && t.Name <> "<Module>" 
-        && t.Name <> "Resources" 
-        && t.IsPublic
-    let nestedClassCondition (t : TypeDefinition) =
-        not t.IsRuntimeSpecialName
-        && t.IsNestedPublic
-    
+        t.Namespace.StartsWith("FlexLucene") && not t.IsRuntimeSpecialName && t.Name <> "<Module>" 
+        && t.Name <> "Resources" && t.IsPublic
+    let nestedClassCondition (t : TypeDefinition) = not t.IsRuntimeSpecialName && t.IsNestedPublic
     // Replace the Class's namespace and 'Implements' attribute with the FlexLucene version
     typ.Namespace <- ConvertNamingConvention(typ.Namespace)
     typ |> regenerateImplementsAtt
-
     // Change the Method and Field names to FlexLucene convention
-    if classCondition typ
-        || nestedClassCondition typ
-    then 
-        if (not typ.IsInterface || not typ.IsAbstract)
-            && typ.IsPublic
-        then 
+    if classCondition typ || nestedClassCondition typ then 
+        if (not typ.IsInterface || not typ.IsAbstract) && typ.IsPublic then 
             // Change field names
             typ.Fields
-            |> Seq.filter (fun x -> x.IsPublic) 
+            |> Seq.filter (fun x -> x.IsPublic)
             |> Seq.iter (fun x -> x.Name <- ConvertNamingConvention(x.Name))
-
             // Change method names
             ProcessMethods(typ)
-            
         typ.NestedTypes |> Seq.iter ProcessType
 
 let RegenerateMethodNames() = 
     md.Types |> Seq.iter ProcessType
     md.Write(OutputDirectory <!!> "FlexLucene.dll")
 
+!>"Regenerate Method names"
 RegenerateMethodNames()
