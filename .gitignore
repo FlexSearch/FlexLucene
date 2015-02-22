@@ -234,8 +234,7 @@ src/FlexSearch.Server/AssemblyInfo.fs
 ## FlexLucene
 ##############
 
-dll/
-ikvm/
-lib/
 lucene-5.0.0/
 work/
+/FlexSearch.Java/target/
+target
