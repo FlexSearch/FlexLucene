@@ -1,9 +1,13 @@
-﻿open FlexLucene.Analysis.Standard
+﻿open Com.Spatial4j.Core.Context
+open Com.Spatial4j.Core.Shape
+open FlexLucene.Analysis.Standard
 open FlexLucene.Codecs
 open FlexLucene.Document
 open FlexLucene.Index
 open FlexLucene.Queryparser.Classic
 open FlexLucene.Search
+open FlexLucene.Spatial.Prefix
+open FlexLucene.Spatial.Prefix.Tree
 open FlexLucene.Store
 open Xunit
 
@@ -19,7 +23,8 @@ let exceptionWrapper (meth : unit -> unit) =
 let ShouldHaveFlexCodec50() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec50"), "FlexCodec50 not found.")
 let ShouldHaveFlexCodec410() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec410"), "FlexCodec410 not found.")
 let ShouldHaveFlexPerFieldPostingsFormat() = 
-    Assert.True(PostingsFormat.AvailablePostingsFormats().contains("PerField40"), "PerField40 Postings format not found.")
+    Assert.True
+        (PostingsFormat.AvailablePostingsFormats().contains("PerField40"), "PerField40 Postings format not found.")
 
 [<Fact>]
 let CodecsShouldLoadProperly() = 
@@ -27,9 +32,8 @@ let CodecsShouldLoadProperly() =
     ShouldHaveFlexCodec50()
 
 [<Fact>]
-let PostingsFormatShouldLoadProperly() = 
-    ShouldHaveFlexPerFieldPostingsFormat()
-    
+let PostingsFormatShouldLoadProperly() = ShouldHaveFlexPerFieldPostingsFormat()
+
 [<Fact>]
 let SimpleIndexingTest() = 
     let analyzer = new StandardAnalyzer()
@@ -67,10 +71,20 @@ let RangeQueryCreationTests() =
     let query = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
     ()
 
+[<Fact>]
+let SimpleSpatialTests() = 
+    let ctx = SpatialContext.GEO
+    let grid = new GeohashPrefixTree(ctx, 11)
+    let strategy = new RecursivePrefixTreeStrategy(grid, "myGeoField")
+    let doc = new Document()
+    doc.Add(new IntField("id", 1, Field.Store.YES))
+    let pt = ctx.makePoint (10.0, 10.0)
+    doc.Add(new StoredField(strategy.GetFieldName(), pt.getX().ToString() + " " + pt.getY().ToString()))
+
 [<EntryPoint>]
-let main argv =     
+let main argv = 
     [| CodecsShouldLoadProperly; PostingsFormatShouldLoadProperly; SimpleIndexingTest; BooleanQueryCreationTests; 
-       RangeQueryCreationTests |] |> Array.iter (fun meth -> exceptionWrapper meth)
+       RangeQueryCreationTests; SimpleSpatialTests |] |> Array.iter (fun meth -> exceptionWrapper meth)
     printfn "Done"
     if hasErrors then 1
     else 0

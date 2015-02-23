@@ -258,7 +258,8 @@ let rec ProcessType(typ : TypeDefinition) =
             |> Seq.iter (fun x -> x.Name <- ConvertNamingConvention(x.Name))
             // Change method names
             ProcessMethods(typ)
-        typ.NestedTypes |> Seq.iter ProcessType
+    // Process all nested types (public, internal, etc)
+    typ.NestedTypes |> Seq.iter ProcessType
 
 let RegenerateMethodNames() = 
     md.Types |> Seq.iter ProcessType
