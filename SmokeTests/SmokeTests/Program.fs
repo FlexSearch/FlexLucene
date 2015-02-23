@@ -16,25 +16,20 @@ let exceptionWrapper (meth : unit -> unit) =
         hasErrors <- true
         printfn "%A" e
 
-let ShouldHaveFlexCodec50() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec50"))
-let ShouldHaveFlexCodec410() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec410"))
+let ShouldHaveFlexCodec50() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec50"), "FlexCodec50 not found.")
+let ShouldHaveFlexCodec410() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec410"), "FlexCodec410 not found.")
 let ShouldHaveFlexPerFieldPostingsFormat() = 
-    Assert.True(PostingsFormat.AvailablePostingsFormats().contains("FlexPerFieldPostingsFormat"))
+    Assert.True(PostingsFormat.AvailablePostingsFormats().contains("PerField40"), "PerField40 Postings format not found.")
 
 [<Fact>]
 let CodecsShouldLoadProperly() = 
-    let codecs = Codec.AvailableCodecs()
-    Assert.True(codecs.size() > 0)
     ShouldHaveFlexCodec410()
     ShouldHaveFlexCodec50()
 
 [<Fact>]
 let PostingsFormatShouldLoadProperly() = 
-    let formats = PostingsFormat.AvailablePostingsFormats()
-    Assert.True(formats.size() > 0)
     ShouldHaveFlexPerFieldPostingsFormat()
-    ShouldHaveFlexPerFieldPostingsFormat()
-
+    
 [<Fact>]
 let SimpleIndexingTest() = 
     let analyzer = new StandardAnalyzer()
@@ -73,11 +68,7 @@ let RangeQueryCreationTests() =
     ()
 
 [<EntryPoint>]
-let main argv = 
-    let loader = ikvm.runtime.AssemblyClassLoader(typeof<FlexLucene.Codecs.FlexSearch.FlexCodec410>.Assembly)
-    PostingsFormat.ReloadPostingsFormats(loader)
-    Codec.ReloadCodecs(loader)
-    
+let main argv =     
     [| CodecsShouldLoadProperly; PostingsFormatShouldLoadProperly; SimpleIndexingTest; BooleanQueryCreationTests; 
        RangeQueryCreationTests |] |> Array.iter (fun meth -> exceptionWrapper meth)
     printfn "Done"
