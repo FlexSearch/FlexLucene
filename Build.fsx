@@ -115,7 +115,6 @@ let LuceneJars =
 !>"Getting Environment Variable JAVA_HOME"
 
 let JAVA_HOME = Environment.GetEnvironmentVariable("JAVA_HOME")
-
 !>>(sprintf "JAVA_HOME: %s" JAVA_HOME)
 
 let JarFiles = Directory.GetFiles(RootDirectory, "*.jar", System.IO.SearchOption.AllDirectories)
@@ -128,6 +127,7 @@ if not (File.Exists(FlexSearchJar <!!> @"target\FlexSearch.Codec-0.0.0.jar")) th
 !>>"Copy FlexSearch.Codec-0.0.0.jar to Lucene Files directory"
 assert File.Exists(FlexSearchJar <!!> @"target\FlexSearch.Codec-0.0.0.jar")
 File.Copy(FlexSearchJar <!!> @"target\FlexSearch.Codec-0.0.0.jar", LuceneDirectory <!!> @"FlexSearch.Codec.jar")
+
 !>"Copy Lucene files to be compiled"
 LuceneJars |> Array.iter (fun jar -> 
                   match JarFiles.FirstOrDefault(fun x -> x.Contains(jar)) with
