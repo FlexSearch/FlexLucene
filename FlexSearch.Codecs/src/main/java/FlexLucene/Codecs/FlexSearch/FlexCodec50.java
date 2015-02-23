@@ -12,7 +12,7 @@ import org.apache.lucene.codecs.lucene50.Lucene50Codec;
  *
  * @author Seemant
  */
-public class FlexCodec50 extends FlexCodecBase {
+public final class FlexCodec50 extends FlexCodecBase {
 
     public FlexCodec50() {
         super("FlexCodec50", new Lucene50Codec());

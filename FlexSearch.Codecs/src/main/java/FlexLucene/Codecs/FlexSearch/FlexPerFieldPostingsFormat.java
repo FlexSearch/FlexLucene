@@ -19,7 +19,7 @@ import org.apache.lucene.codecs.memory.DirectPostingsFormat;
 import org.apache.lucene.codecs.memory.MemoryPostingsFormat;
 import org.apache.lucene.codecs.perfield.PerFieldPostingsFormat;
 
-class FlexPerFieldPostingsFormat extends PerFieldPostingsFormat {
+public final class FlexPerFieldPostingsFormat extends PerFieldPostingsFormat {
 
     private final static HashMap<String, PostingsFormat> map = new HashMap<String, PostingsFormat>();
 
