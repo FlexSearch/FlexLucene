@@ -244,7 +244,7 @@ let regenerateImplementsAtt (_type : TypeDefinition) =
 let rec ProcessType(typ : TypeDefinition) = 
     let classCondition (t : TypeDefinition) = 
         t.Namespace.StartsWith("FlexLucene") && not t.IsRuntimeSpecialName && t.Name <> "<Module>" 
-        && t.Name <> "Resources" && t.IsPublic
+        && t.Name <> "Resources"
     let nestedClassCondition (t : TypeDefinition) = not t.IsRuntimeSpecialName && t.IsNestedPublic
     // Replace the Class's namespace and 'Implements' attribute with the FlexLucene version
     typ.Namespace <- ConvertNamingConvention(typ.Namespace)
