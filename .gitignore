@@ -239,3 +239,4 @@ work/
 /FlexSearch.Java/target/
 target
 lucene-5.0.0.zip
+build.out
