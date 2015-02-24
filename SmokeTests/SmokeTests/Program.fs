@@ -10,6 +10,8 @@ open FlexLucene.Spatial.Prefix
 open FlexLucene.Spatial.Prefix.Tree
 open FlexLucene.Store
 open Xunit
+open System
+open System.IO
 
 let mutable hasErrors = false
 
@@ -25,6 +27,32 @@ let ShouldHaveFlexCodec410() = Assert.True(Codec.AvailableCodecs().contains("Fle
 let ShouldHaveFlexPerFieldPostingsFormat() = 
     Assert.True
         (PostingsFormat.AvailablePostingsFormats().contains("PerField40"), "PerField40 Postings format not found.")
+
+let IndexingTest(directory : FlexLucene.Store.Directory) = 
+    let analyzer = new StandardAnalyzer()
+    let config = new IndexWriterConfig(analyzer)
+    config.SetInfoStream(new FlexLucene.Util.PrintStreamInfoStream(new java.io.PrintStream(@"C:\git\FlexLucene.debug"))) |> ignore
+    let iwriter = new IndexWriter(directory, config)
+    let doc = new Document()
+    let text = "This is the text to be indexed."
+    doc.Add(new Field("fieldname", text, TextField.TYPE_STORED))
+    iwriter.AddDocument(doc)
+    iwriter.Close()
+    // Now search the index:
+    let ireader = DirectoryReader.Open(directory)
+    let isearcher = new IndexSearcher(ireader)
+    // Parse a simple query that searches for "text":
+    let parser = new QueryParser("fieldname", analyzer)
+    let query = parser.Parse("text")
+    let topDocs = isearcher.Search(query, null, 1000)
+    let hits : ScoreDoc [] = topDocs.ScoreDocs
+    Assert.Equal<int>(1, hits.Length)
+    // Iterate through the results:
+    for i = 0 to hits.Length - 1 do
+        let hitDoc = isearcher.Doc(hits.[i].Doc)
+        Assert.Equal<string>("This is the text to be indexed.", hitDoc.Get("fieldname"))
+    ireader.Close()
+    directory.close()
 
 [<Fact>]
 let CodecsShouldLoadProperly() = 
@@ -62,6 +90,20 @@ let SimpleIndexingTest() =
     directory.Close()
 
 [<Fact>]
+let SimplePhysicalIndexingTest() = 
+    IndexingTest(new RAMDirectory())
+    let dir = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Guid.NewGuid().ToString())
+    let file = new java.io.File(dir) 
+    IndexingTest(new SimpleFSDirectory(file.toPath(), NativeFSLockFactory.INSTANCE))
+
+[<Fact>]
+let SimpleFlexPhysicalIndexingTest() = 
+    IndexingTest(new RAMDirectory())
+    let directoryPath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Guid.NewGuid().ToString("N"))
+    let file = new java.io.File(directoryPath)
+    IndexingTest(FlexFSDirectory.Open(file.toPath()))
+
+[<Fact>]
 let BooleanQueryCreationTests() = 
     let query = new BooleanQuery(true)
     query.Add(new BooleanClause(new TermQuery(new Term("dummy")), BooleanClause.Occur.MUST))
@@ -78,13 +120,15 @@ let SimpleSpatialTests() =
     let strategy = new RecursivePrefixTreeStrategy(grid, "myGeoField")
     let doc = new Document()
     doc.Add(new IntField("id", 1, Field.Store.YES))
-    let pt = ctx.makePoint (10.0, 10.0)
+    let pt = ctx.MakePoint (10.0, 10.0)
     doc.Add(new StoredField(strategy.GetFieldName(), pt.getX().ToString() + " " + pt.getY().ToString()))
+
 
 [<EntryPoint>]
 let main argv = 
-    [| CodecsShouldLoadProperly; PostingsFormatShouldLoadProperly; SimpleIndexingTest; BooleanQueryCreationTests; 
-       RangeQueryCreationTests; SimpleSpatialTests |] |> Array.iter (fun meth -> exceptionWrapper meth)
+    [| CodecsShouldLoadProperly; SimpleIndexingTest; BooleanQueryCreationTests; SimplePhysicalIndexingTest; 
+       SimpleFlexPhysicalIndexingTest; RangeQueryCreationTests; SimpleSpatialTests |] 
+    |> Array.iter (fun meth -> exceptionWrapper meth)
     printfn "Done"
     if hasErrors then 1
     else 0

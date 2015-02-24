@@ -1,46 +1,8 @@
-Starting FlexLucene Build
-Getting Environment Variable JAVA_HOME
-	JAVA_HOME: C:\Program Files (x86)\Java\jre7
-Copy Lucene files to be compiled
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\core\lucene-core-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\analysis\common\lucene-analyzers-common-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\analysis\phonetic\lucene-analyzers-phonetic-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\backward-codecs\lucene-backward-codecs-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\codecs\lucene-codecs-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\queries\lucene-queries-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\queryparser\lucene-queryparser-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\facet\lucene-facet-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\suggest\lucene-suggest-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\misc\lucene-misc-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\memory\lucene-memory-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\highlighter\lucene-highlighter-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\join\lucene-join-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\grouping\lucene-grouping-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\spatial\lucene-spatial-5.0.0.jar
-	Copying: C:\git\FlexLucene\lucene-5.0.0\lucene-5.0.0\sandbox\lucene-sandbox-5.0.0.jar
-Extract meta information from packages
-Generate new meta data information
-Create meta data jar
-Execute ProGuard
-	Move proguard.cfg to work directory
-ProGuard, version 5.2
-Reading program directory [C:\git\FlexLucene\Work\Lucene]
-Reading library jar [C:\Program Files\Java\jre7\lib\rt.jar]
-Reading library directory [C:\git\FlexLucene\Work\Lib]
-Note: the configuration explicitly specifies 'java.nio.DirectByteBuffer' to keep library class 'java.nio.DirectByteBuffer'
-Note: the configuration explicitly specifies 'sun.misc.Cleaner' to keep library class 'sun.misc.Cleaner'
-Note: the configuration explicitly specifies 'com.sun.management.VMOption' to keep library class 'com.sun.management.VMOption'
-Note: the configuration explicitly specifies 'sun.misc.Unsafe' to keep library class 'sun.misc.Unsafe'
-Note: the configuration explicitly specifies 'com.sun.management.HotSpotDiagnosticMXBean' to keep library class 'com.sun.management.HotSpotDiagnosticMXBean'
-Note: there were 5 library classes explicitly being kept.
-      You don't need to keep library classes; they are already left unchanged.
-      (http://proguard.sourceforge.net/manual/troubleshooting.html#libraryclass)
-Preparing output jar [C:\git\FlexLucene\Work\FlexLucene.jar]
-  Copying resources from program directory [C:\git\FlexLucene\Work\Lucene]
-Execute IKVM
-IKVM.NET Compiler version 8.0.5449.1
-Copyright (C) 2002-2014 Jeroen Frijters
-http://www.ikvm.net/
-
-Append build information
-Regenerate Method names
+System.UnauthorizedAccessException: Access to the path 'FlexLucene.dll' is denied.
+   at System.IO.Directory.DeleteHelper(String fullPath, String userPath, Boolean recursive, Boolean throwOnTopLevelDirectoryNotFound)
+   at System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive, Boolean checkHost)
+   at FSI_0001.Helpers.CreateAndEmptyDirectory@55.Invoke(String x) in C:\git\FlexLucene\Build.fsx:line 55
+   at Microsoft.FSharp.Collections.SeqModule.Iterate[T](FSharpFunc`2 action, IEnumerable`1 source)
+   at FSI_0001.Helpers.CreateAndEmptyDirectory(String folderPath) in C:\git\FlexLucene\Build.fsx:line 55
+   at <StartupCode$FSI_0001>.$FSI_0001.main@() in C:\git\FlexLucene\Build.fsx:line 81
+Stopped due to error

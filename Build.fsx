@@ -200,19 +200,32 @@ let GetEditorBrowsableAttr() =
 // Obsolete Attribute
 let GetObsAttr() = new CustomAttribute(obsoleteCtor)
 
+let mutable renameFileMethod : MethodBody = Unchecked.defaultof<_>
+
+let copyMethodBody (m : MethodDefinition) =
+    if m.FullName.Contains("FlexFSDirectory") && m.FullName.Contains("renameFile")
+    then
+        renameFileMethod <- m.Body
+        m.Body
+    else
+        if m.FullName.Contains("FSDirectory") && m.FullName.Contains("renameFile")
+        then m.Body <- renameFileMethod
+        m.Body
+
 let ProcessMethods(typ : TypeDefinition) = 
     let newMethods = new ResizeArray<MethodDefinition>()
     for meth in typ.Methods do
         if meth.Name <> null && not meth.IsRuntimeSpecialName && not meth.IsSpecialName && not meth.IsConstructor 
            && not meth.IsNative && not meth.IsAssembly && not meth.IsPInvokeImpl && not meth.IsUnmanaged 
            && meth.IsPublic then 
-            if meth.IsAbstract then ()
+            if meth.IsAbstract 
+                || meth.Name = ConvertNamingConvention(meth.Name) then ()
             else 
                 let newMeth = new MethodDefinition(ConvertNamingConvention(meth.Name), meth.Attributes, meth.ReturnType)
                 meth.Parameters |> Seq.iter (fun x -> newMeth.Parameters.Add(x))
                 // Adding it to make sure that the newly generated method are similar to Ikvm
                 meth.NoInlining <- true
-                newMeth.Body <- meth.Body
+                newMeth.Body <- copyMethodBody meth
                 newMethods.Add(newMeth)
                 meth.CustomAttributes.Add(GetEditorBrowsableAttr())
                 meth.CustomAttributes.Add(GetObsAttr())
@@ -233,7 +246,7 @@ let regenerateImplementsAtt (_type : TypeDefinition) =
             let newJavaTypes = 
                 javaTypes
                 |> Seq.map (fun jt -> 
-                       if (jt.Value :?> System.String).StartsWith("org.apache.lucene") then 
+                       if not <| (jt.Value :?> System.String).StartsWith("java.") then 
                            ConvertNamingConvention(jt.Value :?> System.String)
                        else (jt.Value :?> System.String))
                 |> Seq.map (fun strJt -> new CustomAttributeArgument((javaTypes |> Seq.head).Type, strJt))
@@ -242,24 +255,26 @@ let regenerateImplementsAtt (_type : TypeDefinition) =
             implAtt.ConstructorArguments.Add(new CustomAttributeArgument(arg.Type, newJavaTypes.ToArray()))
 
 let rec ProcessType(typ : TypeDefinition) = 
-    let classCondition (t : TypeDefinition) = 
-        t.Namespace.StartsWith("FlexLucene") && not t.IsRuntimeSpecialName && t.Name <> "<Module>" 
-        && t.Name <> "Resources" && t.IsPublic
-    let nestedClassCondition (t : TypeDefinition) = not t.IsRuntimeSpecialName && t.IsNestedPublic
-    // Replace the Class's namespace and 'Implements' attribute with the FlexLucene version
-    typ.Namespace <- ConvertNamingConvention(typ.Namespace)
-    typ |> regenerateImplementsAtt
-    // Change the Method and Field names to FlexLucene convention
-    if classCondition typ || nestedClassCondition typ then 
-        if (not typ.IsInterface || not typ.IsAbstract) && typ.IsPublic then 
-            // Change field names
-            typ.Fields
-            |> Seq.filter (fun x -> x.IsPublic)
-            |> Seq.iter (fun x -> x.Name <- ConvertNamingConvention(x.Name))
-            // Change method names
-            ProcessMethods(typ)
-    // Process all nested types (public, internal, etc)
-    typ.NestedTypes |> Seq.iter ProcessType
+    if not (typ.Name = "WindowsDirectory") && not (typ.Name = "NativePosixUtil")
+    then 
+        let classCondition (t : TypeDefinition) = 
+            not t.IsRuntimeSpecialName && t.Name <> "<Module>" 
+            && t.Name <> "Resources" && t.IsPublic
+        let nestedClassCondition (t : TypeDefinition) = not t.IsRuntimeSpecialName && t.IsNestedPublic
+        // Replace the Class's namespace and 'Implements' attribute with the FlexLucene version
+        typ.Namespace <- ConvertNamingConvention(typ.Namespace)
+        typ |> regenerateImplementsAtt
+        // Change the Method and Field names to FlexLucene convention
+        if classCondition typ || nestedClassCondition typ then 
+            if (not typ.IsInterface || not typ.IsAbstract) && typ.IsPublic then 
+                // Change field names
+                typ.Fields
+                |> Seq.filter (fun x -> x.IsPublic)
+                |> Seq.iter (fun x -> x.Name <- ConvertNamingConvention(x.Name))
+                // Change method names
+                ProcessMethods(typ)
+        // Process all nested types (public, internal, etc)
+        typ.NestedTypes |> Seq.iter ProcessType
 
 let RegenerateMethodNames() = 
     md.Types |> Seq.iter ProcessType

@@ -240,3 +240,5 @@ work/
 target
 lucene-5.0.0.zip
 build.out
+debug.out
+FlexLucene.debug
