@@ -1,1 +1,1 @@
-f#\fsi.exe Build.fsx > build.out 2>&1
+f#\fsi.exe Build.fsx
