@@ -99,6 +99,7 @@ module Helpers =
 // ---------------------------------------------
 let RootDirectory = __SOURCE_DIRECTORY__
 let WorkDirectory = RootDirectory <!!> "Work" |> CreateAndEmptyDirectory
+let DllDirectory = RootDirectory <!!> "dll"
 let IkvmPath = sprintf @"%s\ikvm\ikvmc.exe" RootDirectory
 let VersionPatchPath = RootDirectory <!!> "verpatch.exe"
 let LibSrcDirectory = RootDirectory <!!> "Lib"
@@ -109,6 +110,7 @@ let MetaDirectory = WorkDirectory <!!> "Meta" |> CreateAndEmptyDirectory
 let ServicesDirectory = MetaDirectory <!!> @"META-INF\services" |> CreateAndEmptyDirectory
 let LuceneDirectory = WorkDirectory <!!> "Lucene" |> CreateAndEmptyDirectory
 let OutputDirectory = WorkDirectory <!!> "Output" |> CreateAndEmptyDirectory
+let SmokeTestArtifacts = RootDirectory <!!> @"SmokeTests\SmokeTestArtifacts"
 
 // List of all the lucene jars which will be combined to form FlexLucene
 let LuceneJars = 
@@ -335,6 +337,17 @@ let executePEVerify() =
     Exec(RootDirectory <!!> "PEVerify.exe", @"work\output\FlexLucene.dll")
 
 /// <summary>
+/// Execute all smoke tests
+/// </summary>
+let runSmokeTests() = 
+    !>>"Copy all required dll"
+    loopFiles DllDirectory |> Seq.iter (fun f -> File.Copy(f, OutputDirectory <!!> Path.GetFileName(f)))
+    !>>"Copy smoke test files"
+    loopFiles SmokeTestArtifacts |> Seq.iter (fun f -> File.Copy(f, OutputDirectory <!!> Path.GetFileName(f)))
+    !>>"Starting Smoke Tests"
+    Exec(OutputDirectory <!!> "SmokeTests.exe", "")
+
+/// <summary>
 /// Tasks which needs to executed as part of the build process
 /// </summary>
 let tasks = 
@@ -347,7 +360,8 @@ let tasks =
       executeIkvm, "Execute IKVM"
       addBuildInformation, "Add build information"
       CecilWriter.regenerateMethodNames, "Regenerate Method names"
-      executePEVerify, "Execute PEVerify" ]
+      executePEVerify, "Execute PEVerify"
+      runSmokeTests, "Run Smoke Tests" ]
 
 tasks |> Seq.iter (fun t -> 
              let (task, desc) = t
