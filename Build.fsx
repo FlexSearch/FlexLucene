@@ -348,6 +348,13 @@ let runSmokeTests() =
     Exec(OutputDirectory <!!> "SmokeTests.exe", "")
 
 /// <summary>
+/// Copies the final artifact to the artifact directory at the root
+/// </summary>
+let copyArtifacts() = 
+    let artifactDirectory = Directory.CreateDirectory(RootDirectory <!!> "Artifacts").ToString()
+    File.Copy(OutputDirectory <!!> "FlexLucene.dll", artifactDirectory <!!> "FlexLucene.dll")
+
+/// <summary>
 /// Tasks which needs to executed as part of the build process
 /// </summary>
 let tasks = 
@@ -361,7 +368,8 @@ let tasks =
       addBuildInformation, "Add build information"
       CecilWriter.regenerateMethodNames, "Regenerate Method names"
       executePEVerify, "Execute PEVerify"
-      runSmokeTests, "Run Smoke Tests" ]
+      runSmokeTests, "Run Smoke Tests"
+      copyArtifacts, "Copy artifacts to the Artifacts directory" ]
 
 tasks |> Seq.iter (fun t -> 
              let (task, desc) = t
