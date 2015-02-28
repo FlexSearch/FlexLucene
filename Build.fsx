@@ -5,9 +5,11 @@
 #r "dll/Mono.Cecil.Mdb.dll"
 #r "dll/Mono.Cecil.Pdb.dll"
 #r "dll/Mono.Cecil.Rocks.dll"
+#r "dll/FlexSearch.Attributes.dll"
 
 open Mono.Cecil
 open Mono.Cecil.Cil
+open FlexSearch.Core.Attributes
 open System
 open System.ComponentModel
 open System.Diagnostics
@@ -103,6 +105,7 @@ let DllDirectory = RootDirectory <!!> "dll"
 let IkvmPath = sprintf @"%s\ikvm\ikvmc.exe" RootDirectory
 let VersionPatchPath = RootDirectory <!!> "verpatch.exe"
 let LibSrcDirectory = RootDirectory <!!> "Lib"
+let ILRepackDirectory = RootDirectory <!!> "il-repack"
 let LibTargetDirectory = WorkDirectory <!!> "Lib" |> CreateAndEmptyDirectory
 let FlexSearchJar = RootDirectory <!!> "FlexSearch.Codecs"
 let TempDirectory = WorkDirectory <!!> "Temp" |> CreateAndEmptyDirectory
@@ -236,6 +239,21 @@ module CecilWriter =
     let mutable obsoleteCtor : MethodReference = Unchecked.defaultof<_>
     let mutable editorStateRef : TypeReference = Unchecked.defaultof<_>
     
+    // Returns true if the given type extends any of the given class names
+    let rec extendsAnyOf (classNames : string seq) (_type: TypeDefinition) =
+        try
+            match _type.BaseType with
+            | null -> false
+            | t when classNames |> Seq.exists (fun c -> c.ToLower() = t.FullName.ToLower()) -> true
+            | t when t.FullName.ToLower() = "java.lang.object" -> false
+            | _ -> _type.BaseType.Resolve() |> extendsAnyOf classNames
+        with
+            | ex -> 
+            #if DEBUG
+                !>> (sprintf "[WARN] Couldn't check if the type %s extends the given classnames: %s" _type.Name ex.Message)
+            #endif
+                false
+
     // Custom attribute to stop method from showing in intellisense
     let GetEditorBrowsableAttr() = 
         let attr = new CustomAttribute(editorBrowsableCtor)
@@ -243,6 +261,24 @@ module CecilWriter =
             (new CustomAttributeNamedArgument("EditorBrowsableState", new CustomAttributeArgument(editorStateRef, 1)))
         attr
     
+    // Add Name attribute for certain classes so that they're discoverable
+    // by Autofac
+    let rec addAutofacNameAttribute (md : ModuleDefinition) (_type : TypeDefinition) =
+        let baseTypes = 
+            ["FlexLucene.Analysis.Analyzer"; "FlexLucene.Analysis.TokenFilter"; "FlexLucene.Analysis.Tokenizer"]
+        if not _type.IsAbstract
+            && not _type.IsInterface
+            && not _type.IsNested
+            && _type.Namespace.StartsWith("FlexLucene")
+            && _type |> extendsAnyOf baseTypes 
+        then
+            let nameAttCtor = md.Import(typeof<AutofacNameAttribute>.GetConstructor([typeof<string>] |> Seq.toArray))
+            let autofacAtt = new CustomAttribute(nameAttCtor)
+            autofacAtt.ConstructorArguments.Add(new CustomAttributeArgument(md.TypeSystem.String, _type.Name))
+            _type.CustomAttributes.Add(autofacAtt)
+
+        _type.NestedTypes |> Seq.iter (addAutofacNameAttribute md)
+
     // Obsolete Attribute
     let GetObsAttr() = new CustomAttribute(obsoleteCtor)
     let mutable renameFileMethod : MethodBody = Unchecked.defaultof<_>
@@ -317,6 +353,41 @@ module CecilWriter =
             // Process all nested types (public, internal, etc)
             typ.NestedTypes |> Seq.iter ProcessType
     
+
+    // Retrieves the implementation of the AutofacNameAttribute class
+    let autofacNameTypeDefinition() =
+        let resolver =  
+          { new DefaultAssemblyResolver() with
+            override this.Resolve(name:AssemblyNameReference) =
+                try base.Resolve(name)
+                with
+                | :? AssemblyResolutionException as ex -> 
+                    !>> ("Couldn't resolve " + name.FullName)
+                    null
+            override this.Resolve(name:AssemblyNameReference, prms) =
+                try base.Resolve(name, prms)
+                with
+                | ex -> 
+                    !>> ("Couldn't resolve " + name.FullName)
+                    null
+            override this.Resolve(name:string) =
+                try base.Resolve(name)
+                with
+                | ex -> 
+                    !>> ("Couldn't resolve " + name)
+                    null
+            override this.Resolve(name:string, prms) =
+                try base.Resolve(name, prms)
+                with
+                | ex -> 
+                    !>> ("Couldn't resolve " + name)
+                    null }
+                
+        let prms = new ReaderParameters()
+        prms.AssemblyResolver <- resolver
+        let md = Mono.Cecil.AssemblyDefinition.ReadAssembly(@"C:\git\FlexLucene\dll\FlexSearch.Attributes.dll", prms)
+        md.MainModule.Import(typeof<AutofacNameAttribute>).Resolve()
+
     /// <summary>
     /// Renames all the Java methods to .net style naming convention
     /// </summary>
@@ -325,9 +396,12 @@ module CecilWriter =
         editorBrowsableCtor <- md.Import(typeof<EditorBrowsableAttribute>.GetConstructor(Type.EmptyTypes))
         obsoleteCtor <- md.Import(typeof<ObsoleteAttribute>.GetConstructor(Type.EmptyTypes))
         editorStateRef <- md.Import(typeof<EditorBrowsableState>)
+        !>> "Renaming classes and methods to FlexLucene naming and correcting the 'Implements' attribute on classes"
         md.Types |> Seq.iter ProcessType
+        !>> "Adding the 'AutofacName' attribute to Filters, Analyzers, etc."
+        md.Types |> Seq.iter (addAutofacNameAttribute md)
         md.Write(OutputDirectory <!!> "FlexLucene.dll")
-
+        
 /// <summary>
 /// Executes PEVerify on the final dll to ensure that the right IL is generated.
 /// </summary>
@@ -335,6 +409,13 @@ let executePEVerify() =
     !>>"Copying ikvm dlls to the output folder"
     loopFiles (RootDirectory <!!> "ikvm") |> Seq.iter (fun f -> File.Copy(f, OutputDirectory <!!> Path.GetFileName(f)))
     Exec(RootDirectory <!!> "PEVerify.exe", @"work\output\FlexLucene.dll")
+
+/// <summary>
+/// Merges the FlexLucene.dll with the FlexSearch.Attributes.dll so that they're
+/// distributed in the same package.
+/// </summary>
+let mergeAutofacAttributeDll() =
+    Exec(ILRepackDirectory <!!> "ILRepack.exe", @"/lib:ikvm /out:work\output\FlexLucene.dll work\output\FlexLucene.dll dll\FlexSearch.Attributes.dll")
 
 /// <summary>
 /// Execute all smoke tests
@@ -352,7 +433,9 @@ let runSmokeTests() =
 /// </summary>
 let copyArtifacts() = 
     let artifactDirectory = Directory.CreateDirectory(RootDirectory <!!> "Artifacts").ToString()
-    File.Copy(OutputDirectory <!!> "FlexLucene.dll", artifactDirectory <!!> "FlexLucene.dll")
+    let luceneDllPath = artifactDirectory <!!> "FlexLucene.dll"
+    if File.Exists(luceneDllPath) then File.Delete(luceneDllPath)
+    File.Copy(OutputDirectory <!!> "FlexLucene.dll", luceneDllPath)
 
 /// <summary>
 /// Tasks which needs to executed as part of the build process
@@ -367,6 +450,7 @@ let tasks =
       executeIkvm, "Execute IKVM"
       addBuildInformation, "Add build information"
       CecilWriter.regenerateMethodNames, "Regenerate Method names"
+      mergeAutofacAttributeDll, "Merge FlexLucene.dll with AutofacAttribute.dll"
       executePEVerify, "Execute PEVerify"
       runSmokeTests, "Run Smoke Tests"
       copyArtifacts, "Copy artifacts to the Artifacts directory" ]
