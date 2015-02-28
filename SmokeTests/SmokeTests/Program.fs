@@ -12,6 +12,11 @@ open FlexLucene.Store
 open Xunit
 open System
 open System.IO
+open Autofac
+open Autofac.Extras.Attributed
+open FlexLucene.Analysis
+open Autofac.Features.Metadata
+open System.Collections.Generic
 
 let mutable hasErrors = false
 
@@ -61,6 +66,20 @@ let GetRandomPath() =
     let dir = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, Guid.NewGuid().ToString())
     (new java.io.File(dir)).toPath()
 
+let RegisterAbstractClassAssemblies<'T>(builder : ContainerBuilder) = 
+    // Returns true if the given type extends any of the given class names
+    let rec extendsAnyOf (classNames : string seq) (_type: Type) =
+        try
+            match _type.BaseType with
+            | null -> false
+            | t when classNames |> Seq.exists (fun c -> c.ToLower() = t.FullName.ToLower()) -> true
+            | t when t.FullName.ToLower() = "java.lang.object" -> false
+            | _ -> _type.BaseType |> extendsAnyOf classNames
+        with
+            | ex -> false
+    builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(fun t -> t |> extendsAnyOf [typeof<'T>.FullName]).As<'T>
+        () |> ignore
+
 [<Fact>]
 let CodecsShouldLoadProperly() = 
     ShouldHaveFlexCodec410 |> exceptionWrapper
@@ -96,9 +115,32 @@ let SimpleSpatialTests() =
     let pt = ctx.MakePoint(10.0, 10.0)
     doc.Add(new StoredField(strategy.GetFieldName(), pt.getX().ToString() + " " + pt.getY().ToString()))
 
+[<Fact>]
+let FlexLuceneAttributeIsAttachedToAnalyzer() =
+    let hasAtt = 
+        typedefof<FlexLucene.Analysis.Br.BrazilianAnalyzer>.CustomAttributes
+        |> Seq.exists (fun a -> a.AttributeType = typedefof<FlexSearch.Core.Attributes.AutofacNameAttribute>)
+    Assert.True(hasAtt)
+
+[<Fact>]
+let AutofacCanIdentifyTaggedLuceneClasses() =
+    let builder = new ContainerBuilder()
+    builder.RegisterModule<AttributedMetadataModule>() |> ignore
+    builder |> RegisterAbstractClassAssemblies<FlexLucene.Analysis.Analyzer>
+    let container = builder.Build()
+
+    let scope = container.BeginLifetimeScope()
+    let classes = scope.Resolve<IEnumerable<Meta<Lazy<Analyzer>>>>()
+    let hasAnalyzer = classes |> Seq.exists (fun c -> 
+        c.Metadata.Keys.Contains("Name")
+        && String.Equals(c.Metadata.["Name"].ToString(), "BrazilianAnalyzer", StringComparison.OrdinalIgnoreCase))
+    Assert.True(hasAnalyzer)
+
+
 [<EntryPoint>]
 let main argv = 
-    [| CodecsShouldLoadProperly; IndexingTests; BooleanQueryCreationTests; RangeQueryCreationTests; SimpleSpatialTests |] 
+    [| CodecsShouldLoadProperly; IndexingTests; BooleanQueryCreationTests; RangeQueryCreationTests; SimpleSpatialTests;
+       FlexLuceneAttributeIsAttachedToAnalyzer; AutofacCanIdentifyTaggedLuceneClasses |] 
     |> Array.iter (fun meth -> exceptionWrapper meth)
     printfn "Done"
     if hasErrors then 1
