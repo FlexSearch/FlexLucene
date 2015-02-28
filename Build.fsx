@@ -353,41 +353,6 @@ module CecilWriter =
             // Process all nested types (public, internal, etc)
             typ.NestedTypes |> Seq.iter ProcessType
     
-
-    // Retrieves the implementation of the AutofacNameAttribute class
-    let autofacNameTypeDefinition() =
-        let resolver =  
-          { new DefaultAssemblyResolver() with
-            override this.Resolve(name:AssemblyNameReference) =
-                try base.Resolve(name)
-                with
-                | :? AssemblyResolutionException as ex -> 
-                    !>> ("Couldn't resolve " + name.FullName)
-                    null
-            override this.Resolve(name:AssemblyNameReference, prms) =
-                try base.Resolve(name, prms)
-                with
-                | ex -> 
-                    !>> ("Couldn't resolve " + name.FullName)
-                    null
-            override this.Resolve(name:string) =
-                try base.Resolve(name)
-                with
-                | ex -> 
-                    !>> ("Couldn't resolve " + name)
-                    null
-            override this.Resolve(name:string, prms) =
-                try base.Resolve(name, prms)
-                with
-                | ex -> 
-                    !>> ("Couldn't resolve " + name)
-                    null }
-                
-        let prms = new ReaderParameters()
-        prms.AssemblyResolver <- resolver
-        let md = Mono.Cecil.AssemblyDefinition.ReadAssembly(@"C:\git\FlexLucene\dll\FlexSearch.Attributes.dll", prms)
-        md.MainModule.Import(typeof<AutofacNameAttribute>).Resolve()
-
     /// <summary>
     /// Renames all the Java methods to .net style naming convention
     /// </summary>
