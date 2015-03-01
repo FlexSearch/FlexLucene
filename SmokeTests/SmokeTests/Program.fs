@@ -77,8 +77,11 @@ let RegisterAbstractClassAssemblies<'T>(builder : ContainerBuilder) =
             | _ -> _type.BaseType |> extendsAnyOf classNames
         with
             | ex -> false
-    builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).Where(fun t -> t |> extendsAnyOf [typeof<'T>.FullName]).As<'T>
-        () |> ignore
+    builder
+        .RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+        .Where(fun t -> t |> extendsAnyOf [typeof<'T>.FullName])
+        .As<'T>() 
+    |> ignore
 
 [<Fact>]
 let CodecsShouldLoadProperly() = 

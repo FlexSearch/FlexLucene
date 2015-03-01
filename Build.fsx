@@ -380,6 +380,9 @@ let executePEVerify() =
 /// distributed in the same package.
 /// </summary>
 let mergeAutofacAttributeDll() =
+    // Injection of the AutofacNameAttribute type using Mono.Cecil is not possible.
+    // See http://stackoverflow.com/questions/8943340/adding-a-typedefinition-from-another-assembly
+    // Therefore I'm using IL Repack to do this
     Exec(ILRepackDirectory <!!> "ILRepack.exe", @"/lib:ikvm /out:work\output\FlexLucene.dll work\output\FlexLucene.dll dll\FlexSearch.Attributes.dll")
 
 /// <summary>
