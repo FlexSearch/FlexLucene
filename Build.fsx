@@ -30,9 +30,9 @@ let brk() = !>"-----------------------------------------------------------------
 // Modify these to update the versioning information
 // ---------------------------------------------
 let IkvmVersion = "8.0.5449.1"
-let LuceneVersion = "5.0.0"
-let LuceneFullVersion = "5.0.0.0"
-let FileVersion = "5.0.0.0"
+let LuceneVersion = "5.1.0"
+let LuceneFullVersion = "5.1.0.0"
+let FileVersion = "5.1.0.0"
 
 brk()
 !>"Starting FlexLucene Build"
