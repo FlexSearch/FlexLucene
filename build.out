@@ -1,8 +1,177 @@
-System.UnauthorizedAccessException: Access to the path 'FlexLucene.dll' is denied.
-   at System.IO.Directory.DeleteHelper(String fullPath, String userPath, Boolean recursive, Boolean throwOnTopLevelDirectoryNotFound)
-   at System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive, Boolean checkHost)
-   at FSI_0001.Helpers.CreateAndEmptyDirectory@55.Invoke(String x) in C:\git\FlexLucene\Build.fsx:line 55
-   at Microsoft.FSharp.Collections.SeqModule.Iterate[T](FSharpFunc`2 action, IEnumerable`1 source)
-   at FSI_0001.Helpers.CreateAndEmptyDirectory(String folderPath) in C:\git\FlexLucene\Build.fsx:line 55
-   at <StartupCode$FSI_0001>.$FSI_0001.main@() in C:\git\FlexLucene\Build.fsx:line 81
-Stopped due to error
+[INFO] ------------------------------------------------------------------------
+[INFO] Starting FlexLucene Build
+[INFO] ------------------------------------------------------------------------
+[INFO] Global Variable Information
+	IKVM Version: 8.0.5449.1
+	Lucene Version: 5.2.0
+	Lucene full Version: 5.2.0.0
+	File Version: 5.2.0.0
+	JAVA_HOME: C:\Program Files\Java\jdk1.7.0_07
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: FlexSearch.Codecs compilation phase
+	Compiling using MAVEN.
+
+C:\Seemant\Personal\GitHub\FlexLucene>mvn package -f "FlexSearch.Codecs\pom.xml" 
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building FlexSearch.Codec 5.1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ FlexSearch.Codec ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ FlexSearch.Codec ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ FlexSearch.Codec ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Seemant\Personal\GitHub\FlexLucene\FlexSearch.Codecs\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ FlexSearch.Codec ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ FlexSearch.Codec ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ FlexSearch.Codec ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.158 s
+[INFO] Finished at: 2015-06-03T08:39:00+01:00
+[INFO] Final Memory: 10M/183M
+[INFO] ------------------------------------------------------------------------
+	Copy FlexSearch.Codec-0.0.0.jar to Lucene Files directory
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Copy Lucene files to be compiled
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\core\lucene-core-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\analysis\common\lucene-analyzers-common-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\analysis\phonetic\lucene-analyzers-phonetic-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\backward-codecs\lucene-backward-codecs-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\codecs\lucene-codecs-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\queries\lucene-queries-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\queryparser\lucene-queryparser-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\facet\lucene-facet-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\suggest\lucene-suggest-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\misc\lucene-misc-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\memory\lucene-memory-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\highlighter\lucene-highlighter-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\join\lucene-join-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\grouping\lucene-grouping-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\spatial\lucene-spatial-5.2.0.jar
+	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\sandbox\lucene-sandbox-5.2.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Extract meta information from packages
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Generate new meta data information
+[INFO] Create meta data jar
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Copy Library files
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Execute Proguard
+	Move proguard.cfg to work directory
+ProGuard, version 5.2
+Reading program directory [C:\Seemant\Personal\GitHub\FlexLucene\Work\Lucene]
+Reading library jar [C:\Program Files\Java\jre7\lib\rt.jar]
+Reading library directory [C:\Seemant\Personal\GitHub\FlexLucene\Work\Lib]
+Note: org.apache.lucene.util.RamUsageEstimator accesses a method 'getPlatformMXBean(java.lang.Class)' dynamically
+      Maybe this is library method 'java.lang.management.ManagementFactory { java.lang.management.PlatformManagedObject getPlatformMXBean(java.lang.Class); }'
+Note: the configuration refers to the unknown field 'java.lang.Object theUnsafe' in class 'org.apache.lucene.util.RamUsageEstimator'
+Note: the configuration explicitly specifies 'java.nio.DirectByteBuffer' to keep library class 'java.nio.DirectByteBuffer'
+Note: the configuration explicitly specifies 'sun.misc.Cleaner' to keep library class 'sun.misc.Cleaner'
+Note: the configuration explicitly specifies 'com.sun.management.VMOption' to keep library class 'com.sun.management.VMOption'
+Note: the configuration explicitly specifies 'sun.misc.Unsafe' to keep library class 'sun.misc.Unsafe'
+Note: the configuration explicitly specifies 'com.sun.management.HotSpotDiagnosticMXBean' to keep library class 'com.sun.management.HotSpotDiagnosticMXBean'
+Note: there were 1 references to unknown class members.
+      You should check your configuration for typos.
+Note: there were 5 library classes explicitly being kept.
+      You don't need to keep library classes; they are already left unchanged.
+      (http://proguard.sourceforge.net/manual/troubleshooting.html#libraryclass)
+Note: there were 1 accesses to class members by means of introspection.
+      You should consider explicitly keeping the mentioned class members
+      (using '-keep' or '-keepclassmembers').
+      (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclassmember)
+Preparing output jar [C:\Seemant\Personal\GitHub\FlexLucene\Work\FlexLucene.jar]
+  Copying resources from program directory [C:\Seemant\Personal\GitHub\FlexLucene\Work\Lucene]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Execute IKVM
+IKVM.NET Compiler version 8.0.5449.1
+Copyright (C) 2002-2014 Jeroen Frijters
+http://www.ikvm.net/
+
+warning IKVMC0100: Class "com.vividsolutions.jts.io.InStream" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.OutStream" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequenceFilter" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFilter" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFactory" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.PrecisionModel" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Geometry" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Coordinate" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Envelope" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Point" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.impl.CoordinateArraySequenceFactory" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.PrecisionModel$Type" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBReader" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.ParseException" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBWriter" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.algorithm.CGAlgorithms" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.LinearRing" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKTReader" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryCollection" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Lineal" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Puntal" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.IsValidOp" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.TopologyValidationError" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometryFactory" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometry" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.IntersectionMatrix" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Polygon" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.LineString" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequence" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.operation.union.UnaryUnionOp" not found
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Add build information
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Regenerate Method names
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Execute PEVerify
+	Copying ikvm dlls to the output folder
+
+Microsoft (R) .NET Framework PE Verifier.  Version  4.0.30319.33440
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::posix_fadvise][offset 0x00000057] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::posix_madvise][offset 0x00000055] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::madvise][offset 0x00000055] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::open_direct][offset 0x00000057] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::pread][offset 0x0000005D] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::close][offset 0x0000004D] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::length][offset 0x0000004D] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::open][offset 0x00000054] Instruction cannot be verified.
+[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::read][offset 0x00000059] Instruction cannot be verified.
+9 Error(s) Verifying work\output\FlexLucene.dll
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Run Smoke Tests
+	Copy all required dll
+	Copy smoke test files
+	Starting Smoke Tests
+Done
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Copy artifacts to the Artifacts directory
+[INFO] ------------------------------------------------------------------------
+[INFO] Build Finished.

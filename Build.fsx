@@ -30,9 +30,9 @@ let brk() = !>"-----------------------------------------------------------------
 // Modify these to update the versioning information
 // ---------------------------------------------
 let IkvmVersion = "8.0.5449.1"
-let LuceneVersion = "5.1.0"
-let LuceneFullVersion = "5.1.0.0"
-let FileVersion = "5.1.0.0"
+let LuceneVersion = "5.2.1"
+let LuceneFullVersion = "5.2.1.0"
+let FileVersion = "5.2.1.0"
 
 brk()
 !>"Starting FlexLucene Build"
@@ -352,7 +352,7 @@ let runSmokeTests() =
 /// </summary>
 let copyArtifacts() = 
     let artifactDirectory = Directory.CreateDirectory(RootDirectory <!!> "Artifacts").ToString()
-    File.Copy(OutputDirectory <!!> "FlexLucene.dll", artifactDirectory <!!> "FlexLucene.dll")
+    File.Copy(OutputDirectory <!!> "FlexLucene.dll", artifactDirectory <!!> "FlexLucene.dll", true)
 
 /// <summary>
 /// Tasks which needs to executed as part of the build process
