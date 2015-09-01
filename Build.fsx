@@ -29,10 +29,10 @@ let brk() = !>"-----------------------------------------------------------------
 // Build script configuration section
 // Modify these to update the versioning information
 // ---------------------------------------------
-let IkvmVersion = "8.0.5449.1"
-let LuceneVersion = "5.2.1"
-let LuceneFullVersion = "5.2.1.0"
-let FileVersion = "5.2.1.0"
+let IkvmVersion = "8.1.5717.0"
+let LuceneVersion = "5.3.0"
+let LuceneFullVersion = "5.3.0.0"
+let FileVersion = "5.3.0.0"
 
 brk()
 !>"Starting FlexLucene Build"
@@ -131,6 +131,7 @@ let LuceneJars =
        //sprintf "lucene-expressions-%s" LuceneVersion
        sprintf "lucene-grouping-%s" LuceneVersion
        sprintf "lucene-spatial-%s" LuceneVersion
+       sprintf "lucene-spatial3d-%s" LuceneVersion
        sprintf "lucene-sandbox-%s" LuceneVersion |]
 
 let JarFiles = Directory.GetFiles(RootDirectory, "*.jar", System.IO.SearchOption.AllDirectories)
