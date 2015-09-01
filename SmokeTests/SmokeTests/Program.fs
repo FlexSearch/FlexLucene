@@ -26,11 +26,8 @@ let exceptionWrapper (meth : unit -> unit) =
         printfn "%A" e
         printfn "------------------------------------------------"
 
-let ShouldHaveFlexCodec50() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec50"), "FlexCodec50 not found.")
-let ShouldHaveFlexCodec410() = Assert.True(Codec.AvailableCodecs().contains("FlexCodec410"), "FlexCodec410 not found.")
-let ShouldHaveFlexPerFieldPostingsFormat() = 
-    Assert.True
-        (PostingsFormat.AvailablePostingsFormats().contains("PerField40"), "PerField40 Postings format not found.")
+let ShouldHaveCodec50() = Assert.True(Codec.AvailableCodecs().contains("Lucene50"), sprintf "Lucene50Codec not found. Available Codecs: %A" (Codec.AvailableCodecs()))
+let ShouldHaveCodec410() = Assert.True(Codec.AvailableCodecs().contains("Lucene410"), sprintf "Lucene410Codec not found. Available Codecs: %A" (Codec.AvailableCodecs()))
 
 let IndexingTest(directory : FlexLucene.Store.Directory) = 
     let analyzer = new StandardAnalyzer()
@@ -63,11 +60,16 @@ let GetRandomPath() =
 
 [<Fact>]
 let CodecsShouldLoadProperly() = 
-    ShouldHaveFlexCodec410 |> exceptionWrapper
-    ShouldHaveFlexCodec50 |> exceptionWrapper
+    let codecs = Codec.AvailableCodecs()
+    printfn "Available Codecs: %A" (codecs)
+    ShouldHaveCodec410 |> exceptionWrapper
+    ShouldHaveCodec50 |> exceptionWrapper
 
 [<Fact>]
-let PostingsFormatShouldLoadProperly() = ShouldHaveFlexPerFieldPostingsFormat()
+let PostingsFormatShouldLoadProperly() = 
+    printfn "Postings Format : %A" (PostingsFormat.AvailablePostingsFormats())
+    Assert.True
+        (PostingsFormat.AvailablePostingsFormats().contains("Lucene50"), "Lucene50 Postings format not found.")
 
 [<Fact>]
 let IndexingTests() = 
@@ -98,7 +100,7 @@ let SimpleSpatialTests() =
 
 [<EntryPoint>]
 let main argv = 
-    [| CodecsShouldLoadProperly; IndexingTests; BooleanQueryCreationTests; RangeQueryCreationTests; SimpleSpatialTests |] 
+    [| CodecsShouldLoadProperly; PostingsFormatShouldLoadProperly; IndexingTests; BooleanQueryCreationTests; RangeQueryCreationTests; SimpleSpatialTests |] 
     |> Array.iter (fun meth -> exceptionWrapper meth)
     printfn "Done"
     if hasErrors then 1
