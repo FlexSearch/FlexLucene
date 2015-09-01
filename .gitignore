@@ -247,3 +247,4 @@ lucene-5.1.0.zip
 lucene-5.2.0
 lucene-5.2.1
 *.zip
+/lucene-5.3.0
