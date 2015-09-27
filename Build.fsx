@@ -267,8 +267,13 @@ module CecilWriter =
                     let newMeth = 
                         new MethodDefinition(ConvertNamingConvention(meth.Name), meth.Attributes, meth.ReturnType)
                     meth.Parameters |> Seq.iter (fun x -> newMeth.Parameters.Add(x))
-                    // Adding it to make sure that the newly generated method are similar to Ikvm
-                    meth.NoInlining <- true
+                    // Remove the no in-line attribute from IKVM generated code as it is due to a
+                    // .net 2.0 related issue
+                    meth.NoInlining <- false
+                    meth.NoOptimization <- false
+                    newMeth.NoInlining <- false
+                    newMeth.NoOptimization <- false
+                    
                     newMeth.Body <- copyMethodBody meth
                     newMethods.Add(newMeth)
                     meth.CustomAttributes.Add(GetEditorBrowsableAttr())
