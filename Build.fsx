@@ -275,6 +275,8 @@ module CecilWriter =
                     newMeth.NoOptimization <- false
                     
                     newMeth.Body <- copyMethodBody meth
+                    /// Copy all attributes from the existing method to the new method 
+                    meth.CustomAttributes |> Seq.iter(fun x -> newMeth.CustomAttributes.Add(x))
                     newMethods.Add(newMeth)
                     meth.CustomAttributes.Add(GetEditorBrowsableAttr())
                     meth.CustomAttributes.Add(GetObsAttr())
