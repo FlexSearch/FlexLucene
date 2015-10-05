@@ -31,8 +31,8 @@ let brk() = !>"-----------------------------------------------------------------
 // ---------------------------------------------
 let IkvmVersion = "8.1.5717.0"
 let LuceneVersion = "5.3.1"
-let LuceneFullVersion = "5.3.1.0"
-let FileVersion = "5.3.1.0"
+let LuceneFullVersion = "5.3.1.1"
+let FileVersion = "5.3.1.1"
 
 brk()
 !>"Starting FlexLucene Build"
@@ -111,6 +111,9 @@ let ServicesDirectory = MetaDirectory <!!> @"META-INF\services" |> CreateAndEmpt
 let LuceneDirectory = WorkDirectory <!!> "Lucene" |> CreateAndEmptyDirectory
 let OutputDirectory = WorkDirectory <!!> "Output" |> CreateAndEmptyDirectory
 let SmokeTestArtifacts = RootDirectory <!!> @"SmokeTests\SmokeTestArtifacts"
+
+!>>(sprintf "Root Directory: %s" RootDirectory)
+!>>(sprintf "Work Directory: %s" WorkDirectory)
 
 // List of all the lucene jars which will be combined to form FlexLucene
 let LuceneJars = 
@@ -366,7 +369,7 @@ let copyArtifacts() =
 /// Tasks which needs to executed as part of the build process
 /// </summary>
 let tasks = 
-    [ codecsCompilation, "FlexSearch.Codecs compilation phase"
+    [ //codecsCompilation, "FlexSearch.Codecs compilation phase"
       copyLuceneFilesToTarget, "Copy Lucene files to be compiled"
       extractMetaInformation, "Extract meta information from packages"
       generateMetaInformation, "Generate new meta data information"
