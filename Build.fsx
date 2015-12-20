@@ -56,7 +56,8 @@ module Helpers =
     /// <param name="input"></param>
     let ConvertNamingConvention(input : string) = 
         let output = new ResizeArray<Char>()
-        let ip = input.Replace("org.apache.lucene", "FlexLucene")
+        let mutable ip = input.Replace("org.apache.lucene", "FlexLucene")
+        ip <- ip.Replace("$", "")
         for i = 0 to ip.Length - 1 do
             if i = 0 then output.Add(Char.ToUpper(ip.[i]))
             else if ip.[i - 1] = '.' then output.Add(Char.ToUpper(ip.[i]))
@@ -205,6 +206,18 @@ let executeProguard() =
     File.Copy(RootDirectory <!!> "proguard.cfg", WorkDirectory <!!> "proguard.cfg")
     javaExec """-jar ProGuard.jar @work\proguard.cfg"""
 
+/// Executed Proguard after mapping update
+let executeProguardPass2() =
+    !>> "Deleting the FlexLucene.jar created in Phase 1"
+    File.Delete(WorkDirectory <!!> "FlexLucene.jar")
+    !>> "Updating the proguard.cfg"
+    let mutable text = File.ReadAllText(WorkDirectory <!!> "proguard.cfg")
+    text <- text.Replace("#-applymapping mapping-in.txt", "-applymapping mapping-in.txt")
+    text <- text.Replace("-printmapping mapping-out.txt", "#-printmapping mapping-out.txt")
+    File.WriteAllText(WorkDirectory <!!> "proguard.cfg", text)
+    !>> "Running Proguard Pass 2"
+    javaExec """-jar ProGuard.jar @work\proguard.cfg"""
+
 /// <summary>
 ///Generated IKVM build string
 /// </summary>
@@ -230,6 +243,45 @@ let addBuildInformation() =
     patchExec (sprintf """%s /s FileDescription "Built using IKVM version %s" """ finalDllPath IkvmVersion)
     patchExec (sprintf """%s /s product "FlexSearch Search Engine" """ finalDllPath)
     patchExec (sprintf """%s /s copyright "(c) 2010-2015 FlexSearch" """ finalDllPath)
+
+/// Generates the new mapping information for renaming classes in accordance 
+/// with C# naming convention 
+let generateRenameMapping() =
+    let inputFile = WorkDirectory <!!> "mapping-out.txt"
+    let lines = File.ReadAllLines(inputFile)
+    let memberSpaces = "    "
+    
+    let split(input : string) = input.Split([|' '|], StringSplitOptions.RemoveEmptyEntries)
+    
+    let processLine(line : string) =
+        let parts = split line
+        // Check if the line contains a class declaration
+        if line.StartsWith(memberSpaces) then
+            assert(parts.Length = 4)
+            let name = 
+                if parts.[1].Contains("(") then
+                    // It is a method declaration
+                    parts.[1].Substring(0, parts.[1].IndexOf("("))
+                else parts.[1]
+            if name = parts.[3] || name.Contains("<") then
+                // The name of the member should not be changed
+                line
+            else
+                sprintf "%s%s %s -> %s" memberSpaces parts.[0] parts.[1] (Helpers.ConvertNamingConvention(name))
+        else
+            assert(parts.Length = 3)
+            // Get rid of the : in the end
+            let name = parts.[2].Substring(0, parts.[2].Length - 1)
+            // The before and after class names are same so
+            // must be one of the classes which can't be renamed.
+            if parts.[0] = name then
+                line
+            else
+                sprintf "%s -> %s:" parts.[0] (Helpers.ConvertNamingConvention(parts.[0]))
+        
+    let output =
+        lines |> Array.map processLine
+    File.WriteAllLines(WorkDirectory <!!> "mapping-in.txt", output)
 
 // ---------------------------------------------
 // Mono Cecil based rewrite section
@@ -314,8 +366,8 @@ module CecilWriter =
                 not t.IsRuntimeSpecialName && t.Name <> "<Module>" && t.Name <> "Resources" && t.IsPublic
             let nestedClassCondition (t : TypeDefinition) = not t.IsRuntimeSpecialName && t.IsNestedPublic
             // Replace the Class's namespace and 'Implements' attribute with the FlexLucene version
-            typ.Namespace <- ConvertNamingConvention(typ.Namespace)
-            typ |> regenerateImplementsAtt
+            //typ.Namespace <- ConvertNamingConvention(typ.Namespace)
+            //typ |> regenerateImplementsAtt
             // Change the Method and Field names to FlexLucene convention
             if classCondition typ || nestedClassCondition typ then 
                 if (not typ.IsInterface || not typ.IsAbstract) && typ.IsPublic then 
@@ -351,12 +403,8 @@ let executePEVerify() =
 /// Execute all smoke tests
 /// </summary>
 let runSmokeTests() = 
-    !>>"Copy all required dll"
-    loopFiles DllDirectory |> Seq.iter (fun f -> File.Copy(f, OutputDirectory <!!> Path.GetFileName(f)))
-    !>>"Copy smoke test files"
-    loopFiles SmokeTestArtifacts |> Seq.iter (fun f -> File.Copy(f, OutputDirectory <!!> Path.GetFileName(f)))
     !>>"Starting Smoke Tests"
-    Exec(OutputDirectory <!!> "SmokeTests.exe", "")
+    Exec(RootDirectory <!!> "SmokeTests.bat", "")
 
 /// <summary>
 /// Copies the final artifact to the artifact directory at the root
@@ -375,12 +423,14 @@ let tasks =
       generateMetaInformation, "Generate new meta data information"
       copyLibraries, "Copy Library files"
       executeProguard, "Execute Proguard"
+      generateRenameMapping, "Generating mapping information"
+      executeProguardPass2, "Execute ProGuard Pass - 2"
       executeIkvm, "Execute IKVM"
       addBuildInformation, "Add build information"
       CecilWriter.regenerateMethodNames, "Regenerate Method names"
       executePEVerify, "Execute PEVerify"
-      runSmokeTests, "Run Smoke Tests"
-      copyArtifacts, "Copy artifacts to the Artifacts directory" ]
+      copyArtifacts, "Copy artifacts to the Artifacts directory"
+      runSmokeTests, "Run Smoke Tests" ]
 
 tasks |> Seq.iter (fun t -> 
              let (task, desc) = t
