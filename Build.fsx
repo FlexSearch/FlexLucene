@@ -317,7 +317,9 @@ module CecilWriter =
             if meth.Name <> null && not meth.IsRuntimeSpecialName && not meth.IsSpecialName && not meth.IsConstructor 
                && not meth.IsNative && not meth.IsAssembly && not meth.IsPInvokeImpl && not meth.IsUnmanaged 
                && meth.IsPublic then 
-                if meth.IsAbstract || meth.Name = ConvertNamingConvention(meth.Name) then ()
+                if meth.IsAbstract || meth.Name = ConvertNamingConvention(meth.Name) then 
+                    meth.NoInlining <- false
+                    meth.NoOptimization <- false
                 else 
                     let newMeth = 
                         new MethodDefinition(ConvertNamingConvention(meth.Name), meth.Attributes, meth.ReturnType)
@@ -334,7 +336,9 @@ module CecilWriter =
                     meth.CustomAttributes |> Seq.iter(fun x -> newMeth.CustomAttributes.Add(x))
                     newMethods.Add(newMeth)
                     meth.CustomAttributes.Add(GetEditorBrowsableAttr())
-                    meth.CustomAttributes.Add(GetObsAttr())
+            else
+                    meth.NoInlining <- false
+                    meth.NoOptimization <- false
         newMethods |> Seq.iter (fun x -> typ.Methods.Add(x))
     
     let regenerateImplementsAtt (_type : TypeDefinition) = 
