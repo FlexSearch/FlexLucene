@@ -16,6 +16,7 @@ open FlexLucene.Store
 open Xunit
 open System
 open System.IO
+open System.Collections.Generic
 
 let mutable hasErrors = false
 let RootDirectory = __SOURCE_DIRECTORY__
@@ -27,10 +28,10 @@ let exceptionWrapper (meth : unit -> unit) =
     with e -> 
         hasErrors <- true
         printfn "------------------------------------------------"
-        printfn "Test name: %s" (meth.GetType().Name)
+        printfn "Test case failed: %s" (meth.GetType().FullName)
         printfn "%A" e
         printfn "------------------------------------------------"
-
+        
 let ShouldHaveCodec50() = Assert.True(Codec.AvailableCodecs().contains("Lucene50"), sprintf "Lucene50Codec not found. Available Codecs: %A" (Codec.AvailableCodecs()))
 let ShouldHaveCodec410() = Assert.True(Codec.AvailableCodecs().contains("Lucene410"), sprintf "Lucene410Codec not found. Available Codecs: %A" (Codec.AvailableCodecs()))
 
@@ -88,6 +89,55 @@ let RangeQueryCreationTests() =
     let query = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
     ()
 
+open FlexLucene.Analysis
+open FlexLucene.Analysis.Core
+// Simple analyzer can be written and the base class methods are
+// PascalCased as per C# convention
+type SimpleAnalyzer() = 
+    inherit Analyzer()
+    override __.CreateComponents (_) = 
+        let src = new StandardTokenizer()
+        let filter = new LowerCaseFilter(src)
+        new AnalyzerTokenStreamComponents(src, filter)
+
+let SimpleAnalyzerInitTest() =
+    let analyzer = new SimpleAnalyzer()
+    ()
+
+let flexCharTermAttribute = 
+        lazy java.lang.Class.forName 
+                 (typeof<FlexLucene.Analysis.Tokenattributes.CharTermAttribute>.AssemblyQualifiedName)
+
+/// Utility function to get tokens from the search string based upon the passed analyzer
+/// This will enable us to avoid using the Lucene query parser
+/// We cannot use simple white space based token generation as it really depends 
+/// upon the analyzer used
+let ParseTextUsingAnalyzer (analyzer : FlexLucene.Analysis.Analyzer, fieldName, queryText) = 
+    let tokens = new List<string>()
+    let source : TokenStream = analyzer.TokenStream(fieldName, new java.io.StringReader(queryText))
+    // Get the CharTermAttribute from the TokenStream
+    let termAtt = source.AddAttribute(flexCharTermAttribute.Value)
+    try 
+        try 
+            source.Reset()
+            while source.IncrementToken() do
+                tokens.Add(termAtt.ToString())
+            source.End()
+        with _ -> ()
+    finally
+        source.Close()
+    tokens
+
+// An advance test which tests usage of CharTermAttribute
+let TokenizationTest() =
+    let analyzer = new SimpleAnalyzer()
+    let result = ParseTextUsingAnalyzer (analyzer, "", "Hello World")
+    let expected = new List<string>([|"hello"; "world"|])
+    printfn "Tokenization Test"
+    printfn "Expected : %A" expected
+    printfn "Actual : %A" result
+    Assert.Equal<List<string>>(expected, result)
+
 //[<Fact>]
 //let SimpleSpatialTests() = 
 //    let ctx = SpatialContext.GEO
@@ -99,7 +149,15 @@ let RangeQueryCreationTests() =
 //    doc.Add(new StoredField(strategy.GetFieldName(), pt.getX().ToString() + " " + pt.getY().ToString()))
 
 let executeTests() = 
-    [| CodecsShouldLoadProperly; PostingsFormatShouldLoadProperly; IndexingTests; BooleanQueryCreationTests; RangeQueryCreationTests; |] 
+    [| 
+        CodecsShouldLoadProperly
+        PostingsFormatShouldLoadProperly 
+        IndexingTests
+        BooleanQueryCreationTests 
+        RangeQueryCreationTests 
+        SimpleAnalyzerInitTest
+        TokenizationTest
+    |] 
     |> Array.iter exceptionWrapper
     if hasErrors then
         printfn "Some Tests failed"
