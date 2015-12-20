@@ -196,7 +196,7 @@ let generateMetaInformation() =
 /// Copies related libraries which are needed for compilation
 /// </summary>
 let copyLibraries() = 
-    loopFiles LibSrcDirectory |> Seq.iter (fun f -> File.Copy(f, LibTargetDirectory <!!> (Path.GetFileName(f))))
+    loopFiles LibSrcDirectory |> Seq.iter (fun f -> File.Copy(f, LuceneDirectory <!!> (Path.GetFileName(f))))
 
 /// <summary>
 /// Executes Proguard which create a fat FlexLucene jar file

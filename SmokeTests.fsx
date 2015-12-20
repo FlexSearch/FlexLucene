@@ -138,15 +138,15 @@ let TokenizationTest() =
     printfn "Actual : %A" result
     Assert.Equal<List<string>>(expected, result)
 
-//[<Fact>]
-//let SimpleSpatialTests() = 
-//    let ctx = SpatialContext.GEO
-//    let grid = new GeohashPrefixTree(ctx, 11)
-//    let strategy = new RecursivePrefixTreeStrategy(grid, "myGeoField")
-//    let doc = new Document()
-//    doc.Add(new IntField("id", 1, Field.Store.YES))
-//    let pt = ctx.MakePoint(10.0, 10.0)
-//    doc.Add(new StoredField(strategy.GetFieldName(), pt.getX().ToString() + " " + pt.getY().ToString()))
+open Com.Spatial4j.Core.Context
+let SimpleSpatialTests() = 
+    let ctx = SpatialContext.GEO
+    let grid = new GeohashPrefixTree(ctx, 11)
+    let strategy = new RecursivePrefixTreeStrategy(grid, "myGeoField")
+    let doc = new Document()
+    doc.Add(new IntField("id", 1, FieldStore.YES))
+    let pt = ctx.MakePoint(10.0, 10.0)
+    doc.Add(new StoredField(strategy.GetFieldName(), pt.GetX().ToString() + " " + pt.GetY().ToString()))
 
 let executeTests() = 
     [| 
@@ -157,6 +157,7 @@ let executeTests() =
         RangeQueryCreationTests 
         SimpleAnalyzerInitTest
         TokenizationTest
+        SimpleSpatialTests
     |] 
     |> Array.iter exceptionWrapper
     if hasErrors then
