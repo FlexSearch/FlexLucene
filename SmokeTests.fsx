@@ -148,6 +148,11 @@ let SimpleSpatialTests() =
     let pt = ctx.MakePoint(10.0, 10.0)
     doc.Add(new StoredField(strategy.GetFieldName(), pt.GetX().ToString() + " " + pt.GetY().ToString()))
 
+let MutableValueDoesNotHaveDuplicateMethods() =
+    let value = new FlexLucene.Util.Mutable.MutableValueBool()
+    value._Exists <- true;
+    Assert.True(value.Exists() = true, "Should be able to use the _ method in case of naming conflicts.")
+
 let executeTests() = 
     [| 
         CodecsShouldLoadProperly

@@ -244,44 +244,112 @@ let addBuildInformation() =
     patchExec (sprintf """%s /s product "FlexSearch Search Engine" """ finalDllPath)
     patchExec (sprintf """%s /s copyright "(c) 2010-2015 FlexSearch" """ finalDllPath)
 
-/// Generates the new mapping information for renaming classes in accordance 
-/// with C# naming convention 
-let generateRenameMapping() =
-    let inputFile = WorkDirectory <!!> "mapping-out.txt"
-    let lines = File.ReadAllLines(inputFile)
+/// Generates the mapping information from the ProGuard mapping file
+module Mapper =
     let memberSpaces = "    "
-    
-    let split(input : string) = input.Split([|' '|], StringSplitOptions.RemoveEmptyEntries)
-    
-    let processLine(line : string) =
-        let parts = split line
-        // Check if the line contains a class declaration
-        if line.StartsWith(memberSpaces) then
+    type MemberMapping =
+        {
+            mutable Name : string
+            ReturnType : string
+            Signature : string
+            IsField : bool
+            HasParameters : bool
+            OverrideName : bool
+        }
+        member this.ToProGuardFormat() =
+            sprintf "%s%s -> %s" memberSpaces this.Signature (if this.OverrideName then 
+                                                                ConvertNamingConvention(this.Name) 
+                                                              else this.Name)
+
+    type TypeMapping =
+        {
+            Name : string
+            OverrideName : bool
+            Members : ResizeArray<MemberMapping>
+        }
+        member this.ToProGuardFormat() =
+            sprintf "%s -> %s:" this.Name (if this.OverrideName then ConvertNamingConvention(this.Name) else this.Name)
+
+    /// Generates the new mapping information for renaming classes in accordance 
+    /// with C# naming convention 
+    let generateRenameMapping() =
+        let inputFile = WorkDirectory <!!> "mapping-out.txt"
+        let lines = File.ReadAllLines(inputFile)
+        let memberSpaces = "    "
+        let mappings = new ResizeArray<TypeMapping>()
+         
+        let split(input : string) = input.Split([|' '|], StringSplitOptions.RemoveEmptyEntries)
+        
+        /// Process a type from the incoming mapping file line
+        let processMember(parts : string[]) = 
             assert(parts.Length = 4)
+            let mutable isField = false
+            let hasParameters = not <| parts.[1].Contains("()")
             let name = 
+                // It is a method declaration
                 if parts.[1].Contains("(") then
-                    // It is a method declaration
                     parts.[1].Substring(0, parts.[1].IndexOf("("))
-                else parts.[1]
-            if name = parts.[3] || name.Contains("<") then
-                // The name of the member should not be changed
-                line
-            else
-                sprintf "%s%s %s -> %s" memberSpaces parts.[0] parts.[1] (Helpers.ConvertNamingConvention(name))
-        else
+                else 
+                    isField <- true
+                    parts.[1]
+            let overideName = not (name = parts.[3] || name.Contains("<"))
+            let memberMapping =
+                {
+                    Name = name
+                    ReturnType = parts.[0]
+                    Signature = sprintf "%s %s" parts.[0] parts.[1]
+                    IsField = isField
+                    HasParameters = hasParameters
+                    OverrideName = overideName
+                }
+            mappings.Last().Members.Add(memberMapping)
+        
+        /// Process a member from the incoming mapping file line
+        let processType(parts : string[]) =
             assert(parts.Length = 3)
             // Get rid of the : in the end
             let name = parts.[2].Substring(0, parts.[2].Length - 1)
             // The before and after class names are same so
             // must be one of the classes which can't be renamed.
-            if parts.[0] = name then
-                line
+            let overideName = not (parts.[0] = name)
+            let typeMapping =
+                {
+                    Name = parts.[0]
+                    OverrideName = overideName
+                    Members = new ResizeArray<MemberMapping>()
+                }
+            mappings.Add(typeMapping)    
+             
+        let processLine(line : string) =
+            let parts = split line
+            // Check if the line contains a class declaration
+            if line.StartsWith(memberSpaces) then
+               processMember parts
             else
-                sprintf "%s -> %s:" parts.[0] (Helpers.ConvertNamingConvention(parts.[0]))
+                processType parts
         
-    let output =
-        lines |> Array.map processLine
-    File.WriteAllLines(WorkDirectory <!!> "mapping-in.txt", output)
+        let validateTypeMapping(mapping : TypeMapping) =
+            // Fins all the instances where a field and a method have the same name 
+            mapping.Members
+            |> Seq.groupBy (fun g -> g.Name)
+            |> Seq.filter (fun (_,items) -> items.Count() > 1 && items |> Seq.exists(fun i -> i.IsField))
+            |> Seq.iter (fun (_,items) -> 
+                items 
+                |> Seq.filter(fun i -> i.IsField = true && i.OverrideName = true) 
+                |> Seq.iter(fun i -> 
+                    printfn "[INFO] Renaming due to conflict: %A" i
+                    i.Name <- "_" + ConvertNamingConvention i.Name))
+
+        let generateMappingFile() =
+            let output = new ResizeArray<string>()
+            for typeMapping in mappings do 
+                validateTypeMapping typeMapping
+                output.Add(typeMapping.ToProGuardFormat())
+                typeMapping.Members |> Seq.iter(fun i -> output.Add(i.ToProGuardFormat()))
+            output
+
+        lines |> Array.iter processLine
+        File.WriteAllLines(WorkDirectory <!!> "mapping-in.txt", generateMappingFile())
 
 // ---------------------------------------------
 // Mono Cecil based rewrite section
@@ -427,7 +495,7 @@ let tasks =
       generateMetaInformation, "Generate new meta data information"
       copyLibraries, "Copy Library files"
       executeProguard, "Execute Proguard"
-      generateRenameMapping, "Generating mapping information"
+      Mapper.generateRenameMapping, "Generating mapping information"
       executeProguardPass2, "Execute ProGuard Pass - 2"
       executeIkvm, "Execute IKVM"
       addBuildInformation, "Add build information"
