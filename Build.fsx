@@ -337,7 +337,7 @@ module Mapper =
                 items 
                 |> Seq.filter(fun i -> i.IsField = true && i.OverrideName = true) 
                 |> Seq.iter(fun i -> 
-                    printfn "[INFO] Renaming due to conflict: %A" i
+                    printfn "[INFO] Renaming due to conflict: %s -> %s" mapping.Name i.Signature 
                     i.Name <- "_" + ConvertNamingConvention i.Name))
 
         let generateMappingFile() =
