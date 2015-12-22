@@ -58,7 +58,7 @@ let IndexingTest(directory : FlexLucene.Store.Directory) =
         let hitDoc = isearcher.Doc(hits.[i].Doc)
         Assert.Equal<string>("This is the text to be indexed.", hitDoc.Get("fieldname"))
     ireader.Close()
-    directory.close()
+    directory.Close()
 
 let GetRandomPath() = 
     let dir = Path.Combine(TempDirectory, Guid.NewGuid().ToString())
@@ -153,6 +153,25 @@ let MutableValueDoesNotHaveDuplicateMethods() =
     value._Exists <- true;
     Assert.True(value.Exists() = true, "Should be able to use the _ method in case of naming conflicts.")
 
+let ToStringWorksCorrectly() =
+    let query = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    printfn "RangeQuery ToString : %s" (query.ToString())
+    Assert.Equal<string>(query.toString(), query.ToString())
+    let query = new TermQuery(new Term("Hello"))
+    printfn "TermQuery ToString : %s" (query.ToString())
+    Assert.Equal<string>(query.toString(), query.ToString())
+
+let EqualityWorksCorrectly() =
+    let query1 = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    let query2 = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    let query3 = NumericRangeQuery.NewDoubleRange("test3", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    Assert.Equal<Query>(query1, query2)
+    Assert.NotEqual<Query>(query1, query3)
+    let termQuery1 = new TermQuery(new Term("Hello"))
+    let termQuery2 = new TermQuery(new Term("Hello"))
+    Assert.Equal<int>(termQuery1.GetHashCode(), termQuery1.hashCode())
+    Assert.Equal<Query>(termQuery1, termQuery2)
+
 let executeTests() = 
     [| 
         CodecsShouldLoadProperly
@@ -163,6 +182,9 @@ let executeTests() =
         SimpleAnalyzerInitTest
         TokenizationTest
         SimpleSpatialTests
+        MutableValueDoesNotHaveDuplicateMethods
+        ToStringWorksCorrectly
+        EqualityWorksCorrectly
     |] 
     |> Array.iter exceptionWrapper
     if hasErrors then

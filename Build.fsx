@@ -54,7 +54,7 @@ module Helpers =
     /// Converts Java namespaces, method names to .net based conventions 
     /// </summary>
     /// <param name="input"></param>
-    let ConvertNamingConvention(input : string) = 
+    let getName(input : string) = 
         let output = new ResizeArray<Char>()
         let mutable ip = input.Replace("org.apache.lucene", "FlexLucene")
         ip <- ip.Replace("$", "")
@@ -67,7 +67,7 @@ module Helpers =
     // Create the content for new SPI files
     let CreateServiceFile(filePath : string) = 
         Seq.fold (fun (acc : string list) (elem : string) -> 
-            if elem.StartsWith("org.apache") || elem.StartsWith("Flex") then ConvertNamingConvention elem :: acc
+            if elem.StartsWith("org.apache") || elem.StartsWith("Flex") then getName elem :: acc
             else acc) [] (File.ReadAllLines(filePath))
     
     /// <summary>
@@ -186,7 +186,7 @@ let generateMetaInformation() =
     loopDir TempDirectory |> Seq.iter (fun dir -> 
                                  loopFiles dir |> Seq.iter (fun file -> 
                                                       let dirInfo = new DirectoryInfo(Path.GetDirectoryName(file))
-                                                      let targetFileName = ConvertNamingConvention(dirInfo.Name)
+                                                      let targetFileName = getName(dirInfo.Name)
                                                       let targetPath = ServicesDirectory <!!> targetFileName
                                                       File.AppendAllLines(targetPath, CreateServiceFile(file))))
     !>"Create meta data jar"
@@ -258,7 +258,7 @@ module Mapper =
         }
         member this.ToProGuardFormat() =
             sprintf "%s%s -> %s" memberSpaces this.Signature (if this.OverrideName then 
-                                                                ConvertNamingConvention(this.Name) 
+                                                                getName(this.Name) 
                                                               else this.Name)
 
     type TypeMapping =
@@ -268,7 +268,7 @@ module Mapper =
             Members : ResizeArray<MemberMapping>
         }
         member this.ToProGuardFormat() =
-            sprintf "%s -> %s:" this.Name (if this.OverrideName then ConvertNamingConvention(this.Name) else this.Name)
+            sprintf "%s -> %s:" this.Name (if this.OverrideName then getName(this.Name) else this.Name)
 
     /// Generates the new mapping information for renaming classes in accordance 
     /// with C# naming convention 
@@ -338,7 +338,7 @@ module Mapper =
                 |> Seq.filter(fun i -> i.IsField = true && i.OverrideName = true) 
                 |> Seq.iter(fun i -> 
                     printfn "[INFO] Renaming due to conflict: %s -> %s" mapping.Name i.Signature 
-                    i.Name <- "_" + ConvertNamingConvention i.Name))
+                    i.Name <- "_" + getName i.Name))
 
         let generateMappingFile() =
             let output = new ResizeArray<string>()
@@ -357,7 +357,6 @@ module Mapper =
 module CecilWriter = 
     let mutable md : ModuleDefinition = Unchecked.defaultof<_>
     let mutable editorBrowsableCtor : MethodReference = Unchecked.defaultof<_>
-    let mutable obsoleteCtor : MethodReference = Unchecked.defaultof<_>
     let mutable editorStateRef : TypeReference = Unchecked.defaultof<_>
     
     // Custom attribute to stop method from showing in intellisense
@@ -365,100 +364,88 @@ module CecilWriter =
         let attr = new CustomAttribute(editorBrowsableCtor)
         attr.Properties.Add
             (new CustomAttributeNamedArgument("EditorBrowsableState", new CustomAttributeArgument(editorStateRef, 1)))
-        attr
-    
-    // Obsolete Attribute
-    let GetObsAttr() = new CustomAttribute(obsoleteCtor)
-    let mutable renameFileMethod : MethodBody = Unchecked.defaultof<_>
-    
-    let copyMethodBody (m : MethodDefinition) = 
-        if m.FullName.Contains("FlexFSDirectory") && m.FullName.Contains("renameFile") then 
-            renameFileMethod <- m.Body
-            m.Body
-        else 
-            if m.FullName.Contains("FSDirectory") && m.FullName.Contains("renameFile") then m.Body <- renameFileMethod
-            m.Body
-    
+        attr  
+   
     let ProcessMethods(typ : TypeDefinition) = 
         let newMethods = new ResizeArray<MethodDefinition>()
         for meth in typ.Methods do
-            if meth.Name <> null && not meth.IsRuntimeSpecialName && not meth.IsSpecialName && not meth.IsConstructor 
-               && not meth.IsNative && not meth.IsAssembly && not meth.IsPInvokeImpl && not meth.IsUnmanaged 
-               && meth.IsPublic then 
-                if meth.IsAbstract || meth.Name = ConvertNamingConvention(meth.Name) then 
-                    meth.NoInlining <- false
-                    meth.NoOptimization <- false
-                else 
-                    let newMeth = 
-                        new MethodDefinition(ConvertNamingConvention(meth.Name), meth.Attributes, meth.ReturnType)
-                    meth.Parameters |> Seq.iter (fun x -> newMeth.Parameters.Add(x))
-                    // Remove the no in-line attribute from IKVM generated code as it is due to a
-                    // .net 2.0 related issue
-                    meth.NoInlining <- false
-                    meth.NoOptimization <- false
-                    newMeth.NoInlining <- false
-                    newMeth.NoOptimization <- false
-                    
-                    newMeth.Body <- copyMethodBody meth
-                    /// Copy all attributes from the existing method to the new method 
-                    meth.CustomAttributes |> Seq.iter(fun x -> newMeth.CustomAttributes.Add(x))
-                    newMethods.Add(newMeth)
-                    meth.CustomAttributes.Add(GetEditorBrowsableAttr())
-            else
-                    meth.NoInlining <- false
-                    meth.NoOptimization <- false
+            // Remove the no in-line attribute from IKVM generated code as it is due to a
+            // .net 2.0 related issue
+            meth.NoInlining <- false
+            meth.NoOptimization <- false
+            if meth.Name <> null then
+                let startsWith = meth.Name.ToCharArray().[0]
+                // Check if the method has EditorBrowsable attribute. If yes then we don't want to replicate the method as it is not
+                // intedend for use anyhow.
+                let implAtts = 
+                    meth.CustomAttributes 
+                    |> Seq.filter (fun a -> a.AttributeType.Name =  typeof<EditorBrowsableAttribute>.Name)
+                    |> Seq.length
+
+                if  not meth.IsRuntimeSpecialName 
+                    && not meth.IsSpecialName 
+                    && not meth.IsConstructor 
+                    && not meth.IsNative 
+                    && not meth.IsAssembly 
+                    && not meth.IsPInvokeImpl 
+                    && not meth.IsUnmanaged 
+                    && meth.IsPublic
+                    && not <| Char.IsUpper(startsWith) 
+                    && startsWith <> '<' 
+                    && implAtts = 0 then 
+                        if meth.IsAbstract && not meth.HasParameters && meth.Name <> "toString" && meth.Name <> "hashCode" then
+                            printfn "[INFO] Adding a shadow method for the abstract method: %s" meth.FullName
+                            // This must be a method from the java.lang package as we were not able to rename it 
+                            // using Proguard. Let's inject a new method which will shadow this method and will have
+                            // proper case.
+                            let newMeth = new MethodDefinition(getName(meth.Name), meth.Attributes, meth.ReturnType)
+                            newMeth.IsAbstract <- false
+                            newMeth.IsVirtual <- false
+                            newMeth.IsCheckAccessOnOverride <- false
+                            newMeth.IsFinal <- false
+                            newMeth.IsNewSlot <- false
+                            newMeth.Body <- new MethodBody(newMeth)
+                            let ilProcessor = newMeth.Body.GetILProcessor()
+                            ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_0))
+                            ilProcessor.Append(ilProcessor.Create(OpCodes.Callvirt, meth))
+                            ilProcessor.Append(ilProcessor.Create(OpCodes.Ret)) 
+                            newMethods.Add(newMeth)
+                        else if not meth.IsAbstract then
+                            let newMeth = new MethodDefinition(getName(meth.Name), meth.Attributes, meth.ReturnType)
+                            // http://comments.gmane.org/gmane.comp.java.ikvm.devel/2463
+                            if meth.Name = "hashCode" then
+                                newMeth.Name <- "GetHashCode"
+                            meth.Parameters |> Seq.iter (fun x -> newMeth.Parameters.Add(x))                    
+                            newMeth.Body <- meth.Body
+                            /// Copy all attributes from the existing method to the new method 
+                            meth.CustomAttributes 
+                            |> Seq.iter(fun x -> newMeth.CustomAttributes.Add(x)) 
+                            newMethods.Add(newMeth)
+                            // Make the method non browsable from the IDE
+                            meth.CustomAttributes.Add(GetEditorBrowsableAttr())
+
         newMethods |> Seq.iter (fun x -> typ.Methods.Add(x))
-    
-    let regenerateImplementsAtt (_type : TypeDefinition) = 
-        if _type.HasCustomAttributes then 
-            let implAtts = _type.CustomAttributes |> Seq.filter (fun a -> a.AttributeType.Name = "ImplementsAttribute")
-            if implAtts
-               |> Seq.length
-               > 0 then 
-                let implAtt = implAtts |> Seq.head
-                let arg = implAtt.ConstructorArguments |> Seq.head
-                if arg.Type.Name <> "String[]" then 
-                    failwithf "Expected type of argument to be String[], but found %s" arg.Type.Name
-                let javaTypes = arg.Value :?> CustomAttributeArgument []
-                
-                let newJavaTypes = 
-                    javaTypes
-                    |> Seq.map (fun jt -> 
-                           if not <| (jt.Value :?> System.String).StartsWith("java.") then 
-                               ConvertNamingConvention(jt.Value :?> System.String)
-                           else (jt.Value :?> System.String))
-                    |> Seq.map (fun strJt -> new CustomAttributeArgument((javaTypes |> Seq.head).Type, strJt))
-                // Replace the Attribute arguments with the new ones
-                implAtt.ConstructorArguments.Clear()
-                implAtt.ConstructorArguments.Add(new CustomAttributeArgument(arg.Type, newJavaTypes.ToArray()))
-    
+        
     let rec ProcessType(typ : TypeDefinition) = 
-        if not (typ.Name = "WindowsDirectory") && not (typ.Name = "NativePosixUtil") then 
-            let classCondition (t : TypeDefinition) = 
-                not t.IsRuntimeSpecialName && t.Name <> "<Module>" && t.Name <> "Resources" && t.IsPublic
-            let nestedClassCondition (t : TypeDefinition) = not t.IsRuntimeSpecialName && t.IsNestedPublic
-            // Replace the Class's namespace and 'Implements' attribute with the FlexLucene version
-            //typ.Namespace <- ConvertNamingConvention(typ.Namespace)
-            //typ |> regenerateImplementsAtt
-            // Change the Method and Field names to FlexLucene convention
-            if classCondition typ || nestedClassCondition typ then 
-                if (not typ.IsInterface || not typ.IsAbstract) && typ.IsPublic then 
-                    // Change field names
-                    typ.Fields
-                    |> Seq.filter (fun x -> x.IsPublic)
-                    |> Seq.iter (fun x -> x.Name <- ConvertNamingConvention(x.Name))
-                    // Change method names
-                    ProcessMethods(typ)
-            // Process all nested types (public, internal, etc)
-            typ.NestedTypes |> Seq.iter ProcessType
+        let classCondition (t : TypeDefinition) = 
+            not t.IsSpecialName && t.Name <> "<Module>" && t.Name <> "Resources" && t.IsPublic
+        let nestedClassCondition (t : TypeDefinition) = not t.IsSpecialName && t.IsNestedPublic
+
+        // Change the Method and Field names to FlexLucene convention
+        if classCondition typ || nestedClassCondition typ then 
+            if (not typ.IsInterface || not typ.IsAbstract) && typ.IsPublic then 
+                ProcessMethods(typ)
+        // Process all nested types (public, internal, etc)
+        typ.NestedTypes |> Seq.iter ProcessType
     
     /// <summary>
     /// Renames all the Java methods to .net style naming convention
     /// </summary>
     let regenerateMethodNames() = 
-        md <- Mono.Cecil.ModuleDefinition.ReadModule(OutputDirectory <!!> "FlexLucene.dll")
+        let parameters = new ReaderParameters()
+        parameters.ReadingMode <- ReadingMode.Immediate
+        md <- Mono.Cecil.ModuleDefinition.ReadModule(OutputDirectory <!!> "FlexLucene.dll", parameters)
         editorBrowsableCtor <- md.Import(typeof<EditorBrowsableAttribute>.GetConstructor(Type.EmptyTypes))
-        obsoleteCtor <- md.Import(typeof<ObsoleteAttribute>.GetConstructor(Type.EmptyTypes))
         editorStateRef <- md.Import(typeof<EditorBrowsableState>)
         md.Types |> Seq.iter ProcessType
         md.Write(OutputDirectory <!!> "FlexLucene.dll")
