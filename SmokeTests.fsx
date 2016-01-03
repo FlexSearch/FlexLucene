@@ -172,6 +172,43 @@ let EqualityWorksCorrectly() =
     Assert.Equal<int>(termQuery1.GetHashCode(), termQuery1.hashCode())
     Assert.Equal<Query>(termQuery1, termQuery2)
 
+type DummyIndexInput(dummy : string) =
+    inherit IndexInput(dummy)
+        override __.Length() = 0L
+        override __.Seek(l) = ()
+        override __.close() = ()
+        override __.GetFilePointer() = 0L
+        override this.Slice(a, b, c) = this :> IndexInput
+        override __.ReadBytes(a, b, c) = ()
+        override __.ReadByte() = 1uy
+        override this.equals(a) = a.GetHashCode() = this.GetHashCode() 
+        override __.hashCode() = dummy.Length
+
+let GetHashCodeCallshashCodeBehindTheScene() =
+    let a = new DummyIndexInput("test1")
+    let b = new DummyIndexInput("test02")
+    let c = new DummyIndexInput("test1")
+    printfn "Hash Code tests"
+    printfn "a GetHashCode: %i" <| a.GetHashCode()
+    printfn "a hashCode: %i" <| a.hashCode()
+    printfn "b GetHashCode: %i" <| b.GetHashCode()
+    printfn "b hashCode: %i" <| b.hashCode()
+    printfn "c GetHashCode: %i" <| c.GetHashCode()
+    printfn "c hashCode: %i" <| c.hashCode()
+    Assert.True(a.GetHashCode() = a.hashCode())
+    Assert.True(b.GetHashCode() = b.hashCode())
+    Assert.True(c.GetHashCode() = c.hashCode())
+    Assert.False(a.GetHashCode() = b.GetHashCode())
+    Assert.False(a.hashCode() = b.hashCode())
+    Assert.True(a.GetHashCode() = c.GetHashCode())
+    Assert.True(a.hashCode() = c.hashCode())
+    Assert.True(a.Equals(c))
+    Assert.True(a.equals(c))
+    Assert.True(c.Equals(a))
+    Assert.True(c.equals(a))
+    Assert.False(a.Equals(b))
+    Assert.False(a.equals(b))
+    
 let executeTests() = 
     [| 
         CodecsShouldLoadProperly
@@ -185,6 +222,7 @@ let executeTests() =
         MutableValueDoesNotHaveDuplicateMethods
         ToStringWorksCorrectly
         EqualityWorksCorrectly
+        GetHashCodeCallshashCodeBehindTheScene
     |] 
     |> Array.iter exceptionWrapper
     if hasErrors then
