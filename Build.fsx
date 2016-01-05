@@ -364,10 +364,46 @@ module CecilWriter =
         let attr = new CustomAttribute(editorBrowsableCtor)
         attr.Properties.Add
             (new CustomAttributeNamedArgument("EditorBrowsableState", new CustomAttributeArgument(editorStateRef, 1)))
-        attr  
+        attr
    
     let ProcessMethods(typ : TypeDefinition) = 
         let newMethods = new ResizeArray<MethodDefinition>()
+
+        let hasEditorBrowsableAttribute(meth : MethodDefinition) =
+            meth.CustomAttributes
+            |> Seq.exists(fun x -> x.GetType() = typeof<EditorBrowsableAttribute>)
+
+        let addShadowMethod(meth : MethodDefinition, makeFinal : bool) =
+            printfn "[INFO] Adding a shadow method for the abstract method: %s" meth.FullName
+            // This must be a method from the java.lang package as we were not able to rename it 
+            // using Proguard. Let's inject a new method which will shadow this method and will have
+            // proper case.
+            let newMeth = new MethodDefinition(getName(meth.Name), meth.Attributes, meth.ReturnType)
+            // http://comments.gmane.org/gmane.comp.java.ikvm.devel/2463
+            if meth.Name = "hashCode" then
+                newMeth.Name <- "GetHashCode"
+            if makeFinal then
+                newMeth.IsAbstract <- false
+                newMeth.IsVirtual <- false
+                newMeth.IsCheckAccessOnOverride <- false
+                newMeth.IsFinal <- false
+                newMeth.IsNewSlot <- false
+            else
+                // Use these to generate correct ToString overrides
+                newMeth.IsAbstract <- false
+                newMeth.IsVirtual <- false
+                newMeth.IsCheckAccessOnOverride <- false
+                newMeth.IsFinal <- false
+                newMeth.IsNewSlot <- false
+                newMeth.IsReuseSlot <- true
+
+            newMeth.Body <- new MethodBody(newMeth)
+            let ilProcessor = newMeth.Body.GetILProcessor()
+            ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_0))
+            ilProcessor.Append(ilProcessor.Create(OpCodes.Callvirt, meth))
+            ilProcessor.Append(ilProcessor.Create(OpCodes.Ret)) 
+            newMethods.Add(newMeth)
+
         for meth in typ.Methods do
             // Remove the no in-line attribute from IKVM generated code as it is due to a
             // .net 2.0 related issue
@@ -393,36 +429,24 @@ module CecilWriter =
                     && not <| Char.IsUpper(startsWith) 
                     && startsWith <> '<' 
                     && implAtts = 0 then 
-                        if meth.IsAbstract && not meth.HasParameters && meth.Name <> "toString" && meth.Name <> "hashCode" then
-                            printfn "[INFO] Adding a shadow method for the abstract method: %s" meth.FullName
-                            // This must be a method from the java.lang package as we were not able to rename it 
-                            // using Proguard. Let's inject a new method which will shadow this method and will have
-                            // proper case.
-                            let newMeth = new MethodDefinition(getName(meth.Name), meth.Attributes, meth.ReturnType)
-                            newMeth.IsAbstract <- false
-                            newMeth.IsVirtual <- false
-                            newMeth.IsCheckAccessOnOverride <- false
-                            newMeth.IsFinal <- false
-                            newMeth.IsNewSlot <- false
-                            newMeth.Body <- new MethodBody(newMeth)
-                            let ilProcessor = newMeth.Body.GetILProcessor()
-                            ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_0))
-                            ilProcessor.Append(ilProcessor.Create(OpCodes.Callvirt, meth))
-                            ilProcessor.Append(ilProcessor.Create(OpCodes.Ret)) 
-                            newMethods.Add(newMeth)
+                        if meth.IsAbstract && not meth.HasParameters then
+                            addShadowMethod(meth, true)
                         else if not meth.IsAbstract then
-                            let newMeth = new MethodDefinition(getName(meth.Name), meth.Attributes, meth.ReturnType)
-                            // http://comments.gmane.org/gmane.comp.java.ikvm.devel/2463
-                            if meth.Name = "hashCode" then
-                                newMeth.Name <- "GetHashCode"
-                            meth.Parameters |> Seq.iter (fun x -> newMeth.Parameters.Add(x))                    
-                            newMeth.Body <- meth.Body
-                            /// Copy all attributes from the existing method to the new method 
-                            meth.CustomAttributes 
-                            |> Seq.iter(fun x -> newMeth.CustomAttributes.Add(x)) 
-                            newMethods.Add(newMeth)
-                            // Make the method non browsable from the IDE
-                            meth.CustomAttributes.Add(GetEditorBrowsableAttr())
+                            if meth.Name = "toString" || meth.Name = "hashCode" then
+                                addShadowMethod(meth, false)
+                                
+                                // Make the original method non browsable from the IDE
+                                meth.CustomAttributes.Add(GetEditorBrowsableAttr())
+                            else
+                                let newMeth = new MethodDefinition(getName(meth.Name), meth.Attributes, meth.ReturnType)
+                                meth.Parameters |> Seq.iter (fun x -> newMeth.Parameters.Add(x))
+                                newMeth.Body <- meth.Body
+                                /// Copy all attributes from the existing method to the new method 
+                                meth.CustomAttributes 
+                                |> Seq.iter(fun x -> newMeth.CustomAttributes.Add(x))
+                                newMethods.Add(newMeth)
+                                // Make the method non browsable from the IDE
+                                meth.CustomAttributes.Add(GetEditorBrowsableAttr())
 
         newMethods |> Seq.iter (fun x -> typ.Methods.Add(x))
         
