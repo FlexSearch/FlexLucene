@@ -355,6 +355,7 @@ module Mapper =
 // Mono Cecil based rewrite section
 // ---------------------------------------------
 module CecilWriter = 
+
     let mutable md : ModuleDefinition = Unchecked.defaultof<_>
     let mutable editorBrowsableCtor : MethodReference = Unchecked.defaultof<_>
     let mutable editorStateRef : TypeReference = Unchecked.defaultof<_>
@@ -373,30 +374,27 @@ module CecilWriter =
             meth.CustomAttributes
             |> Seq.exists(fun x -> x.GetType() = typeof<EditorBrowsableAttribute>)
 
-        let addShadowMethod(meth : MethodDefinition, makeFinal : bool) =
-            printfn "[INFO] Adding a shadow method for the abstract method: %s" meth.FullName
-            // This must be a method from the java.lang package as we were not able to rename it 
-            // using Proguard. Let's inject a new method which will shadow this method and will have
-            // proper case.
-            let newMeth = new MethodDefinition(getName(meth.Name), meth.Attributes, meth.ReturnType)
+        let specialMethodNames = ["toString"; "hashCode" ]
+
+        /// Generate a method which is calls the passed method and uses .net style 
+        /// naming convention.
+        /// This must be a method from the java.lang package as we were not able to rename it 
+        /// using Proguard. Let's inject a new method which will shadow this method and will have
+        /// proper case.    
+        let addShadowMethod(meth : MethodDefinition) =
+            printfn "[INFO] Adding a shadow method for the method: %s" meth.FullName
+            let methAttributes = 
+                if specialMethodNames.Contains(meth.Name) then
+                    MethodAttributes.Public ||| MethodAttributes.HideBySig ||| MethodAttributes.Virtual ||| MethodAttributes.ReuseSlot
+                else
+                    MethodAttributes.Public
+
+            let newMeth = new MethodDefinition(getName(meth.Name), methAttributes, meth.ReturnType)
+            
             // http://comments.gmane.org/gmane.comp.java.ikvm.devel/2463
             if meth.Name = "hashCode" then
                 newMeth.Name <- "GetHashCode"
-            if makeFinal then
-                newMeth.IsAbstract <- false
-                newMeth.IsVirtual <- false
-                newMeth.IsCheckAccessOnOverride <- false
-                newMeth.IsFinal <- false
-                newMeth.IsNewSlot <- false
-            else
-                // Use these to generate correct ToString overrides
-                newMeth.IsAbstract <- false
-                newMeth.IsVirtual <- false
-                newMeth.IsCheckAccessOnOverride <- false
-                newMeth.IsFinal <- false
-                newMeth.IsNewSlot <- false
-                newMeth.IsReuseSlot <- true
-
+            
             newMeth.Body <- new MethodBody(newMeth)
             let ilProcessor = newMeth.Body.GetILProcessor()
             ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_0))
@@ -430,10 +428,10 @@ module CecilWriter =
                     && startsWith <> '<' 
                     && implAtts = 0 then 
                         if meth.IsAbstract && not meth.HasParameters then
-                            addShadowMethod(meth, true)
+                            addShadowMethod(meth)
                         else if not meth.IsAbstract then
                             if meth.Name = "toString" || meth.Name = "hashCode" then
-                                addShadowMethod(meth, false)
+                                addShadowMethod(meth)
                                 
                                 // Make the original method non browsable from the IDE
                                 meth.CustomAttributes.Add(GetEditorBrowsableAttr())
