@@ -355,10 +355,12 @@ module Mapper =
 // Mono Cecil based rewrite section
 // ---------------------------------------------
 module CecilWriter = 
-
+    open System.Runtime.CompilerServices
     let mutable md : ModuleDefinition = Unchecked.defaultof<_>
     let mutable editorBrowsableCtor : MethodReference = Unchecked.defaultof<_>
+    let mutable methodImplCtor : MethodReference = Unchecked.defaultof<_>
     let mutable editorStateRef : TypeReference = Unchecked.defaultof<_>
+    let mutable methodImplRef : TypeReference = Unchecked.defaultof<_>
     
     // Custom attribute to stop method from showing in intellisense
     let GetEditorBrowsableAttr() = 
@@ -367,6 +369,11 @@ module CecilWriter =
             (new CustomAttributeNamedArgument("EditorBrowsableState", new CustomAttributeArgument(editorStateRef, 1)))
         attr
    
+    let getAggressiveInliningAttr() =
+        let attr = new CustomAttribute(methodImplCtor)
+        attr.ConstructorArguments.Add(new CustomAttributeArgument(methodImplRef, MethodImplOptions.AggressiveInlining))
+        attr
+
     let ProcessMethods(typ : TypeDefinition) = 
         let newMethods = new ResizeArray<MethodDefinition>()
 
@@ -407,6 +414,8 @@ module CecilWriter =
             // Add the necessary parameters
             meth.Parameters |> Seq.iter newMeth.Parameters.Add
 
+            newMeth.CustomAttributes.Add <| getAggressiveInliningAttr()
+
             newMeth.Body <- new MethodBody(newMeth)
             let ilProcessor = newMeth.Body.GetILProcessor()
             ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_0))
@@ -444,7 +453,6 @@ module CecilWriter =
                     && startsWith <> '<' 
                     && implAtts = 0 then 
                         if meth.IsAbstract then
-                            printfn "Adding abstract method %s" meth.Name
                             addShadowMethod(meth)
                         else if not meth.IsAbstract then
                             if specialMethodNames |> Seq.exists ((=) meth.Name) then
@@ -486,6 +494,8 @@ module CecilWriter =
         md <- Mono.Cecil.ModuleDefinition.ReadModule(OutputDirectory <!!> "FlexLucene.dll", parameters)
         editorBrowsableCtor <- md.Import(typeof<EditorBrowsableAttribute>.GetConstructor(Type.EmptyTypes))
         editorStateRef <- md.Import(typeof<EditorBrowsableState>)
+        methodImplCtor <- md.Import(typeof<MethodImplAttribute>.GetConstructor([| typeof<MethodImplOptions> |]))
+        methodImplRef <- md.Import(typeof<MethodImplOptions>)
         md.Types |> Seq.iter ProcessType
         md.Write(OutputDirectory <!!> "FlexLucene.dll")
 
