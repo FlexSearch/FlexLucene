@@ -381,19 +381,28 @@ module CecilWriter =
         /// This must be a method from the java.lang package as we were not able to rename it 
         /// using Proguard. Let's inject a new method which will shadow this method and will have
         /// proper case.    
+        ///
+        /// System.Object's virtual ToString(), GetHashCode() and Equals() methods are hidden (using 'new' keyword)
+        /// by the implementation of java.lang.Object. Therefore, any Lucene class that implements java.lang.Object 
+        /// cannot override these methods. You can only further hide them using the 'new' keyword.
+        ///
+        /// If you want to override one of these methods from the generated FlexLucene classes then you have to
+        /// override the methods they are calling (i.e. toString(), hashCode() and equals(), respectively). 
+        /// e.g. override toString() = base.toString() + "<overridden>"
         let addShadowMethod(meth : MethodDefinition) =
             printfn "[INFO] Adding a shadow method for the method: %s" meth.FullName
             let methAttributes = 
                 if specialMethodNames.Contains(meth.Name) then
-                    MethodAttributes.Public ||| MethodAttributes.HideBySig ||| MethodAttributes.Virtual ||| MethodAttributes.ReuseSlot
+                    // We don't want to make the generated method virtual because that will have a performance impact
+                    // http://stackoverflow.com/questions/667634/what-is-the-performance-cost-of-having-a-virtual-method-in-a-c-class
+                    MethodAttributes.Public ||| MethodAttributes.HideBySig //||| MethodAttributes.Virtual ||| MethodAttributes.CheckAccessOnOverride
                 else
                     MethodAttributes.Public
-
-            let newMeth = new MethodDefinition(getName(meth.Name), methAttributes, meth.ReturnType)
             
+            let newMeth = new MethodDefinition(getName(meth.Name), methAttributes, meth.ReturnType)
+
             // http://comments.gmane.org/gmane.comp.java.ikvm.devel/2463
-            if meth.Name = "hashCode" then
-                newMeth.Name <- "GetHashCode"
+            if meth.Name = "hashCode" then newMeth.Name <- "GetHashCode"
             
             newMeth.Body <- new MethodBody(newMeth)
             let ilProcessor = newMeth.Body.GetILProcessor()
@@ -416,7 +425,7 @@ module CecilWriter =
                     |> Seq.filter (fun a -> a.AttributeType.Name =  typeof<EditorBrowsableAttribute>.Name)
                     |> Seq.length
 
-                if  not meth.IsRuntimeSpecialName 
+                if not meth.IsRuntimeSpecialName 
                     && not meth.IsSpecialName 
                     && not meth.IsConstructor 
                     && not meth.IsNative 

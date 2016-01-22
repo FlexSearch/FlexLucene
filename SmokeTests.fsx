@@ -161,6 +161,37 @@ let ToStringWorksCorrectly() =
     printfn "TermQuery ToString : %s" (query.ToString())
     Assert.Equal<string>(query.toString(), query.ToString())
 
+open Com.Spatial4j.Core.Shape.Impl
+open Com.Spatial4j.Core.Shape
+let JavaToStringOverrideIsPickedUpByGeneratedToString() =
+    let baseClass = new RectangleImpl(1.0, 1.0, 1.0, 1.0, SpatialContext.GEO)
+    printfn "RectangleImpl ToString : %s" <| baseClass.ToString()
+    Assert.Equal<string>(baseClass.toString(), baseClass.ToString())
+
+    // Override java's toString()
+    let javaOverrideClass = { new RectangleImpl(1.0, 1.0, 1.0, 1.0, SpatialContext.GEO) with
+            override this.toString() = base.toString() + "<overridden>" 
+            override this.GetBuffered(d : float, sc : SpatialContext) : Shape = base.GetBuffered(d, sc) :> Shape }
+    printfn "override toString RectangleImpl ToString : %s" <| javaOverrideClass.ToString()
+    Assert.Equal<string>(javaOverrideClass.toString(), javaOverrideClass.ToString())
+    Assert.Equal<string>(javaOverrideClass.ToString(), baseClass.toString() + "<overridden>")
+
+    // Overriding FlexLucene's generated ToString() will just override System.Object's virtual ToString().
+    // However, when calling the derived class, the generated FlexLucene's ToString method will be called (see e.g. *1*).
+    // System.Object's ToString() method from the derived class will be called only if you cast the derived
+    // instance to object (see e.g. *2*).
+    let flexOverrideClass = { new RectangleImpl(1.0, 1.0, 1.0, 1.0, SpatialContext.GEO) with
+            override this.ToString() = base.ToString() + "<overridden>" 
+            override this.GetBuffered(d : float, sc : SpatialContext) : Shape = base.GetBuffered(d, sc) :> Shape }
+    printfn "RectangleImpl ToString without casting: %s" <| flexOverrideClass.ToString()
+    printfn "RectangleImpl ToString with casting: %s" <| (flexOverrideClass :> obj).ToString()
+    // E.g. *1*
+    Assert.Equal<string>(baseClass.toString(), flexOverrideClass.ToString())
+    // E.g. *2*
+    Assert.Equal<string>(baseClass.toString() + "<overridden>", (flexOverrideClass :> obj).ToString())
+    Assert.Equal<string>(flexOverrideClass.toString(), baseClass.toString())
+
+
 let EqualityWorksCorrectly() =
     let query1 = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
     let query2 = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
@@ -221,6 +252,7 @@ let executeTests() =
         SimpleSpatialTests
         MutableValueDoesNotHaveDuplicateMethods
         ToStringWorksCorrectly
+        JavaToStringOverrideIsPickedUpByGeneratedToString
         EqualityWorksCorrectly
         GetHashCodeCallshashCodeBehindTheScene
     |] 
