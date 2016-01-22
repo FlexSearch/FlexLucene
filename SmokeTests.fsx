@@ -240,6 +240,22 @@ let GetHashCodeCallshashCodeBehindTheScene() =
     Assert.False(a.Equals(b))
     Assert.False(a.equals(b))
     
+let GeneratedEqualsCallsJavaEqualsBehindTheScenes() =
+    let baseClass = new RectangleImpl(1.0, 1.0, 1.0, 1.0, SpatialContext.GEO)
+    let baseClass2 = new RectangleImpl(1.0, 1.0, 1.0, 1.0, SpatialContext.GEO)
+
+    Assert.Equal(baseClass, baseClass)
+    Assert.True(baseClass.Equals(baseClass))
+    Assert.True((baseClass = baseClass))
+    Assert.Equal(baseClass, baseClass2)
+
+    let javaOverrideClass = { new RectangleImpl(1.0, 1.0, 1.0, 1.0, SpatialContext.GEO) with
+            override this.equals(obj) = false 
+            override this.GetBuffered(d : float, sc : SpatialContext) : Shape = base.GetBuffered(d, sc) :> Shape }
+
+    Assert.False(javaOverrideClass.Equals(javaOverrideClass))
+    Assert.False((javaOverrideClass = javaOverrideClass))
+
 let executeTests() = 
     [| 
         CodecsShouldLoadProperly
@@ -255,6 +271,7 @@ let executeTests() =
         JavaToStringOverrideIsPickedUpByGeneratedToString
         EqualityWorksCorrectly
         GetHashCodeCallshashCodeBehindTheScene
+        GeneratedEqualsCallsJavaEqualsBehindTheScenes
     |] 
     |> Array.iter exceptionWrapper
     if hasErrors then

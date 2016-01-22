@@ -374,7 +374,7 @@ module CecilWriter =
             meth.CustomAttributes
             |> Seq.exists(fun x -> x.GetType() = typeof<EditorBrowsableAttribute>)
 
-        let specialMethodNames = ["toString"; "hashCode" ]
+        let specialMethodNames = ["toString"; "hashCode"; "equals" ]
 
         /// Generate a method which is calls the passed method and uses .net style 
         /// naming convention.
@@ -404,9 +404,16 @@ module CecilWriter =
             // http://comments.gmane.org/gmane.comp.java.ikvm.devel/2463
             if meth.Name = "hashCode" then newMeth.Name <- "GetHashCode"
             
+            // Add the necessary parameters
+            meth.Parameters |> Seq.iter newMeth.Parameters.Add
+
             newMeth.Body <- new MethodBody(newMeth)
             let ilProcessor = newMeth.Body.GetILProcessor()
             ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_0))
+            if meth.Parameters.Count > 0 then ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_1))
+            if meth.Parameters.Count > 1 then ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_2))
+            if meth.Parameters.Count > 2 then ilProcessor.Append(ilProcessor.Create(OpCodes.Ldarg_3))
+            // TODO if we have more than 3 parameters in a method, we will need to use OpCodes.Ldarg_S
             ilProcessor.Append(ilProcessor.Create(OpCodes.Callvirt, meth))
             ilProcessor.Append(ilProcessor.Create(OpCodes.Ret)) 
             newMethods.Add(newMeth)
@@ -436,10 +443,11 @@ module CecilWriter =
                     && not <| Char.IsUpper(startsWith) 
                     && startsWith <> '<' 
                     && implAtts = 0 then 
-                        if meth.IsAbstract && not meth.HasParameters then
+                        if meth.IsAbstract then
+                            printfn "Adding abstract method %s" meth.Name
                             addShadowMethod(meth)
                         else if not meth.IsAbstract then
-                            if meth.Name = "toString" || meth.Name = "hashCode" then
+                            if specialMethodNames |> Seq.exists ((=) meth.Name) then
                                 addShadowMethod(meth)
                                 
                                 // Make the original method non browsable from the IDE
