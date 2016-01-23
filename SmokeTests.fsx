@@ -256,6 +256,24 @@ let GeneratedEqualsCallsJavaEqualsBehindTheScenes() =
     Assert.False(javaOverrideClass.Equals(javaOverrideClass))
     Assert.False((javaOverrideClass = javaOverrideClass))
 
+type DerivedIndexInput(s) =
+    inherit IndexInput(s)
+    override __.Length() = 1L
+    override __.Seek(l) = ()
+    override __.close() = ()
+    override __.Clone() = new DerivedIndexInput("clone") :> IndexInput
+    override __.GetFilePointer() = 1L
+    override __.Slice(str, l1, l2) = __ :> IndexInput
+    override __.ReadBytes(barr, i1, i2, b) = ()
+    override __.ReadBytes(barr, i1, i2) = ()
+    override __.ReadByte() = 1uy
+
+let OverridingCloneDoesntShowWarning() =
+    let x = new DerivedIndexInput("x")
+    let clone = x.Clone()
+    Assert.Equal<string>(x.ToString(), "x")
+    Assert.Equal<string>(clone.ToString(), "clone")
+
 let executeTests() = 
     [| 
         CodecsShouldLoadProperly
@@ -272,6 +290,7 @@ let executeTests() =
         EqualityWorksCorrectly
         GetHashCodeCallshashCodeBehindTheScene
         GeneratedEqualsCallsJavaEqualsBehindTheScenes
+        OverridingCloneDoesntShowWarning
     |] 
     |> Array.iter exceptionWrapper
     if hasErrors then
