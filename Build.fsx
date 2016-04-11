@@ -177,7 +177,12 @@ let extractMetaInformation() =
                                                  let info = Directory.CreateDirectory(TempDirectory <!!> entry.Name)
                                                  entry.ExtractToFile(info.FullName <!!> (Guid.NewGuid().ToString()))
                                                  entry.FullName :: acc
-                                             else if entry.FullName.StartsWith("META-INF") then entry.FullName :: acc
+                                             else if entry.FullName.StartsWith("META-INF") 
+                                                  && not <| entry.FullName.EndsWith("RSA") 
+                                                  && not <| entry.FullName.EndsWith("SF") 
+                                                then 
+                                                    !>> (sprintf "Adding META-INF entry to the jar:  %s" entry.FullName)
+                                                    entry.FullName :: acc
                                              else acc) [] archive.Entries
                                      toBeDeleted |> Seq.iter (fun res -> archive.GetEntry(res).Delete()))
 
@@ -244,7 +249,7 @@ let addBuildInformation() =
     patchExec (sprintf """%s %s /pv %s /va""" finalDllPath LuceneFullVersion FileVersion)
     patchExec (sprintf """%s /s FileDescription "Built using IKVM version %s" """ finalDllPath IkvmVersion)
     patchExec (sprintf """%s /s product "FlexSearch Search Engine" """ finalDllPath)
-    patchExec (sprintf """%s /s copyright "(c) 2010-2015 FlexSearch" """ finalDllPath)
+    patchExec (sprintf """%s /s copyright "(c) 2010-2016 FlexSearch" """ finalDllPath)
 
 /// Generates the mapping information from the ProGuard mapping file
 module Mapper =

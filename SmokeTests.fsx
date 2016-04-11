@@ -33,7 +33,7 @@ let exceptionWrapper (meth : unit -> unit) =
         printfn "------------------------------------------------"
         
 let ShouldHaveCodec50() = Assert.True(Codec.AvailableCodecs().contains("Lucene50"), sprintf "Lucene50Codec not found. Available Codecs: %A" (Codec.AvailableCodecs()))
-let ShouldHaveCodec410() = Assert.True(Codec.AvailableCodecs().contains("Lucene410"), sprintf "Lucene410Codec not found. Available Codecs: %A" (Codec.AvailableCodecs()))
+let ShouldHaveCodec410() = Assert.True(Codec.AvailableCodecs().contains("Lucene60"), sprintf "Lucene60Codec not found. Available Codecs: %A" (Codec.AvailableCodecs()))
 
 let IndexingTest(directory : FlexLucene.Store.Directory) = 
     let analyzer = new StandardAnalyzer()
