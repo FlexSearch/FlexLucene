@@ -50,7 +50,7 @@ let IndexingTest(directory : FlexLucene.Store.Directory) =
     // Parse a simple query that searches for "text":
     let parser = new QueryParser("fieldname", analyzer)
     let query = parser.Parse("text")
-    let topDocs = isearcher.Search(query, null, 1000)
+    let topDocs = isearcher.Search(query, 1000)
     let hits : ScoreDoc [] = topDocs.ScoreDocs
     Assert.Equal<int>(1, hits.Length)
     // Iterate through the results:
@@ -82,11 +82,12 @@ let IndexingTests() =
     (fun _ -> IndexingTest(FSDirectory.Open(GetRandomPath()))) |> exceptionWrapper
 
 let BooleanQueryCreationTests() = 
-    let query = new BooleanQuery(true)
-    query.Add(new BooleanClause(new TermQuery(new Term("dummy")), BooleanClauseOccur.MUST))
+    let query = new BooleanQueryBuilder()
+    query.Add(new BooleanClause(new TermQuery(new Term("dummy")), BooleanClauseOccur.MUST)) |> ignore
+    ()
 
 let RangeQueryCreationTests() = 
-    let query = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    let query = LegacyNumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
     ()
 
 open FlexLucene.Analysis
@@ -138,13 +139,13 @@ let TokenizationTest() =
     printfn "Actual : %A" result
     Assert.Equal<List<string>>(expected, result)
 
-open Com.Spatial4j.Core.Context
+open Org.Locationtech.Spatial4j.Context
 let SimpleSpatialTests() = 
     let ctx = SpatialContext.GEO
     let grid = new GeohashPrefixTree(ctx, 11)
     let strategy = new RecursivePrefixTreeStrategy(grid, "myGeoField")
     let doc = new Document()
-    doc.Add(new IntField("id", 1, FieldStore.YES))
+    doc.Add(new LegacyIntField("id", 1, FieldStore.YES))
     let pt = ctx.MakePoint(10.0, 10.0)
     doc.Add(new StoredField(strategy.GetFieldName(), pt.GetX().ToString() + " " + pt.GetY().ToString()))
 
@@ -154,15 +155,15 @@ let MutableValueDoesNotHaveDuplicateMethods() =
     Assert.True(value.Exists() = true, "Should be able to use the _ method in case of naming conflicts.")
 
 let ToStringWorksCorrectly() =
-    let query = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    let query = LegacyNumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
     printfn "RangeQuery ToString : %s" (query.ToString())
     Assert.Equal<string>(query.toString(), query.ToString())
     let query = new TermQuery(new Term("Hello"))
     printfn "TermQuery ToString : %s" (query.ToString())
     Assert.Equal<string>(query.toString(), query.ToString())
 
-open Com.Spatial4j.Core.Shape.Impl
-open Com.Spatial4j.Core.Shape
+open Org.Locationtech.Spatial4j.Shape.Impl
+open Org.Locationtech.Spatial4j.Shape
 let JavaToStringOverrideIsPickedUpByGeneratedToString() =
     let baseClass = new RectangleImpl(1.0, 1.0, 1.0, 1.0, SpatialContext.GEO)
     printfn "RectangleImpl ToString : %s" <| baseClass.ToString()
@@ -193,9 +194,9 @@ let JavaToStringOverrideIsPickedUpByGeneratedToString() =
 
 
 let EqualityWorksCorrectly() =
-    let query1 = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
-    let query2 = NumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
-    let query3 = NumericRangeQuery.NewDoubleRange("test3", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    let query1 = LegacyNumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    let query2 = LegacyNumericRangeQuery.NewDoubleRange("test", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
+    let query3 = LegacyNumericRangeQuery.NewDoubleRange("test3", java.lang.Double(32.0), java.lang.Double(33.0), true, true)
     Assert.Equal<Query>(query1, query2)
     Assert.NotEqual<Query>(query1, query3)
     let termQuery1 = new TermQuery(new Term("Hello"))
