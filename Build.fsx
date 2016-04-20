@@ -186,6 +186,42 @@ let extractMetaInformation() =
                                              else acc) [] archive.Entries
                                      toBeDeleted |> Seq.iter (fun res -> archive.GetEntry(res).Delete()))
 
+/// <summary
+/// Add resource files to the FlexLucene.* classpath as well
+/// </summary>
+let addResourceFilesToFlexLuceneClassPath() =
+    // Create a temporary directory to store the files to copy
+    let tmpDir = CreateAndEmptyDirectory( TempDirectory <!!> "Resources")
+
+    let capitalizeAfterSlash (str : string) =
+        let finalSlash = str.LastIndexOf('/')
+        let chars = str.ToCharArray()
+        [1..chars.Length]
+        |> Seq.iter (fun i -> if chars.[i-1] = '/' && i-1 <> finalSlash
+                              then chars.[i] <- Char.ToUpper chars.[i])
+
+        new string(chars)
+
+    let generateFlexLuceneResource (entry : ZipArchiveEntry)  =
+        let fn = tmpDir <!!> (Guid.NewGuid()).ToString()
+        entry.ExtractToFile fn
+        let newPath = entry.FullName.Replace(@"org/apache/lucene", "FlexLucene")
+                      |> capitalizeAfterSlash
+        !> (sprintf "orig: %s;  new: %s" entry.FullName newPath)
+        (fn, newPath)
+
+    loopFiles LuceneDirectory
+    |> Seq.iter (fun file ->
+            use archive = ZipFile.Open(file, ZipArchiveMode.Update) 
+
+            archive.Entries
+            |> Seq.filter (fun e -> e.Name.EndsWith(".txt"))
+            |> Seq.map generateFlexLuceneResource
+            |> Seq.toList
+            |> Seq.iter (archive.CreateEntryFromFile >> ignore))
+            
+        
+
 /// <summary>
 /// Builds FlexLucene compatible meta data information
 /// </summary>
@@ -536,6 +572,7 @@ let tasks =
       copyLuceneFilesToTarget, "Copy Lucene files to be compiled"
       extractMetaInformation, "Extract meta information from packages"
       generateMetaInformation, "Generate new meta data information"
+      addResourceFilesToFlexLuceneClassPath, "Add Resource files to FlexLucene class path"
       copyLibraries, "Copy Library files"
       executeProguard, "Execute Proguard"
       Mapper.generateRenameMapping, "Generating mapping information"

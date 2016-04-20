@@ -275,6 +275,11 @@ let OverridingCloneDoesntShowWarning() =
     Assert.Equal<string>(x.ToString(), "x")
     Assert.Equal<string>(clone.ToString(), "clone")
 
+open FlexLucene.Analysis.De
+let CreatingInBuiltAnalyzerThatUsesEmbeddedResourcesDoesntThrowError() =
+    let x = new GermanAnalyzer()
+    ()
+
 let executeTests() = 
     [| 
         CodecsShouldLoadProperly
@@ -292,6 +297,7 @@ let executeTests() =
         GetHashCodeCallshashCodeBehindTheScene
         GeneratedEqualsCallsJavaEqualsBehindTheScenes
         OverridingCloneDoesntShowWarning
+        CreatingInBuiltAnalyzerThatUsesEmbeddedResourcesDoesntThrowError
     |] 
     |> Array.iter exceptionWrapper
     if hasErrors then
