@@ -2,75 +2,154 @@
 [INFO] Starting FlexLucene Build
 [INFO] ------------------------------------------------------------------------
 [INFO] Global Variable Information
-	IKVM Version: 8.0.5449.1
-	Lucene Version: 5.2.0
-	Lucene full Version: 5.2.0.0
-	File Version: 5.2.0.0
-	JAVA_HOME: C:\Program Files\Java\jdk1.7.0_07
+	IKVM Version: 8.1.5717.0
+	Lucene Version: 6.0.0
+	Lucene full Version: 6.0.1.0
+	File Version: 6.0.1.0
+	JAVA_HOME: C:\Program Files\Java\jdk1.8.0_31
 [INFO] ------------------------------------------------------------------------
-[INFO] ------------------------------------------------------------------------
-[INFO] TASK: FlexSearch.Codecs compilation phase
-	Compiling using MAVEN.
-
-C:\Seemant\Personal\GitHub\FlexLucene>mvn package -f "FlexSearch.Codecs\pom.xml" 
-[INFO] Scanning for projects...
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building FlexSearch.Codec 5.1.0
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ FlexSearch.Codec ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 1 resource
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ FlexSearch.Codec ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ FlexSearch.Codec ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\Seemant\Personal\GitHub\FlexLucene\FlexSearch.Codecs\src\test\resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ FlexSearch.Codec ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ FlexSearch.Codec ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ FlexSearch.Codec ---
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.158 s
-[INFO] Finished at: 2015-06-03T08:39:00+01:00
-[INFO] Final Memory: 10M/183M
-[INFO] ------------------------------------------------------------------------
-	Copy FlexSearch.Codec-0.0.0.jar to Lucene Files directory
-[INFO] ------------------------------------------------------------------------
+	Root Directory: D:\Github\FlexLucene
+	Work Directory: D:\Github\FlexLucene\Work
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy Lucene files to be compiled
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\core\lucene-core-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\analysis\common\lucene-analyzers-common-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\analysis\phonetic\lucene-analyzers-phonetic-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\backward-codecs\lucene-backward-codecs-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\codecs\lucene-codecs-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\queries\lucene-queries-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\queryparser\lucene-queryparser-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\facet\lucene-facet-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\suggest\lucene-suggest-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\misc\lucene-misc-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\memory\lucene-memory-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\highlighter\lucene-highlighter-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\join\lucene-join-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\grouping\lucene-grouping-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\spatial\lucene-spatial-5.2.0.jar
-	Copying: C:\Seemant\Personal\GitHub\FlexLucene\lucene-5.2.0\sandbox\lucene-sandbox-5.2.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\core\lucene-core-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\analysis\common\lucene-analyzers-common-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\analysis\phonetic\lucene-analyzers-phonetic-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\backward-codecs\lucene-backward-codecs-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\codecs\lucene-codecs-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\queries\lucene-queries-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\queryparser\lucene-queryparser-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\facet\lucene-facet-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\suggest\lucene-suggest-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\misc\lucene-misc-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\memory\lucene-memory-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\highlighter\lucene-highlighter-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\join\lucene-join-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\grouping\lucene-grouping-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\classification\lucene-classification-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\spatial\lucene-spatial-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\spatial3d\lucene-spatial3d-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\spatial-extras\lucene-spatial-extras-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.0\sandbox\lucene-sandbox-6.0.0.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Extract meta information from packages
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Generate new meta data information
 [INFO] Create meta data jar
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Add Resource files to FlexLucene class path
+[INFO] orig: org/apache/lucene/analysis/ar/stopwords.txt;  new: FlexLucene/Analysis/Ar/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/bg/stopwords.txt;  new: FlexLucene/Analysis/Bg/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/br/stopwords.txt;  new: FlexLucene/Analysis/Br/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/ca/stopwords.txt;  new: FlexLucene/Analysis/Ca/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/cjk/stopwords.txt;  new: FlexLucene/Analysis/Cjk/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/ckb/stopwords.txt;  new: FlexLucene/Analysis/Ckb/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/cz/stopwords.txt;  new: FlexLucene/Analysis/Cz/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/el/stopwords.txt;  new: FlexLucene/Analysis/El/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/eu/stopwords.txt;  new: FlexLucene/Analysis/Eu/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/fa/stopwords.txt;  new: FlexLucene/Analysis/Fa/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/ga/stopwords.txt;  new: FlexLucene/Analysis/Ga/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/gl/stopwords.txt;  new: FlexLucene/Analysis/Gl/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/hi/stopwords.txt;  new: FlexLucene/Analysis/Hi/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/hy/stopwords.txt;  new: FlexLucene/Analysis/Hy/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/id/stopwords.txt;  new: FlexLucene/Analysis/Id/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/lt/stopwords.txt;  new: FlexLucene/Analysis/Lt/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/lv/stopwords.txt;  new: FlexLucene/Analysis/Lv/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/ro/stopwords.txt;  new: FlexLucene/Analysis/Ro/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/danish_stop.txt;  new: FlexLucene/Analysis/Snowball/danish_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/dutch_stop.txt;  new: FlexLucene/Analysis/Snowball/dutch_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/english_stop.txt;  new: FlexLucene/Analysis/Snowball/english_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/finnish_stop.txt;  new: FlexLucene/Analysis/Snowball/finnish_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/french_stop.txt;  new: FlexLucene/Analysis/Snowball/french_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/german_stop.txt;  new: FlexLucene/Analysis/Snowball/german_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/hungarian_stop.txt;  new: FlexLucene/Analysis/Snowball/hungarian_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/italian_stop.txt;  new: FlexLucene/Analysis/Snowball/italian_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/norwegian_stop.txt;  new: FlexLucene/Analysis/Snowball/norwegian_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/portuguese_stop.txt;  new: FlexLucene/Analysis/Snowball/portuguese_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/russian_stop.txt;  new: FlexLucene/Analysis/Snowball/russian_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/spanish_stop.txt;  new: FlexLucene/Analysis/Snowball/spanish_stop.txt
+[INFO] orig: org/apache/lucene/analysis/snowball/swedish_stop.txt;  new: FlexLucene/Analysis/Snowball/swedish_stop.txt
+[INFO] orig: org/apache/lucene/analysis/th/stopwords.txt;  new: FlexLucene/Analysis/Th/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/tr/stopwords.txt;  new: FlexLucene/Analysis/Tr/stopwords.txt
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy Library files
@@ -79,33 +158,395 @@ C:\Seemant\Personal\GitHub\FlexLucene>mvn package -f "FlexSearch.Codecs\pom.xml"
 [INFO] TASK: Execute Proguard
 	Move proguard.cfg to work directory
 ProGuard, version 5.2
-Reading program directory [C:\Seemant\Personal\GitHub\FlexLucene\Work\Lucene]
-Reading library jar [C:\Program Files\Java\jre7\lib\rt.jar]
-Reading library directory [C:\Seemant\Personal\GitHub\FlexLucene\Work\Lib]
-Note: org.apache.lucene.util.RamUsageEstimator accesses a method 'getPlatformMXBean(java.lang.Class)' dynamically
-      Maybe this is library method 'java.lang.management.ManagementFactory { java.lang.management.PlatformManagedObject getPlatformMXBean(java.lang.Class); }'
-Note: the configuration refers to the unknown field 'java.lang.Object theUnsafe' in class 'org.apache.lucene.util.RamUsageEstimator'
-Note: the configuration explicitly specifies 'java.nio.DirectByteBuffer' to keep library class 'java.nio.DirectByteBuffer'
-Note: the configuration explicitly specifies 'sun.misc.Cleaner' to keep library class 'sun.misc.Cleaner'
-Note: the configuration explicitly specifies 'com.sun.management.VMOption' to keep library class 'com.sun.management.VMOption'
-Note: the configuration explicitly specifies 'sun.misc.Unsafe' to keep library class 'sun.misc.Unsafe'
-Note: the configuration explicitly specifies 'com.sun.management.HotSpotDiagnosticMXBean' to keep library class 'com.sun.management.HotSpotDiagnosticMXBean'
-Note: there were 1 references to unknown class members.
-      You should check your configuration for typos.
-Note: there were 5 library classes explicitly being kept.
-      You don't need to keep library classes; they are already left unchanged.
-      (http://proguard.sourceforge.net/manual/troubleshooting.html#libraryclass)
-Note: there were 1 accesses to class members by means of introspection.
-      You should consider explicitly keeping the mentioned class members
-      (using '-keep' or '-keepclassmembers').
-      (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclassmember)
-Preparing output jar [C:\Seemant\Personal\GitHub\FlexLucene\Work\FlexLucene.jar]
-  Copying resources from program directory [C:\Seemant\Personal\GitHub\FlexLucene\Work\Lucene]
+Reading program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
+Reading library jar [C:\Program Files\Java\jre1.8.0_60\lib\rt.jar]
+Reading library directory [D:\Github\FlexLucene\Work\Lib]
+Note: org.locationtech.spatial4j.context.SpatialContextFactory: can't find dynamically referenced class org.noggit.JSONParser
+Note: there were 1 unresolved dynamic references to classes or interfaces.
+      You should check if you need to specify additional program jars.
+      (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclass)
+Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
+  Copying resources from program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [jakarta-regexp-1.4.jar:META-INF/MANIFEST.MF])
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spatial4j-0.6.jar:META-INF/MANIFEST.MF])
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Generating mapping information
+[INFO] Renaming due to conflict: org.apache.commons.codec.language.ColognePhonetic$CologneBuffer -> int length
+[INFO] Renaming due to conflict: org.apache.commons.codec.language.bm.Rule -> java.lang.String pattern
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.standard.ClassicTokenizerImpl -> int yychar
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.standard.StandardTokenizerImpl -> int yychar
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.standard.UAX29URLEmailTokenizerImpl -> int yychar
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.OffsetAttributeImpl -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.OffsetAttributeImpl -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.PackedTokenAttributeImpl -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.PackedTokenAttributeImpl -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.PackedTokenAttributeImpl -> java.lang.String type
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.TypeAttributeImpl -> java.lang.String type
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.util.AbstractAnalysisFactory -> boolean isExplicitLuceneMatchVersion
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.util.CharArrayMap -> org.apache.lucene.analysis.util.CharArrayMap$EntrySet entrySet
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.util.CharArrayMap -> org.apache.lucene.analysis.util.CharArraySet keySet
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.wikipedia.WikipediaTokenizerImpl -> int yychar
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.BlockTermState -> boolean isRealTerm
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.StoredFieldsWriter$MergeVisitor -> org.apache.lucene.util.BytesRef binaryValue
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.StoredFieldsWriter$MergeVisitor -> java.lang.String stringValue
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.StoredFieldsWriter$MergeVisitor -> java.lang.Number numericValue
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.blockterms.BlockTermsReader$FieldReader$SegmentTermsEnum -> org.apache.lucene.util.BytesRefBuilder term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.blockterms.FixedGapTermsIndexReader$IndexEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.blockterms.FixedGapTermsIndexReader$IndexEnum -> long ord
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.blocktree.IntersectTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.blocktree.SegmentTermsEnum -> org.apache.lucene.util.BytesRefBuilder term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.blocktreeords.OrdsIntersectTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.blocktreeords.OrdsSegmentTermsEnum -> org.apache.lucene.util.BytesRefBuilder term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader$TVTermsEnum -> int ord
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.compressing.CompressingTermVectorsReader$TVTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.idversion.IDVersionSegmentTermsEnum -> org.apache.lucene.util.BytesRefBuilder term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50Codec -> org.apache.lucene.codecs.FieldInfosFormat fieldInfosFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50Codec -> org.apache.lucene.codecs.LiveDocsFormat liveDocsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50Codec -> org.apache.lucene.codecs.CompoundFormat compoundFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50Codec -> org.apache.lucene.codecs.PostingsFormat postingsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50Codec -> org.apache.lucene.codecs.DocValuesFormat docValuesFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50Codec -> org.apache.lucene.codecs.StoredFieldsFormat storedFieldsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50Codec -> org.apache.lucene.codecs.NormsFormat normsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50DocValuesProducer -> java.util.concurrent.atomic.AtomicLong ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50DocValuesProducer$CompressedBinaryDocValues$CompressedBinaryTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50NormsProducer -> java.util.concurrent.atomic.AtomicLong ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$BlockDocsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$BlockPostingsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$EverythingEnum -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$EverythingEnum -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene50.Lucene50PostingsReader$EverythingEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene53.Lucene53Codec -> org.apache.lucene.codecs.FieldInfosFormat fieldInfosFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene53.Lucene53Codec -> org.apache.lucene.codecs.LiveDocsFormat liveDocsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene53.Lucene53Codec -> org.apache.lucene.codecs.CompoundFormat compoundFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene53.Lucene53Codec -> org.apache.lucene.codecs.PostingsFormat postingsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene53.Lucene53Codec -> org.apache.lucene.codecs.DocValuesFormat docValuesFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene53.Lucene53Codec -> org.apache.lucene.codecs.StoredFieldsFormat storedFieldsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene53.Lucene53Codec -> org.apache.lucene.codecs.NormsFormat normsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54Codec -> org.apache.lucene.codecs.FieldInfosFormat fieldInfosFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54Codec -> org.apache.lucene.codecs.LiveDocsFormat liveDocsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54Codec -> org.apache.lucene.codecs.CompoundFormat compoundFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54Codec -> org.apache.lucene.codecs.PostingsFormat postingsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54Codec -> org.apache.lucene.codecs.DocValuesFormat docValuesFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54Codec -> org.apache.lucene.codecs.StoredFieldsFormat storedFieldsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54Codec -> org.apache.lucene.codecs.NormsFormat normsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54DocValuesProducer -> java.util.concurrent.atomic.AtomicLong ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene54.Lucene54DocValuesProducer$CompressedBinaryDocValues$CompressedBinaryTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.FieldInfosFormat fieldInfosFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.LiveDocsFormat liveDocsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.CompoundFormat compoundFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.PostingsFormat postingsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.DocValuesFormat docValuesFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.StoredFieldsFormat storedFieldsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.NormsFormat normsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectDocValuesProducer -> java.util.concurrent.atomic.AtomicLong ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$DirectField -> boolean hasOffsets
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$DirectField -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$HighFreqDocsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$HighFreqPostingsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$LowFreqDocsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$LowFreqPostingsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$LowFreqPostingsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$LowFreqPostingsEnum -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$LowFreqPostingsEnum -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.FSTOrdTermsReader$TermsReader$BaseTermsEnum -> long ord
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.FSTOrdTermsReader$TermsReader$BaseTermsEnum -> int[] docFreq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.FSTOrdTermsReader$TermsReader$BaseTermsEnum -> long[] totalTermFreq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.FSTOrdTermsReader$TermsReader$IntersectTermsEnum -> org.apache.lucene.util.BytesRefBuilder term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.FSTOrdTermsReader$TermsReader$SegmentTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.FSTTermsReader$TermsReader$IntersectTermsEnum -> org.apache.lucene.util.BytesRefBuilder term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.FSTTermsReader$TermsReader$SegmentTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryDocValuesProducer -> java.util.concurrent.atomic.AtomicLong ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryPostingsFormat$FSTDocsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryPostingsFormat$FSTDocsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryPostingsFormat$FSTPostingsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryPostingsFormat$FSTPostingsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryPostingsFormat$FSTPostingsEnum -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryPostingsFormat$FSTTermsEnum -> int docFreq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.MemoryPostingsFormat$FSTTermsEnum -> long totalTermFreq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextCodec -> org.apache.lucene.codecs.FieldInfosFormat fieldInfosFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextCodec -> org.apache.lucene.codecs.NormsFormat normsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextCodec -> org.apache.lucene.codecs.CompoundFormat compoundFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextCodec -> org.apache.lucene.codecs.PointsFormat pointsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextDocsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextDocsEnum -> int cost
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextPostingsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextPostingsEnum -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextPostingsEnum -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextPostingsEnum -> int cost
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextTermsEnum -> int docFreq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextFieldsReader$SimpleTextTermsEnum -> long totalTermFreq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextTermVectorsReader$SimpleTVDocsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextTermVectorsReader$SimpleTVTerms -> boolean hasOffsets
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextTermVectorsReader$SimpleTVTerms -> boolean hasPositions
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.simpletext.SimpleTextTermVectorsReader$SimpleTVTerms -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.collation.CollationDocValuesField -> java.lang.String name
+[INFO] Renaming due to conflict: org.apache.lucene.document.Field -> java.lang.String name
+[INFO] Renaming due to conflict: org.apache.lucene.document.Field -> org.apache.lucene.analysis.TokenStream tokenStream
+[INFO] Renaming due to conflict: org.apache.lucene.document.Field -> float boost
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> boolean stored
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> boolean tokenized
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> boolean storeTermVectors
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> boolean storeTermVectorOffsets
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> boolean storeTermVectorPositions
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> boolean storeTermVectorPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> boolean omitNorms
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> org.apache.lucene.index.IndexOptions indexOptions
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> org.apache.lucene.document.FieldType$LegacyNumericType numericType
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> int numericPrecisionStep
+[INFO] Renaming due to conflict: org.apache.lucene.document.FieldType -> org.apache.lucene.index.DocValuesType docValuesType
+[INFO] Renaming due to conflict: org.apache.lucene.document.LazyDocument$LazyField -> java.lang.String name
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.FakeScorer -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.FakeScorer -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.directory.TaxonomyIndexArrays -> int[] parents
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.directory.TaxonomyIndexArrays -> int[] children
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.directory.TaxonomyIndexArrays -> int[] siblings
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.writercache.CharBlockArray -> int length
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.writercache.CollisionMap -> int capacity
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.writercache.CollisionMap -> int size
+[INFO] Renaming due to conflict: org.apache.lucene.facet.taxonomy.writercache.CollisionMap$EntryIterator -> org.apache.lucene.facet.taxonomy.writercache.CollisionMap$Entry next
+[INFO] Renaming due to conflict: org.apache.lucene.index.BaseCompositeReader -> int maxDoc
+[INFO] Renaming due to conflict: org.apache.lucene.index.BaseCompositeReader -> int numDocs
+[INFO] Renaming due to conflict: org.apache.lucene.index.BinaryDocValuesFieldUpdates$Iterator -> int doc
+[INFO] Renaming due to conflict: org.apache.lucene.index.BinaryDocValuesFieldUpdates$Iterator -> org.apache.lucene.util.BytesRef value
+[INFO] Renaming due to conflict: org.apache.lucene.index.BitsSlice -> int length
+[INFO] Renaming due to conflict: org.apache.lucene.index.BufferedUpdatesStream -> java.util.concurrent.atomic.AtomicInteger numTerms
+[INFO] Renaming due to conflict: org.apache.lucene.index.CheckIndex -> boolean assertsOn
+[INFO] Renaming due to conflict: org.apache.lucene.index.CompositeReaderContext -> java.util.List children
+[INFO] Renaming due to conflict: org.apache.lucene.index.CompositeReaderContext -> java.util.List leaves
+[INFO] Renaming due to conflict: org.apache.lucene.index.CompositeReaderContext -> org.apache.lucene.index.CompositeReader reader
+[INFO] Renaming due to conflict: org.apache.lucene.index.ConcurrentMergeScheduler -> int mergeThreadCount
+[INFO] Renaming due to conflict: org.apache.lucene.index.DirectoryReader -> org.apache.lucene.store.Directory directory
+[INFO] Renaming due to conflict: org.apache.lucene.index.DocumentsWriterFlushControl -> long activeBytes
+[INFO] Renaming due to conflict: org.apache.lucene.index.DocumentsWriterFlushControl -> long flushBytes
+[INFO] Renaming due to conflict: org.apache.lucene.index.DocumentsWriterPerThread -> org.apache.lucene.util.Counter bytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.index.DocumentsWriterStallControl -> boolean wasStalled
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfo -> java.util.Map attributes
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasFreq
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasProx
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasOffsets
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasVectors
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasNorms
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasDocValues
+[INFO] Renaming due to conflict: org.apache.lucene.index.FieldInfos -> boolean hasPointValues
+[INFO] Renaming due to conflict: org.apache.lucene.index.FreqProxFields$FreqProxDocsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.index.FreqProxFields$FreqProxDocsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.index.FreqProxFields$FreqProxPostingsEnum -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.index.FreqProxFields$FreqProxPostingsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.index.FreqProxFields$FreqProxPostingsEnum -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.index.FreqProxFields$FreqProxPostingsEnum -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.index.FreqProxFields$FreqProxTermsEnum -> int ord
+[INFO] Renaming due to conflict: org.apache.lucene.index.LeafReaderContext -> org.apache.lucene.index.LeafReader reader
+[INFO] Renaming due to conflict: org.apache.lucene.index.LeafReaderContext -> java.util.List leaves
+[INFO] Renaming due to conflict: org.apache.lucene.index.MergeReaderWrapper -> org.apache.lucene.codecs.FieldsProducer fields
+[INFO] Renaming due to conflict: org.apache.lucene.index.MergeState$NoDelDocMap -> int maxDoc
+[INFO] Renaming due to conflict: org.apache.lucene.index.MergedPrefixCodedTermsIterator -> java.lang.String field
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiDocValues$OrdinalMap -> long ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiDocValues$OrdinalMap$SegmentMap -> int[] newToOld
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiDocValues$OrdinalMap$SegmentMap -> int[] oldToNew
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiFields -> java.util.Map terms
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiTerms -> boolean hasFreqs
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiTerms -> boolean hasOffsets
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiTerms -> boolean hasPositions
+[INFO] Renaming due to conflict: org.apache.lucene.index.MultiTerms -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.index.NumericDocValuesFieldUpdates$Iterator -> int doc
+[INFO] Renaming due to conflict: org.apache.lucene.index.NumericDocValuesFieldUpdates$Iterator -> java.lang.Long value
+[INFO] Renaming due to conflict: org.apache.lucene.index.PKIndexSplitter$DocumentFilteredLeafIndexReader -> int numDocs
+[INFO] Renaming due to conflict: org.apache.lucene.index.ParallelLeafReader -> org.apache.lucene.index.ParallelLeafReader$ParallelFields fields
+[INFO] Renaming due to conflict: org.apache.lucene.index.ParallelLeafReader -> int maxDoc
+[INFO] Renaming due to conflict: org.apache.lucene.index.ParallelLeafReader -> int numDocs
+[INFO] Renaming due to conflict: org.apache.lucene.index.PrefixCodedTerms -> long size
+[INFO] Renaming due to conflict: org.apache.lucene.index.PrefixCodedTerms$TermIterator -> long delGen
+[INFO] Renaming due to conflict: org.apache.lucene.index.PrefixCodedTerms$TermIterator -> java.lang.String field
+[INFO] Renaming due to conflict: org.apache.lucene.index.ReadersAndUpdates -> java.util.concurrent.atomic.AtomicInteger refCount
+[INFO] Renaming due to conflict: org.apache.lucene.index.SegmentCommitInfo -> long sizeInBytes
+[INFO] Renaming due to conflict: org.apache.lucene.index.SegmentInfo -> int maxDoc
+[INFO] Renaming due to conflict: org.apache.lucene.index.SegmentInfo -> java.util.Set setFiles
+[INFO] Renaming due to conflict: org.apache.lucene.index.SegmentReader -> int numDocs
+[INFO] Renaming due to conflict: org.apache.lucene.index.SingletonSortedNumericDocValues -> int count
+[INFO] Renaming due to conflict: org.apache.lucene.index.SlowCompositeReaderWrapper -> org.apache.lucene.index.Fields fields
+[INFO] Renaming due to conflict: org.apache.lucene.index.Sorter -> org.apache.lucene.search.Sort sort
+[INFO] Renaming due to conflict: org.apache.lucene.index.Sorter$3 -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.index.Sorter$3 -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.index.SortingLeafReader$SortingPostingsEnum -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.index.SortingLeafReader$SortingPostingsEnum -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.index.Term -> java.lang.String field
+[INFO] Renaming due to conflict: org.apache.lucene.index.Term -> org.apache.lucene.util.BytesRef bytes
+[INFO] Renaming due to conflict: org.apache.lucene.index.TermContext -> int docFreq
+[INFO] Renaming due to conflict: org.apache.lucene.index.TermContext -> long totalTermFreq
+[INFO] Renaming due to conflict: org.apache.lucene.index.TermsHashPerField$PostingsBytesStartArray -> org.apache.lucene.util.Counter bytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.index.memory.MemoryIndex$MemoryIndexReader$MemoryPostingsEnum -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.index.memory.MemoryIndex$MemoryIndexReader$MemoryPostingsEnum -> int startOffset
+[INFO] Renaming due to conflict: org.apache.lucene.index.memory.MemoryIndex$MemoryIndexReader$MemoryPostingsEnum -> int endOffset
+[INFO] Renaming due to conflict: org.apache.lucene.queries.function.FunctionQuery$AllScorer -> org.apache.lucene.search.DocIdSetIterator iterator
+[INFO] Renaming due to conflict: org.apache.lucene.queries.function.ValueSourceScorer -> org.apache.lucene.search.TwoPhaseIterator twoPhaseIterator
+[INFO] Renaming due to conflict: org.apache.lucene.queryparser.classic.QueryParser -> int jj_ntk
+[INFO] Renaming due to conflict: org.apache.lucene.queryparser.flexible.core.nodes.QueryNodeImpl -> boolean isLeaf
+[INFO] Renaming due to conflict: org.apache.lucene.queryparser.flexible.core.util.UnescapedCharSequence -> boolean[] wasEscaped
+[INFO] Renaming due to conflict: org.apache.lucene.queryparser.flexible.standard.parser.StandardSyntaxParser -> int jj_ntk
+[INFO] Renaming due to conflict: org.apache.lucene.queryparser.flexible.standard.processors.DefaultPhraseSlopQueryNodeProcessor -> boolean processChildren
+[INFO] Renaming due to conflict: org.apache.lucene.queryparser.flexible.standard.processors.MultiFieldQueryNodeProcessor -> boolean processChildren
+[INFO] Renaming due to conflict: org.apache.lucene.queryparser.surround.parser.QueryParser -> int jj_ntk
+[INFO] Renaming due to conflict: org.apache.lucene.search.BooleanQuery -> java.util.List clauses
+[INFO] Renaming due to conflict: org.apache.lucene.search.BooleanQuery -> int hashCode
+[INFO] Renaming due to conflict: org.apache.lucene.search.BooleanScorer -> long cost
+[INFO] Renaming due to conflict: org.apache.lucene.search.CachingCollector$CachedScorer -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> java.lang.String field
+[INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> long maxDoc
+[INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> long docCount
+[INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> long sumTotalTermFreq
+[INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> long sumDocFreq
+[INFO] Renaming due to conflict: org.apache.lucene.search.ConjunctionDISI$TwoPhaseConjunctionDISI -> float matchCost
+[INFO] Renaming due to conflict: org.apache.lucene.search.ConstantScoreScorer -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.search.ConstantScoreScorer -> org.apache.lucene.search.TwoPhaseIterator twoPhaseIterator
+[INFO] Renaming due to conflict: org.apache.lucene.search.ConstantScoreWeight -> float boost
+[INFO] Renaming due to conflict: org.apache.lucene.search.ConstantScoreWeight -> float queryNorm
+[INFO] Renaming due to conflict: org.apache.lucene.search.DisiPriorityQueue -> int size
+[INFO] Renaming due to conflict: org.apache.lucene.search.DisjunctionDISIApproximation -> long cost
+[INFO] Renaming due to conflict: org.apache.lucene.search.DisjunctionScorer$TwoPhase -> float matchCost
+[INFO] Renaming due to conflict: org.apache.lucene.search.EarlyTerminatingSortingCollector -> java.util.concurrent.atomic.AtomicBoolean terminatedEarly
+[INFO] Renaming due to conflict: org.apache.lucene.search.ExactPhraseScorer -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.search.Explanation -> boolean match
+[INFO] Renaming due to conflict: org.apache.lucene.search.FakeScorer -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.search.FakeScorer -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.search.FuzzyTermsEnum -> org.apache.lucene.index.Term term
+[INFO] Renaming due to conflict: org.apache.lucene.search.FuzzyTermsEnum$LevenshteinAutomataAttributeImpl -> java.util.List automata
+[INFO] Renaming due to conflict: org.apache.lucene.search.LRUQueryCache -> long ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.search.LRUQueryCache$LeafCache -> long ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.search.MinShouldMatchSumScorer -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.search.MinShouldMatchSumScorer -> long cost
+[INFO] Renaming due to conflict: org.apache.lucene.search.MultiPhraseQuery$UnionPostingsEnum -> long cost
+[INFO] Renaming due to conflict: org.apache.lucene.search.MultiPhraseQuery$UnionPostingsEnum$PositionsQueue -> int size
+[INFO] Renaming due to conflict: org.apache.lucene.search.Multiset -> int size
+[INFO] Renaming due to conflict: org.apache.lucene.search.SloppyPhraseScorer -> float sloppyFreq
+[INFO] Renaming due to conflict: org.apache.lucene.search.TermAutomatonScorer -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.search.TermAutomatonScorer -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.search.TermStatistics -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.search.TermStatistics -> long docFreq
+[INFO] Renaming due to conflict: org.apache.lucene.search.TermStatistics -> long totalTermFreq
+[INFO] Renaming due to conflict: org.apache.lucene.search.TopFieldCollector -> boolean needsScores
+[INFO] Renaming due to conflict: org.apache.lucene.search.TwoPhaseIterator -> org.apache.lucene.search.DocIdSetIterator approximation
+[INFO] Renaming due to conflict: org.apache.lucene.search.grouping.AbstractFirstPassGroupingCollector -> boolean needsScores
+[INFO] Renaming due to conflict: org.apache.lucene.search.grouping.AbstractSecondPassGroupingCollector -> boolean needsScores
+[INFO] Renaming due to conflict: org.apache.lucene.search.grouping.BlockGroupingCollector -> boolean needsScores
+[INFO] Renaming due to conflict: org.apache.lucene.search.grouping.FakeScorer -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.search.grouping.FakeScorer -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.search.highlight.TermVectorLeafReader -> org.apache.lucene.index.Fields fields
+[INFO] Renaming due to conflict: org.apache.lucene.search.highlight.TokenStreamFromTermVector -> org.apache.lucene.search.highlight.TokenStreamFromTermVector$TokenLL incrementToken
+[INFO] Renaming due to conflict: org.apache.lucene.search.join.BaseGlobalOrdinalScorer -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.search.join.FakeScorer -> float score
+[INFO] Renaming due to conflict: org.apache.lucene.search.join.FakeScorer -> int freq
+[INFO] Renaming due to conflict: org.apache.lucene.search.join.PointInSetIncludingScoreQuery -> java.util.function.BiFunction toString
+[INFO] Renaming due to conflict: org.apache.lucene.search.postingshighlight.CustomSeparatorBreakIterator -> int current
+[INFO] Renaming due to conflict: org.apache.lucene.search.postingshighlight.WholeBreakIterator -> int current
+[INFO] Renaming due to conflict: org.apache.lucene.search.spans.SpanNearQuery$GapSpans -> int width
+[INFO] Renaming due to conflict: org.apache.lucene.search.spans.SpanOrQuery$SpanOrWeight$1 -> float positionsCost
+[INFO] Renaming due to conflict: org.apache.lucene.search.spans.SpanOrQuery$SpanOrWeight$1 -> long cost
+[INFO] Renaming due to conflict: org.apache.lucene.search.spans.SpanScorer -> float freq
+[INFO] Renaming due to conflict: org.apache.lucene.search.spans.TermSpans -> float positionsCost
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.BufferedInputIterator -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.BufferedInputIterator -> boolean hasContexts
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.DocumentDictionary$DocumentInputIterator -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.DocumentDictionary$DocumentInputIterator -> boolean hasContexts
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.FileDictionary$FileIterator -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.SortedInputIterator -> boolean hasPayloads
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.SortedInputIterator -> boolean hasContexts
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.SortedInputIterator -> long weight
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.SortedInputIterator -> org.apache.lucene.util.BytesRef payload
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.SortedInputIterator -> java.util.Set contexts
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.analyzing.AnalyzingInfixSuggester -> boolean highlight
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.document.CompletionAnalyzer -> boolean preserveSep
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.document.CompletionAnalyzer -> boolean preservePositionIncrements
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.document.CompletionsTermsReader -> org.apache.lucene.search.suggest.document.NRTSuggester suggester
+[INFO] Renaming due to conflict: org.apache.lucene.search.suggest.document.ContextSuggestField -> java.util.Set contexts
+[INFO] Renaming due to conflict: org.apache.lucene.search.vectorhighlight.BaseFragListBuilder$IteratorQueue -> java.lang.Object top
+[INFO] Renaming due to conflict: org.apache.lucene.search.vectorhighlight.BaseFragmentsBuilder -> boolean discreteMultiValueHighlighting
+[INFO] Renaming due to conflict: org.apache.lucene.spatial.geopoint.search.GeoPointPrefixTermsEnum -> org.apache.lucene.spatial.geopoint.search.GeoPointPrefixTermsEnum$Range nextRange
+[INFO] Renaming due to conflict: org.apache.lucene.spatial.geopoint.search.GeoPointPrefixTermsEnum -> boolean hasNext
+[INFO] Renaming due to conflict: org.apache.lucene.spatial.prefix.tree.CellIterator -> org.apache.lucene.spatial.prefix.tree.Cell thisCell
+[INFO] Renaming due to conflict: org.apache.lucene.spatial.prefix.tree.LegacyCell -> boolean isLeaf
+[INFO] Renaming due to conflict: org.apache.lucene.spatial3d.geom.GeoPoint -> double magnitude
+[INFO] Renaming due to conflict: org.apache.lucene.spatial3d.geom.LatLonBounds -> boolean noLongitudeBound
+[INFO] Renaming due to conflict: org.apache.lucene.spatial3d.geom.LatLonBounds -> boolean noTopLatitudeBound
+[INFO] Renaming due to conflict: org.apache.lucene.spatial3d.geom.LatLonBounds -> boolean noBottomLatitudeBound
+[INFO] Renaming due to conflict: org.apache.lucene.spatial3d.geom.XYZBounds -> boolean noLongitudeBound
+[INFO] Renaming due to conflict: org.apache.lucene.spatial3d.geom.XYZBounds -> boolean noTopLatitudeBound
+[INFO] Renaming due to conflict: org.apache.lucene.spatial3d.geom.XYZBounds -> boolean noBottomLatitudeBound
+[INFO] Renaming due to conflict: org.apache.lucene.store.BufferedIndexInput -> int bufferSize
+[INFO] Renaming due to conflict: org.apache.lucene.store.BufferedIndexInput$SlicedIndexInput -> long length
+[INFO] Renaming due to conflict: org.apache.lucene.store.ByteBufferIndexInput -> long length
+[INFO] Renaming due to conflict: org.apache.lucene.store.RAMInputStream -> long length
+[INFO] Renaming due to conflict: org.apache.lucene.store.WindowsDirectory$WindowsIndexInput -> long length
+[INFO] Renaming due to conflict: org.apache.lucene.uninverting.DocTermOrds$OrdWrappedTermsEnum -> org.apache.lucene.util.BytesRef term
+[INFO] Renaming due to conflict: org.apache.lucene.uninverting.DocTermOrds$OrdWrappedTermsEnum -> long ord
+[INFO] Renaming due to conflict: org.apache.lucene.util.BitSetIterator -> long cost
+[INFO] Renaming due to conflict: org.apache.lucene.util.BytesRefHash$DirectBytesStartArray -> org.apache.lucene.util.Counter bytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.util.CharsRef -> int length
+[INFO] Renaming due to conflict: org.apache.lucene.util.FilterIterator -> java.lang.Object next
+[INFO] Renaming due to conflict: org.apache.lucene.util.PriorityQueue -> int size
+[INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingByteBlockAllocator -> int maxBufferedBlocks
+[INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingByteBlockAllocator -> int freeBlocks
+[INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingByteBlockAllocator -> org.apache.lucene.util.Counter bytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingIntBlockAllocator -> int maxBufferedBlocks
+[INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingIntBlockAllocator -> int freeBlocks
+[INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingIntBlockAllocator -> org.apache.lucene.util.Counter bytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.util.RoaringDocIdSet -> int cardinality
+[INFO] Renaming due to conflict: org.apache.lucene.util.RoaringDocIdSet -> long ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.util.SetOnce -> java.util.concurrent.atomic.AtomicBoolean set
+[INFO] Renaming due to conflict: org.apache.lucene.util.SparseFixedBitSet -> int length
+[INFO] Renaming due to conflict: org.apache.lucene.util.SparseFixedBitSet -> long ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.util.TimSorter -> int minRun
+[INFO] Renaming due to conflict: org.apache.lucene.util.WeakIdentityMap$1 -> java.lang.Object next
+[INFO] Renaming due to conflict: org.apache.lucene.util.automaton.Automaton -> java.util.BitSet isAccept
+[INFO] Renaming due to conflict: org.apache.lucene.util.automaton.Automaton$Builder -> java.util.BitSet isAccept
+[INFO] Renaming due to conflict: org.apache.lucene.util.automaton.SortedIntSet -> int hashCode
+[INFO] Renaming due to conflict: org.apache.lucene.util.automaton.SortedIntSet$FrozenIntSet -> int hashCode
+[INFO] Renaming due to conflict: org.apache.lucene.util.bkd.OfflinePointReader -> byte[] packedValue
+[INFO] Renaming due to conflict: org.apache.lucene.util.bkd.OfflinePointReader -> long ord
+[INFO] Renaming due to conflict: org.apache.lucene.util.bkd.OfflinePointReader -> int docID
+[INFO] Renaming due to conflict: org.apache.lucene.util.fst.BytesRefFSTEnum -> org.apache.lucene.util.BytesRef current
+[INFO] Renaming due to conflict: org.apache.lucene.util.fst.IntsRefFSTEnum -> org.apache.lucene.util.IntsRef current
+[INFO] Renaming due to conflict: org.apache.lucene.util.mutable.MutableValue -> boolean exists
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.AbstractBlockPackedWriter -> long ord
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.AbstractPagedMutable -> long size
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.BlockPackedReaderIterator -> long ord
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.BulkOperationPacked -> int longBlockCount
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.BulkOperationPacked -> int longValueCount
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.BulkOperationPacked -> int byteBlockCount
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.BulkOperationPacked -> int byteValueCount
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.PackedInts$Writer -> int bitsPerValue
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.PackedLongValues -> long size
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.PackedLongValues -> long ramBytesUsed
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.PackedLongValues$Builder -> long size
+[INFO] Renaming due to conflict: org.apache.lucene.util.packed.PackedLongValues$Builder -> long ramBytesUsed
+[INFO] Renaming due to conflict: org.locationtech.spatial4j.shape.jts.JtsGeometry -> boolean hasArea
+[INFO] Renaming due to conflict: org.locationtech.spatial4j.shape.jts.JtsShapeFactory -> boolean useJtsPoint
+[INFO] Renaming due to conflict: org.locationtech.spatial4j.shape.jts.JtsShapeFactory -> boolean useJtsLineString
+[INFO] Renaming due to conflict: org.locationtech.spatial4j.shape.jts.JtsShapeFactory -> boolean useJtsMulti
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Execute ProGuard Pass - 2
+	Deleting the FlexLucene.jar created in Phase 1
+	Updating the proguard.cfg
+	Running Proguard Pass 2
+ProGuard, version 5.2
+Reading program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
+Reading library jar [C:\Program Files\Java\jre1.8.0_60\lib\rt.jar]
+Reading library directory [D:\Github\FlexLucene\Work\Lib]
+Note: org.locationtech.spatial4j.context.SpatialContextFactory: can't find dynamically referenced class org.noggit.JSONParser
+Note: there were 1 unresolved dynamic references to classes or interfaces.
+      You should check if you need to specify additional program jars.
+      (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclass)
+Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
+  Copying resources from program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [jakarta-regexp-1.4.jar:META-INF/MANIFEST.MF])
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spatial4j-0.6.jar:META-INF/MANIFEST.MF])
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Execute IKVM
-IKVM.NET Compiler version 8.0.5449.1
-Copyright (C) 2002-2014 Jeroen Frijters
+IKVM.NET Compiler version 8.1.5717.0
+Copyright (C) 2002-2015 Jeroen Frijters
 http://www.ikvm.net/
 
 warning IKVMC0100: Class "com.vividsolutions.jts.io.InStream" not found
@@ -114,64 +555,1079 @@ warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequenceFilter" 
 warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFilter" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFactory" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.geom.PrecisionModel" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Geometry" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Coordinate" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Envelope" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Point" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.geom.impl.CoordinateArraySequenceFactory" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.PrecisionModel$Type" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBReader" not found
+warning IKVMC0100: Class "org.noggit.JSONParser" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.io.ParseException" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBReader" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBWriter" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.algorithm.CGAlgorithms" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.LinearRing" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.io.WKTReader" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Coordinate" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequence" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Geometry" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryCollection" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.LineString" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiLineString" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiPoint" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiPolygon" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Point" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Polygon" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKTReader" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Envelope" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.IntersectionMatrix" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.geom.Lineal" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.LinearRing" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.geom.Puntal" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometry" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometryFactory" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.operation.union.UnaryUnionOp" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.IsValidOp" not found
 warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.TopologyValidationError" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometryFactory" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometry" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.IntersectionMatrix" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Polygon" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.LineString" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequence" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.operation.union.UnaryUnionOp" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.algorithm.CGAlgorithms" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not found
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Add build information
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Regenerate Method names
+[INFO] Adding a shadow method for the method: System.String Org.Apache.Commons.Codec.Binary.Hex::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Apache.Commons.Codec.Digest.HmacAlgorithms::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Apache.Commons.Codec.Language.Bm.LanguagesSomeLanguages::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Apache.Commons.Codec.Language.Bm.RulePhoneme::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Compound.Hyphenation.Hyphen::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Custom.CustomAnalyzer::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Miscellaneous.LimitTokenCountAnalyzer::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Miscellaneous.PerFieldAnalyzerWrapper::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Util.CharArrayMap::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Util.CharArraySet::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Util.OpenStringBuilder::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.ArmenianStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.ArmenianStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.BasqueStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.BasqueStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.CatalanStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.CatalanStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.DanishStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.DanishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.DutchStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.DutchStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.EnglishStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.EnglishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.FinnishStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.FinnishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.FrenchStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.FrenchStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.German2Stemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.German2Stemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.GermanStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.GermanStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.HungarianStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.HungarianStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.IrishStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.IrishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.ItalianStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.ItalianStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.KpStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.KpStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.LithuanianStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.LithuanianStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.LovinsStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.LovinsStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.NorwegianStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.NorwegianStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.PorterStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.PorterStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.PortugueseStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.PortugueseStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.RomanianStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.RomanianStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.RussianStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.RussianStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.SpanishStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.SpanishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.SwedishStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.SwedishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.TurkishStemmer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.TurkishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Classification.KNearestNeighborClassifier::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Classification.Utils.ConfusionMatrixGeneratorConfusionMatrix::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Autoprefix.AutoPrefixPostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blockterms.BlockTermsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blockterms.FixedGapTermsIndexReader::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.Blockterms.TermsIndexReaderBase::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.Blockterms.TermsIndexWriterBase::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blockterms.VariableGapTermsIndexReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktreeords.BlockTreeOrdsPostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktreeords.FSTOrdsOutputsOutput::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Codecs.Blocktreeords.FSTOrdsOutputsOutput::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Codecs.Blocktreeords.FSTOrdsOutputsOutput::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktreeords.OrdsBlockTreeTermsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktreeords.OrdsSegmentTermsEnum::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Bloom.BloomFilteringPostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Bloom.FuzzySet::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Bloom.MurmurHash2::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Memory.FSTOrdPostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Memory.FSTOrdTermsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Memory.FSTPostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Memory.FSTTermsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Memory.MemoryPostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Simpletext.SimpleTextNormsFormatSimpleTextNormsProducer::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Simpletext.SimpleTextStoredFieldsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Simpletext.SimpleTextTermVectorsReader::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.LegacyNumericTokenStreamLegacyNumericTermAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.LegacyNumericTokenStreamLegacyNumericTermAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.LegacyNumericTokenStream::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Token::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Token::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.BytesTermAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.BytesTermAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Tokenattributes.CharTermAttributeImpl::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.CharTermAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.CharTermAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.FlagsAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.FlagsAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.KeywordAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.KeywordAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.OffsetAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.OffsetAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.PackedTokenAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.PackedTokenAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.PayloadAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.PayloadAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.PositionIncrementAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.PositionIncrementAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.PositionLengthAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.PositionLengthAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.Tokenattributes.TypeAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.Tokenattributes.TypeAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.BlockTermState::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Codec::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.DocValuesConsumer::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.DocValuesFormat::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.DocValuesProducer::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.FieldsConsumer::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.FieldsProducer::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.NormsConsumer::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.NormsProducer::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.PointsReader::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.PointsWriter::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.PostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.PostingsReaderBase::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.PostingsWriterBase::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.StoredFieldsReader::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.StoredFieldsWriter::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.TermVectorsReader::close()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.TermVectorsWriter::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.AutoPrefixTermsWriterPrefixTerm::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.BlockTreeTermsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.FieldReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.Stats::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Compressing.CompressingStoredFieldsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Compressing.CompressingStoredFieldsIndexReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Compressing.CompressingStoredFieldsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Compressing.CompressingTermVectorsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Compressing.CompressingTermVectorsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Lucene50.Lucene50PostingsFormat::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Lucene50.Lucene50PostingsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.DateToolsResolution::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.Document::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.DoublePoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.Field::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.FieldType::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Document.FieldType::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Document.FieldType::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.FloatPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.IntPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LongPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.CompositeReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ConcurrentMergeScheduler::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ExitableDirectoryReader::toString()
+[INFO] Adding a shadow method for the method: java.util.Iterator FlexLucene.Index.Fields::iterator()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.FilterLeafReader::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Index.IndexCommit::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Index.IndexCommit::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Index.IndexReader::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Index.IndexReader::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.IndexWriterConfig::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.LeafReaderContext::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.LiveIndexWriterConfig::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.LogMergePolicy::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.MergePolicyWrapper::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Index.MergeScheduler::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.MultiPostingsEnumEnumWithSlice::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.MultiPostingsEnum::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.MultiTermsEnum::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.NoMergePolicy::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.OrdTermState::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ParallelLeafReader::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Index.PrefixCodedTerms::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Index.PrefixCodedTerms::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.QueryTimeoutImpl::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ReaderSlice::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SegmentCommitInfo::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SegmentInfo::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Index.SegmentInfo::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Index.SegmentInfo::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SegmentInfos::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SegmentReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.StandardDirectoryReader::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Index.Term::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Index.Term::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.Term::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.TermContext::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.TermState::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.TieredMergePolicy::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.AutomatonQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.AutomatonQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.BlendedTermQueryDisjunctionMaxRewrite::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.BlendedTermQueryDisjunctionMaxRewrite::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.BlendedTermQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.BlendedTermQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.BooleanClause::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.BooleanClause::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.BooleanClause::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.BooleanQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.BooleanQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.BoostQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.BoostQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.ConstantScoreQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.ConstantScoreQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.DisjunctionMaxQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.DisjunctionMaxQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.DocValuesRewriteMethod::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.DocValuesRewriteMethod::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Explanation::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.FieldDoc::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.FieldValueHitQueueEntry::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.FieldValueQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.FieldValueQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.FilterCollector::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.FilterLeafCollector::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.FuzzyQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.FuzzyQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.FuzzyTermsEnumLevenshteinAutomataAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.FuzzyTermsEnumLevenshteinAutomataAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.IndexSearcher::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.LegacyNumericRangeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.LegacyNumericRangeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.MultiPhraseQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.MultiPhraseQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.MultiTermQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.MultiTermQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.NGramPhraseQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.NGramPhraseQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.PhraseQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.PhraseQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.PointInSetQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.PointInSetQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.PointRangeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.PointRangeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.PrefixQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.PrefixQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Query::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Query::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Query::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.ScoreDoc::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Sort::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Sort::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Sort::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.SortField::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.SortField::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.SortField::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.SortedNumericSortField::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.SortedNumericSortField::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.SortedNumericSortField::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.SortedSetSortField::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.SortedSetSortField::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.SortedSetSortField::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.SynonymQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.SynonymQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.TermQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.TermQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.TermRangeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.TermRangeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.TopTermsRewrite::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.TopTermsRewrite::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.AfterEffectNoAfterEffect::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.AfterEffect::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.AfterEffectB::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.AfterEffectL::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BM25Similarity::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModel::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModelBE::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModelD::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModelG::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModelIF::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModelIn::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModelIne::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.BasicModelP::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.ClassicSimilarity::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.DFISimilarity::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.DFRSimilarity::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.Distribution::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.DistributionLL::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.DistributionSPL::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.IBSimilarity::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.Independence::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.IndependenceChiSquared::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.IndependenceSaturated::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.IndependenceStandardized::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.LMSimilarity::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.Lambda::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.LambdaDF::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.LambdaTTF::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.NormalizationNoNormalization::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.Normalization::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.NormalizationH1::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.NormalizationH2::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.NormalizationH3::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.NormalizationZ::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Similarities.SimilarityBase::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.FieldMaskingSpanQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.FieldMaskingSpanQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Spans.FilterSpans::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanBoostQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanBoostQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanContainingQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanContainingQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanMultiTermQueryWrapperTopTermsSpanBooleanQueryRewrite::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanMultiTermQueryWrapperTopTermsSpanBooleanQueryRewrite::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanMultiTermQueryWrapper::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanMultiTermQueryWrapper::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanNearQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanNearQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanNotQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanNotQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanOrQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanOrQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanPositionCheckQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanPositionCheckQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanPositionRangeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanPositionRangeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanTermQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanTermQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spans.SpanWithinQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spans.SpanWithinQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Spans.Spans::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Spans.TermSpans::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.BaseDirectory::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Store.Directory::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.Directory::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.FSDirectory::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.FilterDirectory::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Store.FlushInfo::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Store.FlushInfo::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.FlushInfo::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Store.IOContext::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Store.IOContext::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.IOContext::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Store.IndexInput::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.IndexInput::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Store.IndexOutput::close()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.IndexOutput::toString()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Store.Lock::close()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Store.MergeInfo::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Store.MergeInfo::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.MergeInfo::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.NRTCachingDirectory::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Store.RAMFile::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Store.RAMFile::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.RAMFile::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Store.SleepingLockWrapper::toString()
+[INFO] Adding a shadow method for the method: System.Boolean org.apache.lucene.util.AttributeFactory$StaticImplementationAttributeFactory::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 org.apache.lucene.util.AttributeFactory$StaticImplementationAttributeFactory::hashCode()
+[INFO] Adding a shadow method for the method: org.apache.lucene.util.AttributeImpl org.apache.lucene.util.AttributeFactory::createAttributeInstance(java.lang.Class)
+[INFO] Adding a shadow method for the method: System.Void org.apache.lucene.util.AttributeImpl::clear()
+[INFO] Adding a shadow method for the method: System.Void org.apache.lucene.util.AttributeImpl::copyTo(org.apache.lucene.util.AttributeImpl)
+[INFO] Adding a shadow method for the method: System.Void org.apache.lucene.util.AttributeImpl::reflectWith(org.apache.lucene.util.AttributeReflector)
+[INFO] Adding a shadow method for the method: System.Int32 org.apache.lucene.util.AttributeSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean org.apache.lucene.util.AttributeSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String org.apache.lucene.util.AttributeSource::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.BitDocIdSet::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.BytesRef::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.BytesRef::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.BytesRef::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.BytesRefBuilder::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.BytesRefBuilder::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.CharsRef::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.CharsRef::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.CharsRef::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.CharsRefBuilder::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.CharsRefBuilder::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.CharsRefBuilder::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.FixedBitSet::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.FixedBitSet::hashCode()
+[INFO] Adding a shadow method for the method: System.Void FlexLucene.Util.InfoStream::close()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.IntsRef::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.IntsRef::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.IntsRef::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.IntsRefBuilder::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.IntsRefBuilder::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.LongBitSet::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.LongBitSet::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.LongsRef::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.LongsRef::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.LongsRef::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.OfflineSorterSortInfo::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.PagedBytesReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.RoaringDocIdSet::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.SparseFixedBitSet::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Version::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Version::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Version::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Automaton.CompiledAutomaton::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Automaton.CompiledAutomaton::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Automaton.RegExp::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Automaton.RunAutomaton::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Automaton.RunAutomaton::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Automaton.RunAutomaton::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Automaton.SortedIntSetFrozenIntSet::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Automaton.SortedIntSetFrozenIntSet::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Automaton.SortedIntSetFrozenIntSet::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Automaton.StatePair::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Automaton.StatePair::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Automaton.StatePair::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Automaton.Transition::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.ByteSequenceOutputs::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.FSTArc::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.FST::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.IntSequenceOutputs::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.NoOutputs::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Fst.PairOutputsPair::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Fst.PairOutputsPair::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.PairOutputsPair::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.PairOutputs::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.PositiveIntOutputs::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.UtilFSTPath::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Mutable.MutableValue::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Mutable.MutableValue::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Mutable.MutableValue::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Mutable.MutableValueBool::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Mutable.MutableValueDouble::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Mutable.MutableValueFloat::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Mutable.MutableValueInt::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Mutable.MutableValueLong::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Mutable.MutableValueStr::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Packed.BlockPackedReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Packed.MonotonicBlockPackedReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Packed.PackedIntsFormatAndBits::toString()
+[INFO] Adding a shadow method for the method: System.String modopt(IKVM.Attributes.AccessStub) FlexLucene.Util.Packed.PagedGrowableWriter::toString()
+[INFO] Adding a shadow method for the method: System.String modopt(IKVM.Attributes.AccessStub) FlexLucene.Util.Packed.PagedMutable::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Facet.DrillDownQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Facet.DrillDownQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.FacetField::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.FacetResult::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Facet.FacetResult::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Facet.FacetResult::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Facet.LabelAndValue::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.LabelAndValue::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Facet.LabelAndValue::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Range.DoubleRange::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Range.LongRange::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Range.LongRangeCounterLongRangeNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Sortedset.SortedSetDocValuesFacetField::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Taxonomy.AssociationFacetField::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Facet.Taxonomy.FacetLabel::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Facet.Taxonomy.FacetLabel::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Taxonomy.FacetLabel::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Taxonomy.FloatAssociationFacetField::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Facet.Taxonomy.IntAssociationFacetField::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Facet.Taxonomy.TaxonomyFacetSumValueSourceScoreValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Facet.Taxonomy.TaxonomyFacetSumValueSourceScoreValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Grouping.AbstractGroupFacetCollectorFacetEntry::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Grouping.AbstractGroupFacetCollectorFacetEntry::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Grouping.AbstractGroupFacetCollectorFacetEntry::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Grouping.SearchGroup::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Grouping.SearchGroup::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Grouping.SearchGroup::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Highlight.TextFragment::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Vectorhighlight.FieldFragListWeightedFragInfoSubInfo::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Vectorhighlight.FieldFragListWeightedFragInfo::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Vectorhighlight.FieldPhraseListWeightedPhraseInfoToffs::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Vectorhighlight.FieldPhraseListWeightedPhraseInfoToffs::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Vectorhighlight.FieldPhraseListWeightedPhraseInfoToffs::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Vectorhighlight.FieldPhraseListWeightedPhraseInfo::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Vectorhighlight.FieldPhraseListWeightedPhraseInfo::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Vectorhighlight.FieldPhraseListWeightedPhraseInfo::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Vectorhighlight.FieldTermStackTermInfo::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Vectorhighlight.FieldTermStackTermInfo::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Vectorhighlight.FieldTermStackTermInfo::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Join.QueryBitSetProducer::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Join.QueryBitSetProducer::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Join.QueryBitSetProducer::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Join.ToChildBlockJoinQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Join.ToChildBlockJoinQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Join.ToParentBlockJoinQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Join.ToParentBlockJoinQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.Memory.MemoryIndex::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SlowCompositeReaderWrapper::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SortingLeafReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SortingMergePolicy::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Misc.TermStats::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.BlockJoinComparatorSource::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.DiversifiedTopDocsCollectorScoreDocKey::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Uninverting.FieldCacheCacheEntry::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Uninverting.FieldCacheSanityCheckerInsanity::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Uninverting.FieldCacheSanityCheckerInsanityType::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Uninverting.UninvertingReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.ListOfOutputs::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Util.Fst.UpToTwoPositiveIntOutputsTwoLongs::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Util.Fst.UpToTwoPositiveIntOutputsTwoLongs::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Util.Fst.UpToTwoPositiveIntOutputsTwoLongs::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.BoostingQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.BoostingQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.CommonTermsQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.CommonTermsQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.CustomScoreQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.CustomScoreQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.TermsQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.TermsQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.BoostedQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.BoostedQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.FunctionQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.FunctionQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.FunctionRangeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.FunctionRangeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.ValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.ValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queries.Function.ValueSource::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.ConstValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.ConstValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.DocFreqValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.DocFreqValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.DoubleConstValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.DoubleConstValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.DoubleFieldSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.DoubleFieldSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.DualFloatFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.DualFloatFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.EnumFieldSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.EnumFieldSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.FieldCacheSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.FieldCacheSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.FloatFieldSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.FloatFieldSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.IfFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.IfFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.IntFieldSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.IntFieldSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.JoinDocFreqValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.JoinDocFreqValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.LinearFloatFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.LinearFloatFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.LiteralValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.LiteralValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.LongFieldSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.LongFieldSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.MaxDocValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.MaxDocValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.MultiBoolFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.MultiBoolFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.MultiFloatFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.MultiFloatFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.MultiFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.MultiFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.NormValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.NormValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.NumDocsValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.NumDocsValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.QueryValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.QueryValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.RangeMapFloatFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.RangeMapFloatFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.ReciprocalFloatFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.ReciprocalFloatFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.ScaleFloatFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.ScaleFloatFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.SimpleBoolFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.SimpleBoolFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.SingleFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.SingleFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.SortedSetFieldSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.SortedSetFieldSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.SumTotalTermFreqValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.SumTotalTermFreqValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.TotalTermFreqValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.TotalTermFreqValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.VectorValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.VectorValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Mlt.MoreLikeThisQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Mlt.MoreLikeThisQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Payloads.AveragePayloadFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Payloads.AveragePayloadFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Payloads.MaxPayloadFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Payloads.MaxPayloadFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Payloads.MinPayloadFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Payloads.MinPayloadFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Payloads.PayloadFunction::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Payloads.PayloadFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Payloads.PayloadScoreQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Payloads.PayloadScoreQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Payloads.SpanPayloadCheckQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Payloads.SpanPayloadCheckQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Classic.Token::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.QueryNodeException::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Config.FieldConfig::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.AndQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.AnyQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.BooleanQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.BoostQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.DeletedQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.FieldQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.FuzzyQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.GroupQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.MatchAllDocsQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.MatchNoDocsQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.ModifierQueryNodeModifier::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.ModifierQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.NoTokenFoundQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.OpaqueQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.OrQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.PathQueryNodeQueryText::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.PathQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.PhraseSlopQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.ProximityQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.QueryNodeImpl::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.QuotedFieldQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.SlopQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Nodes.TokenizedPhraseQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Core.Util.UnescapedCharSequence::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Messages.MessageImpl::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.StandardQueryParser::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queryparser.Flexible.Standard.Config.LegacyNumericConfig::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queryparser.Flexible.Standard.Config.LegacyNumericConfig::hashCode()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queryparser.Flexible.Standard.Config.PointsConfig::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queryparser.Flexible.Standard.Config.PointsConfig::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.AbstractRangeQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.LegacyNumericQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.LegacyNumericRangeQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.MultiPhraseQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.PointQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.PointRangeQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.PrefixWildcardQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.RegexpQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Nodes.WildcardQueryNode::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Flexible.Standard.Parser.Token::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Surround.Parser.Token::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Surround.Query.BasicQueryFactory::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queryparser.Surround.Query.BasicQueryFactory::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queryparser.Surround.Query.BasicQueryFactory::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Surround.Query.ComposedQuery::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Surround.Query.FieldsQuery::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Surround.Query.SimpleTerm::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Queryparser.Surround.Query.SrndQuery::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queryparser.Surround.Query.SrndQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queryparser.Surround.Query.SrndQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Idversion.IDVersionSegmentTermsEnum::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Idversion.VersionBlockTreeTermsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.BigIntegerPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.InetAddressPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LatLonPoint::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Sandbox.Queries.FuzzyLikeThisQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Sandbox.Queries.FuzzyLikeThisQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Sandbox.Queries.SlowFuzzyQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Sandbox.Queries.SlowFuzzyQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.DocValuesNumbersQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.DocValuesNumbersQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.DocValuesRangeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.DocValuesRangeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.DocValuesTermsQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.DocValuesTermsQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.TermAutomatonQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.TermAutomatonQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Geopoint.Document.GeoPointField::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Geopoint.Document.GeoPointTokenStreamGeoPointTermAttributeImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Geopoint.Document.GeoPointTokenStreamGeoPointTermAttributeImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Geopoint.Search.GeoPointDistanceQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Geopoint.Search.GeoPointDistanceQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Geopoint.Search.GeoPointInBBoxQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Geopoint.Search.GeoPointInBBoxQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Geopoint.Search.GeoPointInPolygonQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Geopoint.Search.GeoPointInPolygonQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Util.GeoRect::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.SpatialStrategy::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Bbox.BBoxOverlapRatioValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Bbox.BBoxOverlapRatioValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Bbox.BBoxSimilarityValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Bbox.BBoxSimilarityValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Composite.CompositeVerifyQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Composite.CompositeVerifyQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Composite.IntersectsRPTVerifyQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Composite.IntersectsRPTVerifyQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Prefix.AbstractPrefixTreeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Prefix.AbstractPrefixTreeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Prefix.ContainsPrefixTreeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Prefix.ContainsPrefixTreeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.HeatmapFacetCounterHeatmap::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.RecursivePrefixTreeStrategy::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Prefix.WithinPrefixTreeQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Prefix.WithinPrefixTreeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Prefix.Tree.CellIterator::hasNext()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Prefix.Tree.LegacyCell::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Prefix.Tree.LegacyCell::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.Tree.LegacyCell::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.Tree.NumberRangePrefixTreeNRCell::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Prefix.Tree.NumberRangePrefixTreeNRCell::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Prefix.Tree.NumberRangePrefixTreeNRCell::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.Tree.NumberRangePrefixTreeSpanUnitsNRShape::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Prefix.Tree.NumberRangePrefixTreeSpanUnitsNRShape::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Prefix.Tree.NumberRangePrefixTreeSpanUnitsNRShape::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.Tree.NumberRangePrefixTree::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.Tree.PackedQuadPrefixTreePackedQuadCell::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.Tree.PackedQuadPrefixTree::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Prefix.Tree.SpatialPrefixTree::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Query.SpatialArgs::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Query.SpatialOperation::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Spatial4j.Geo3dShape::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Spatial4j.Geo3dShape::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Spatial4j.Geo3dShape::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Util.CachingDoubleValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Util.CachingDoubleValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Util.DistanceToShapeValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Util.DistanceToShapeValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Util.ShapeAreaValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Util.ShapeAreaValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Util.ShapeFieldCacheDistanceValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Util.ShapeFieldCacheDistanceValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Util.ShapePredicateValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Util.ShapePredicateValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Vector.DistanceValueSource::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Vector.DistanceValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geo3DPoint::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.BasePlanetObject::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.BasePlanetObject::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.BaseXYZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.BaseXYZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoConvexPolygon::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoConvexPolygon::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoConvexPolygon::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateHorizontalLine::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateHorizontalLine::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateHorizontalLine::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateLatitudeZone::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateLatitudeZone::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateLatitudeZone::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateLongitudeSlice::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateLongitudeSlice::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateLongitudeSlice::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegeneratePoint::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegeneratePoint::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoLatitudeZone::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoLatitudeZone::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoLatitudeZone::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoLongitudeSlice::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoLongitudeSlice::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoLongitudeSlice::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoNorthLatitudeZone::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoNorthLatitudeZone::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoNorthLatitudeZone::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoNorthRectangle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoNorthRectangle::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoNorthRectangle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoPathSegmentEndpoint::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoPathSegmentEndpoint::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoPathSegmentEndpoint::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoPath::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoPath::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoPath::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoPoint::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoRectangle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoRectangle::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoRectangle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoSouthLatitudeZone::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoSouthLatitudeZone::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoSouthLatitudeZone::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoSouthRectangle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoSouthRectangle::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoSouthRectangle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoStandardCircle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoStandardCircle::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoStandardCircle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideDegenerateHorizontalLine::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideDegenerateHorizontalLine::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideDegenerateHorizontalLine::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideLongitudeSlice::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideLongitudeSlice::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideLongitudeSlice::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideNorthRectangle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideNorthRectangle::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideNorthRectangle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideRectangle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideRectangle::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideRectangle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideSouthRectangle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideSouthRectangle::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideSouthRectangle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWorld::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWorld::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWorld::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.Plane::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.Plane::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.Plane::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.PlanetModel::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.PlanetModel::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.PlanetModel::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.SidedPlane::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.SidedPlane::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.SidedPlane::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.StandardXYZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.StandardXYZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.StandardXYZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.Vector::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.Vector::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.Vector::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.XYdZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.XYdZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.XYdZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.XdYZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.XdYZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.XdYZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.XdYdZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.XdYdZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.XdYdZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXYZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXYZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXYZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXYdZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXYdZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXYdZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXdYZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXdYZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXdYZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXdYdZSolid::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXdYdZSolid::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXdYdZSolid::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spell.DirectSpellCheckerScoreTerm::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spell.DirectSpellCheckerScoreTerm::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spell.JaroWinklerDistance::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spell.JaroWinklerDistance::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Spell.JaroWinklerDistance::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spell.LevensteinDistance::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spell.LevensteinDistance::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Spell.LevensteinDistance::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spell.NGramDistance::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spell.NGramDistance::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Spell.NGramDistance::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Suggest.LookupLookupResult::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Suggest.Fst.FSTCompletionCompletion::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.SpatialPredicate::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Context.SpatialContext::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Context.Jts.JtsSpatialContext::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Distance.AbstractDistanceCalculator::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Distance.CartesianDistCalc::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Distance.CartesianDistCalc::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Distance.GeodesicSphereDistCalc::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Distance.GeodesicSphereDistCalc::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.BaseShape::isEmpty()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.ShapeCollection::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.ShapeCollection::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.ShapeCollection::hashCode()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.BufferedLine::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Impl.BufferedLine::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Impl.BufferedLine::hashCode()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.BufferedLineString::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Impl.BufferedLineString::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Impl.BufferedLineString::hashCode()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.CircleImpl::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Impl.CircleImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Impl.CircleImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.GeoCircle::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.InfBufLine::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Impl.PointImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.PointImpl::toString()
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Impl.PointImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Impl.Range::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Impl.Range::hashCode()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.Range::toString()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Impl.RectangleImpl::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Impl.RectangleImpl::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Impl.RectangleImpl::hashCode()
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Jts.JtsGeometry::toString()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Jts.JtsGeometry::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Jts.JtsGeometry::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean Org.Locationtech.Spatial4j.Shape.Jts.JtsPoint::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Shape.Jts.JtsPoint::toString()
+[INFO] Adding a shadow method for the method: System.Int32 Org.Locationtech.Spatial4j.Shape.Jts.JtsPoint::hashCode()
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Execute PEVerify
 	Copying ikvm dlls to the output folder
 
-Microsoft (R) .NET Framework PE Verifier.  Version  4.0.30319.33440
+Microsoft (R) .NET Framework PE Verifier.  Version  4.0.30319.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::posix_fadvise][offset 0x00000057] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::posix_madvise][offset 0x00000055] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::madvise][offset 0x00000055] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::open_direct][offset 0x00000057] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.NativePosixUtil::pread][offset 0x0000005D] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::close][offset 0x0000004D] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::length][offset 0x0000004D] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::open][offset 0x00000054] Instruction cannot be verified.
-[IL]: Error: [C:\Seemant\Personal\GitHub\FlexLucene\work\output\FlexLucene.dll : org.apache.lucene.store.WindowsDirectory::read][offset 0x00000059] Instruction cannot be verified.
-9 Error(s) Verifying work\output\FlexLucene.dll
-[INFO] ------------------------------------------------------------------------
-[INFO] ------------------------------------------------------------------------
-[INFO] TASK: Run Smoke Tests
-	Copy all required dll
-	Copy smoke test files
-	Starting Smoke Tests
-Done
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040010FD]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04001E27]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400211D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400215D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C00]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C01]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C02]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C03]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C04]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C05]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C06]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C07]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C08]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C09]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C0A]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3C]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3F]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E40]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E41]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E42]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E43]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E44]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E45]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E46]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E47]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E48]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E49]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4A]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4B]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4C]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4F]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E50]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E51]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E52]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E53]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E54]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E55]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E56]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E57]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E58]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E59]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5A]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5B]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5C]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5F]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F86]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F87]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F88]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F89]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8A]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8B]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8C]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8F]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F90]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F91]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F92]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F93]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F94]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F95]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F96]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F97]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F98]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F99]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9A]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9B]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9C]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9F]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA0]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA1]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA2]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA3]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA4]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA5]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA6]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA7]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA8]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA9]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAA]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003047]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003048]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003049]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304A]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304B]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304C]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304F]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003050]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003051]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003052]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003053]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003054]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003055]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003056]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003057]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003058]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003059]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305A]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305B]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305C]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305D]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305F]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003060]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033EC]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033ED]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033EE]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033EF]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F0]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F6]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F7]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F8]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F9]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040035CF]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D2]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D3]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D4]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D5]
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_fadvise][offset 0x00000057] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_madvise][offset 0x00000055] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Madvise][offset 0x00000055] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Open_direct][offset 0x00000057] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Pread][offset 0x0000005D] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Close][offset 0x0000004D] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Length][offset 0x0000004D] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Open][offset 0x00000054] Instruction cannot be verified.
+[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Read][offset 0x00000059] Instruction cannot be verified.
+9 Error(s) Verifying work\output\FlexLucene.dll(128 Warnings)
+
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy artifacts to the Artifacts directory
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] TASK: Run Smoke Tests
+	Starting Smoke Tests
+
+[32m]9;8;"USERNAME"\@]9;8;"COMPUTERNAME"\ [92mD:\Github\FlexLucene[90m
+[90m>[m f#\fsi.exe SmokeTests.fsx 
+Available Codecs: seq ["Lucene60"; "Lucene54"; "Lucene53"; "Lucene50"; ...]
+Postings Format : seq ["Lucene50"; "completion"; "IDVersion"; "AutoPrefix"; ...]
+Tokenization Test
+Expected : seq ["hello"; "world"]
+Actual : seq ["hello"; "world"]
+RangeQuery ToString : test:[32.0 TO 33.0]
+TermQuery ToString : Hello:
+RectangleImpl ToString : Rect(minX=1.0,maxX=1.0,minY=1.0,maxY=1.0)
+override toString RectangleImpl ToString : Rect(minX=1.0,maxX=1.0,minY=1.0,maxY=1.0)<overridden>
+RectangleImpl ToString without casting: Rect(minX=1.0,maxX=1.0,minY=1.0,maxY=1.0)
+RectangleImpl ToString with casting: Rect(minX=1.0,maxX=1.0,minY=1.0,maxY=1.0)<overridden>
+Hash Code tests
+a GetHashCode: 5
+a hashCode: 5
+b GetHashCode: 6
+b hashCode: 6
+c GetHashCode: 5
+c hashCode: 5
+All tests passed
 [INFO] ------------------------------------------------------------------------
 [INFO] Build Finished.
