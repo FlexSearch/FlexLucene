@@ -1,36 +1,38 @@
+
+D:\Github\FlexLucene>f#\fsi.exe Build.fsx 
 [INFO] ------------------------------------------------------------------------
 [INFO] Starting FlexLucene Build
 [INFO] ------------------------------------------------------------------------
 [INFO] Global Variable Information
 	IKVM Version: 8.1.5717.0
-	Lucene Version: 6.0.0
-	Lucene full Version: 6.0.1.0
-	File Version: 6.0.1.0
+	Lucene Version: 6.0.1
+	Lucene full Version: 6.0.2.0
+	File Version: 6.0.2.0
 	JAVA_HOME: C:\Program Files\Java\jdk1.8.0_31
 [INFO] ------------------------------------------------------------------------
 	Root Directory: D:\Github\FlexLucene
 	Work Directory: D:\Github\FlexLucene\Work
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy Lucene files to be compiled
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\core\lucene-core-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\analysis\common\lucene-analyzers-common-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\analysis\phonetic\lucene-analyzers-phonetic-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\backward-codecs\lucene-backward-codecs-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\codecs\lucene-codecs-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\queries\lucene-queries-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\queryparser\lucene-queryparser-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\facet\lucene-facet-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\suggest\lucene-suggest-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\misc\lucene-misc-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\memory\lucene-memory-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\highlighter\lucene-highlighter-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\join\lucene-join-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\grouping\lucene-grouping-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\classification\lucene-classification-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\spatial\lucene-spatial-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\spatial3d\lucene-spatial3d-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\spatial-extras\lucene-spatial-extras-6.0.0.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.0\sandbox\lucene-sandbox-6.0.0.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\core\lucene-core-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\analysis\common\lucene-analyzers-common-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\analysis\phonetic\lucene-analyzers-phonetic-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\backward-codecs\lucene-backward-codecs-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\codecs\lucene-codecs-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\queries\lucene-queries-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\queryparser\lucene-queryparser-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\facet\lucene-facet-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\suggest\lucene-suggest-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\misc\lucene-misc-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\memory\lucene-memory-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\highlighter\lucene-highlighter-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\join\lucene-join-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\grouping\lucene-grouping-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\classification\lucene-classification-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\spatial\lucene-spatial-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\spatial3d\lucene-spatial3d-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\spatial-extras\lucene-spatial-extras-6.0.1.jar
+	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\sandbox\lucene-sandbox-6.0.1.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Extract meta information from packages
@@ -167,8 +169,6 @@ Note: there were 1 unresolved dynamic references to classes or interfaces.
       (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclass)
 Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
   Copying resources from program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
-Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [jakarta-regexp-1.4.jar:META-INF/MANIFEST.MF])
-Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spatial4j-0.6.jar:META-INF/MANIFEST.MF])
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Generating mapping information
@@ -540,49 +540,9 @@ Note: there were 1 unresolved dynamic references to classes or interfaces.
       (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclass)
 Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
   Copying resources from program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
-Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [jakarta-regexp-1.4.jar:META-INF/MANIFEST.MF])
-Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spatial4j-0.6.jar:META-INF/MANIFEST.MF])
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Execute IKVM
-IKVM.NET Compiler version 8.1.5717.0
-Copyright (C) 2002-2015 Jeroen Frijters
-http://www.ikvm.net/
-
-warning IKVMC0100: Class "com.vividsolutions.jts.io.InStream" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.io.OutStream" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequenceFilter" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFilter" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFactory" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.PrecisionModel" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.impl.CoordinateArraySequenceFactory" not found
-warning IKVMC0100: Class "org.noggit.JSONParser" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.io.ParseException" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBReader" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBWriter" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Coordinate" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequence" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Geometry" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryCollection" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.LineString" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiLineString" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiPoint" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiPolygon" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Point" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Polygon" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.io.WKTReader" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Envelope" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.IntersectionMatrix" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Lineal" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.LinearRing" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.Puntal" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometry" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometryFactory" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.operation.union.UnaryUnionOp" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.IsValidOp" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.TopologyValidationError" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.algorithm.CGAlgorithms" not found
-warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not found
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Add build information
@@ -1465,7 +1425,6 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04001E27]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400211D]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400215D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C00]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C01]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C02]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C03]
@@ -1476,9 +1435,7 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C08]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C09]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C0A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3C]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3E]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C0B]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3F]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E40]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E41]
@@ -1512,9 +1469,9 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5D]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5E]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F86]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F87]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F88]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E60]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E61]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E62]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F89]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8A]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8B]
@@ -1549,9 +1506,9 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA8]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA9]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAA]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003047]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003048]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003049]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAB]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAC]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAD]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304A]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304B]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304C]
@@ -1575,20 +1532,23 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305E]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305F]
 [MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003060]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033EC]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033ED]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033EE]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033EF]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F0]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F6]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F7]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F8]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F9]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040035CF]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D2]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D3]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D4]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D5]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003061]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003062]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003063]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F1]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F2]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F3]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F4]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F5]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FB]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FC]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FD]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FE]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040035D4]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D7]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D8]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D9]
+[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037DA]
 [IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_fadvise][offset 0x00000057] Instruction cannot be verified.
 [IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_madvise][offset 0x00000055] Instruction cannot be verified.
 [IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Madvise][offset 0x00000055] Instruction cannot be verified.
@@ -1608,10 +1568,9 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 [INFO] TASK: Run Smoke Tests
 	Starting Smoke Tests
 
-[32m]9;8;"USERNAME"\@]9;8;"COMPUTERNAME"\ [92mD:\Github\FlexLucene[90m
-[90m>[m f#\fsi.exe SmokeTests.fsx 
-Available Codecs: seq ["Lucene60"; "Lucene54"; "Lucene53"; "Lucene50"; ...]
-Postings Format : seq ["Lucene50"; "completion"; "IDVersion"; "AutoPrefix"; ...]
+D:\Github\FlexLucene>f#\fsi.exe SmokeTests.fsx 
+Available Codecs: seq ["Lucene54"; "Lucene53"; "Lucene50"; "Lucene60"; ...]
+Postings Format : seq ["AutoPrefix"; "SimpleText"; "Memory"; "FST50"; ...]
 Tokenization Test
 Expected : seq ["hello"; "world"]
 Actual : seq ["hello"; "world"]
