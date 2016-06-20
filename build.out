@@ -1,38 +1,36 @@
-
-D:\Github\FlexLucene>f#\fsi.exe Build.fsx 
 [INFO] ------------------------------------------------------------------------
 [INFO] Starting FlexLucene Build
 [INFO] ------------------------------------------------------------------------
 [INFO] Global Variable Information
 	IKVM Version: 8.1.5717.0
-	Lucene Version: 6.0.1
-	Lucene full Version: 6.0.2.0
-	File Version: 6.0.2.0
-	JAVA_HOME: C:\Program Files\Java\jdk1.8.0_31
+	Lucene Version: 6.1.0
+	Lucene full Version: 6.1.0.0
+	File Version: 6.1.0.0
+	JAVA_HOME: C:\Program Files\Java\jre1.8.0_92
 [INFO] ------------------------------------------------------------------------
-	Root Directory: D:\Github\FlexLucene
-	Work Directory: D:\Github\FlexLucene\Work
+	Root Directory: C:\seemant\github\FlexLucene
+	Work Directory: C:\seemant\github\FlexLucene\Work
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy Lucene files to be compiled
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\core\lucene-core-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\analysis\common\lucene-analyzers-common-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\analysis\phonetic\lucene-analyzers-phonetic-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\backward-codecs\lucene-backward-codecs-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\codecs\lucene-codecs-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\queries\lucene-queries-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\queryparser\lucene-queryparser-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\facet\lucene-facet-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\suggest\lucene-suggest-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\misc\lucene-misc-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\memory\lucene-memory-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\highlighter\lucene-highlighter-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\join\lucene-join-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\grouping\lucene-grouping-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\classification\lucene-classification-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\spatial\lucene-spatial-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\spatial3d\lucene-spatial3d-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\spatial-extras\lucene-spatial-extras-6.0.1.jar
-	Copying: D:\Github\FlexLucene\lucene-6.0.1\lucene-6.0.1\sandbox\lucene-sandbox-6.0.1.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\core\lucene-core-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\analysis\common\lucene-analyzers-common-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\analysis\phonetic\lucene-analyzers-phonetic-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\backward-codecs\lucene-backward-codecs-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\codecs\lucene-codecs-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\queries\lucene-queries-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\queryparser\lucene-queryparser-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\facet\lucene-facet-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\suggest\lucene-suggest-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\misc\lucene-misc-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\memory\lucene-memory-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\highlighter\lucene-highlighter-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\join\lucene-join-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\grouping\lucene-grouping-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\classification\lucene-classification-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\spatial\lucene-spatial-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\spatial3d\lucene-spatial3d-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\spatial-extras\lucene-spatial-extras-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\sandbox\lucene-sandbox-6.1.0.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Extract meta information from packages
@@ -160,15 +158,17 @@ D:\Github\FlexLucene>f#\fsi.exe Build.fsx
 [INFO] TASK: Execute Proguard
 	Move proguard.cfg to work directory
 ProGuard, version 5.2
-Reading program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
-Reading library jar [C:\Program Files\Java\jre1.8.0_60\lib\rt.jar]
-Reading library directory [D:\Github\FlexLucene\Work\Lib]
+Reading program directory [C:\seemant\github\FlexLucene\Work\Lucene] (filtered)
+Reading library jar [C:\Program Files\Java\jre1.8.0_92\lib\rt.jar]
+Reading library directory [C:\seemant\github\FlexLucene\Work\Lib]
 Note: org.locationtech.spatial4j.context.SpatialContextFactory: can't find dynamically referenced class org.noggit.JSONParser
 Note: there were 1 unresolved dynamic references to classes or interfaces.
       You should check if you need to specify additional program jars.
       (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclass)
-Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
-  Copying resources from program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
+Preparing output jar [C:\seemant\github\FlexLucene\Work\FlexLucene.jar]
+  Copying resources from program directory [C:\seemant\github\FlexLucene\Work\Lucene] (filtered)
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [jakarta-regexp-1.4.jar:META-INF/MANIFEST.MF])
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spatial4j-0.6.jar:META-INF/MANIFEST.MF])
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Generating mapping information
@@ -484,6 +484,7 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Renaming due to conflict: org.apache.lucene.util.BytesRefHash$DirectBytesStartArray -> org.apache.lucene.util.Counter bytesUsed
 [INFO] Renaming due to conflict: org.apache.lucene.util.CharsRef -> int length
 [INFO] Renaming due to conflict: org.apache.lucene.util.FilterIterator -> java.lang.Object next
+[INFO] Renaming due to conflict: org.apache.lucene.util.FixedLengthBytesRefArray -> int size
 [INFO] Renaming due to conflict: org.apache.lucene.util.PriorityQueue -> int size
 [INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingByteBlockAllocator -> int maxBufferedBlocks
 [INFO] Renaming due to conflict: org.apache.lucene.util.RecyclingByteBlockAllocator -> int freeBlocks
@@ -531,18 +532,58 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 	Updating the proguard.cfg
 	Running Proguard Pass 2
 ProGuard, version 5.2
-Reading program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
-Reading library jar [C:\Program Files\Java\jre1.8.0_60\lib\rt.jar]
-Reading library directory [D:\Github\FlexLucene\Work\Lib]
+Reading program directory [C:\seemant\github\FlexLucene\Work\Lucene] (filtered)
+Reading library jar [C:\Program Files\Java\jre1.8.0_92\lib\rt.jar]
+Reading library directory [C:\seemant\github\FlexLucene\Work\Lib]
 Note: org.locationtech.spatial4j.context.SpatialContextFactory: can't find dynamically referenced class org.noggit.JSONParser
 Note: there were 1 unresolved dynamic references to classes or interfaces.
       You should check if you need to specify additional program jars.
       (http://proguard.sourceforge.net/manual/troubleshooting.html#dynamicalclass)
-Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
-  Copying resources from program directory [D:\Github\FlexLucene\Work\Lucene] (filtered)
+Preparing output jar [C:\seemant\github\FlexLucene\Work\FlexLucene.jar]
+  Copying resources from program directory [C:\seemant\github\FlexLucene\Work\Lucene] (filtered)
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [jakarta-regexp-1.4.jar:META-INF/MANIFEST.MF])
+Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spatial4j-0.6.jar:META-INF/MANIFEST.MF])
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Execute IKVM
+IKVM.NET Compiler version 8.1.5717.0
+Copyright (C) 2002-2015 Jeroen Frijters
+http://www.ikvm.net/
+
+warning IKVMC0100: Class "com.vividsolutions.jts.io.InStream" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.OutStream" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequenceFilter" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFilter" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryFactory" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.PrecisionModel" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.impl.CoordinateArraySequenceFactory" not found
+warning IKVMC0100: Class "org.noggit.JSONParser" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.ParseException" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBReader" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKBWriter" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Coordinate" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.CoordinateSequence" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Geometry" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.GeometryCollection" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.LineString" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiLineString" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiPoint" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.MultiPolygon" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Point" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Polygon" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.io.WKTReader" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Envelope" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.IntersectionMatrix" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Lineal" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.LinearRing" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.Puntal" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometry" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.geom.prep.PreparedGeometryFactory" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.operation.union.UnaryUnionOp" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.IsValidOp" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.operation.valid.TopologyValidationError" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.algorithm.CGAlgorithms" not found
+warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not found
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Add build information
@@ -698,6 +739,10 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.FloatPoint::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.IntPoint::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LongPoint::toString()
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Geo.Polygon::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Geo.Polygon::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Geo.Polygon::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Geo.Rectangle::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Index.CompositeReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ConcurrentMergeScheduler::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ExitableDirectoryReader::toString()
@@ -769,6 +814,10 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.IndexSearcher::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.LegacyNumericRangeQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.LegacyNumericRangeQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.MatchAllDocsQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.MatchAllDocsQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.MatchNoDocsQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.MatchNoDocsQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.MultiPhraseQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.MultiPhraseQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.MultiTermQuery::hashCode()
@@ -784,8 +833,8 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.PrefixQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.PrefixQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Query::toString()
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Query::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Query::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Query::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.ScoreDoc::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Sort::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Sort::equals(System.Object)
@@ -1180,7 +1229,9 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Idversion.IDVersionSegmentTermsEnum::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Idversion.VersionBlockTreeTermsReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.BigIntegerPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.HalfFloatPoint::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.InetAddressPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LatLonDocValuesField::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LatLonPoint::toString()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Sandbox.Queries.FuzzyLikeThisQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Sandbox.Queries.FuzzyLikeThisQuery::equals(System.Object)
@@ -1201,9 +1252,8 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Geopoint.Search.GeoPointDistanceQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Geopoint.Search.GeoPointInBBoxQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Geopoint.Search.GeoPointInBBoxQuery::hashCode()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Geopoint.Search.GeoPointInPolygonQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Geopoint.Search.GeoPointInPolygonQuery::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.Util.GeoRect::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Geopoint.Search.GeoPointInPolygonQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial.SpatialStrategy::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Bbox.BBoxOverlapRatioValueSource::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Bbox.BBoxOverlapRatioValueSource::hashCode()
@@ -1252,80 +1302,17 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Util.ShapePredicateValueSource::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial.Vector.DistanceValueSource::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial.Vector.DistanceValueSource::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geo3DDocValuesField::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geo3DPoint::toString()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.BasePlanetObject::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.BasePlanetObject::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.BaseXYZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.BaseXYZSolid::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoConvexPolygon::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoConvexPolygon::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoConvexPolygon::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateHorizontalLine::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateHorizontalLine::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateHorizontalLine::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateLatitudeZone::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateLatitudeZone::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateLatitudeZone::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateLongitudeSlice::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateLongitudeSlice::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateLongitudeSlice::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegeneratePoint::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegeneratePoint::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoLatitudeZone::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoLatitudeZone::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoLatitudeZone::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoLongitudeSlice::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoLongitudeSlice::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoLongitudeSlice::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoNorthLatitudeZone::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoNorthLatitudeZone::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoNorthLatitudeZone::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoNorthRectangle::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoNorthRectangle::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoNorthRectangle::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoPathSegmentEndpoint::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoPathSegmentEndpoint::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoPathSegmentEndpoint::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoPath::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoPath::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoPath::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoPoint::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoRectangle::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoRectangle::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoRectangle::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoSouthLatitudeZone::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoSouthLatitudeZone::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoSouthLatitudeZone::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoSouthRectangle::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoSouthRectangle::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoSouthRectangle::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoStandardCircle::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoStandardCircle::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoStandardCircle::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideDegenerateHorizontalLine::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideDegenerateHorizontalLine::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideDegenerateHorizontalLine::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideLongitudeSlice::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideLongitudeSlice::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideLongitudeSlice::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideNorthRectangle::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideNorthRectangle::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideNorthRectangle::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideRectangle::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideRectangle::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideRectangle::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWideSouthRectangle::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWideSouthRectangle::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWideSouthRectangle::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoWorld::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoWorld::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoWorld::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.Plane::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.Plane::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.Plane::hashCode()
@@ -1335,33 +1322,10 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.SidedPlane::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.SidedPlane::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.SidedPlane::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.StandardXYZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.StandardXYZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.StandardXYZSolid::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.Vector::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.Vector::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.Vector::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.XYdZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.XYdZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.XYdZSolid::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.XdYZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.XdYZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.XdYZSolid::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.XdYdZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.XdYdZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.XdYdZSolid::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXYZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXYZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXYZSolid::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXYdZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXYdZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXYdZSolid::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXdYZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXdYZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXdYZSolid::toString()
-[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.DXdYdZSolid::equals(System.Object)
-[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.DXdYdZSolid::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.DXdYdZSolid::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.XYZBounds::toString()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spell.DirectSpellCheckerScoreTerm::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spell.DirectSpellCheckerScoreTerm::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Spell.JaroWinklerDistance::hashCode()
@@ -1374,6 +1338,12 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Spell.NGramDistance::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Spell.NGramDistance::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Suggest.LookupLookupResult::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Suggest.Document.ContextQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Suggest.Document.ContextQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Suggest.Document.PrefixCompletionQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Suggest.Document.PrefixCompletionQuery::hashCode()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Suggest.Document.RegexCompletionQuery::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Suggest.Document.RegexCompletionQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Suggest.Fst.FSTCompletionCompletion::toString()
 [INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.SpatialPredicate::toString()
 [INFO] Adding a shadow method for the method: System.String Org.Locationtech.Spatial4j.Context.SpatialContext::toString()
@@ -1421,145 +1391,16 @@ Preparing output jar [D:\Github\FlexLucene\Work\FlexLucene.jar]
 Microsoft (R) .NET Framework PE Verifier.  Version  4.0.30319.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040010FD]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04001E27]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400211D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400215D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C01]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C02]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C03]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C04]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C05]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C06]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C07]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C08]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C09]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C0A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002C0B]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E3F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E40]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E41]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E42]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E43]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E44]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E45]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E46]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E47]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E48]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E49]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4B]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4C]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4E]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E4F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E50]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E51]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E52]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E53]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E54]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E55]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E56]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E57]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E58]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E59]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5B]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5C]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5E]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E5F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E60]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E61]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002E62]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F89]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8B]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8C]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8E]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F8F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F90]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F91]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F92]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F93]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F94]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F95]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F96]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F97]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F98]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F99]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9B]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9C]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9E]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002F9F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA0]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA1]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA2]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA3]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA4]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA5]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA6]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA7]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA8]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FA9]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAA]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAB]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAC]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04002FAD]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304B]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304C]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304E]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400304F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003050]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003051]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003052]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003053]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003054]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003055]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003056]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003057]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003058]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003059]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305A]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305B]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305C]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305D]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305E]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x0400305F]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003060]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003061]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003062]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x04003063]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F1]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F2]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F3]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F4]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033F5]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FB]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FC]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FD]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040033FE]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040035D4]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D7]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D8]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037D9]
-[MD]: .NET Framework Internal error: 0x801312a0 [token:0x040037DA]
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_fadvise][offset 0x00000057] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_madvise][offset 0x00000055] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Madvise][offset 0x00000055] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Open_direct][offset 0x00000057] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Pread][offset 0x0000005D] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Close][offset 0x0000004D] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Length][offset 0x0000004D] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Open][offset 0x00000054] Instruction cannot be verified.
-[IL]: Error: [D:\Github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Read][offset 0x00000059] Instruction cannot be verified.
-9 Error(s) Verifying work\output\FlexLucene.dll(128 Warnings)
-
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_fadvise][offset 0x00000057] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Posix_madvise][offset 0x00000055] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Madvise][offset 0x00000055] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Open_direct][offset 0x00000057] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.NativePosixUtil::Pread][offset 0x0000005D] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Close][offset 0x0000004D] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Length][offset 0x0000004D] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Open][offset 0x00000054] Instruction cannot be verified.
+[IL]: Error: [C:\seemant\github\FlexLucene\work\output\FlexLucene.dll : FlexLucene.Store.WindowsDirectory::Read][offset 0x00000059] Instruction cannot be verified.
+9 Error(s) Verifying work\output\FlexLucene.dll
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy artifacts to the Artifacts directory
@@ -1568,9 +1409,10 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 [INFO] TASK: Run Smoke Tests
 	Starting Smoke Tests
 
-D:\Github\FlexLucene>f#\fsi.exe SmokeTests.fsx 
+[32m]9;8;"USERNAME"\@]9;8;"COMPUTERNAME"\ [92mC:\seemant\github\FlexLucene[90m
+[90m>[m f#\fsi.exe SmokeTests.fsx 
 Available Codecs: seq ["Lucene54"; "Lucene53"; "Lucene50"; "Lucene60"; ...]
-Postings Format : seq ["AutoPrefix"; "SimpleText"; "Memory"; "FST50"; ...]
+Postings Format : seq ["Lucene50"; "IDVersion"; "completion"; "AutoPrefix"; ...]
 Tokenization Test
 Expected : seq ["hello"; "world"]
 Actual : seq ["hello"; "world"]
