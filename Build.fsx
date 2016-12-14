@@ -216,7 +216,7 @@ let addResourceFilesToFlexLuceneClassPath() =
             use archive = ZipFile.Open(file, ZipArchiveMode.Update) 
 
             archive.Entries
-            |> Seq.filter (fun e -> e.Name.EndsWith(".txt"))
+            |> Seq.filter (fun e -> e.Name.EndsWith(".txt") || e.Name.EndsWith(".dat"))
             |> Seq.map generateFlexLuceneResource
             |> Seq.toList
             |> Seq.iter (archive.CreateEntryFromFile >> ignore))
