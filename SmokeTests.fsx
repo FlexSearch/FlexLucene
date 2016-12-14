@@ -42,7 +42,7 @@ let IndexingTest(directory : FlexLucene.Store.Directory) =
     let doc = new Document()
     let text = "This is the text to be indexed."
     doc.Add(new Field("fieldname", text, TextField.TYPE_STORED))
-    iwriter.AddDocument(doc)
+    iwriter.AddDocument(doc) |> ignore
     iwriter.Close()
     // Now search the index:
     let ireader = DirectoryReader.Open(directory)

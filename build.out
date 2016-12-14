@@ -3,37 +3,42 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Global Variable Information
 	IKVM Version: 8.1.5717.0
-	Lucene Version: 6.1.0
-	Lucene full Version: 6.1.0.0
-	File Version: 6.1.0.0
+	Lucene Version: 6.3.0
+	Lucene full Version: 6.3.0.0
+	File Version: 6.3.0.0
 	JAVA_HOME: C:\Program Files\Java\jre1.8.0_92
 [INFO] ------------------------------------------------------------------------
 	Root Directory: C:\seemant\github\FlexLucene
 	Work Directory: C:\seemant\github\FlexLucene\Work
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy Lucene files to be compiled
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\core\lucene-core-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\analysis\common\lucene-analyzers-common-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\analysis\phonetic\lucene-analyzers-phonetic-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\backward-codecs\lucene-backward-codecs-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\codecs\lucene-codecs-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\queries\lucene-queries-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\queryparser\lucene-queryparser-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\facet\lucene-facet-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\suggest\lucene-suggest-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\misc\lucene-misc-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\memory\lucene-memory-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\highlighter\lucene-highlighter-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\join\lucene-join-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\grouping\lucene-grouping-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\classification\lucene-classification-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\spatial\lucene-spatial-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\spatial3d\lucene-spatial3d-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\spatial-extras\lucene-spatial-extras-6.1.0.jar
-	Copying: C:\seemant\github\FlexLucene\lucene-6.1.0\sandbox\lucene-sandbox-6.1.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\core\lucene-core-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\analysis\common\lucene-analyzers-common-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\analysis\kuromoji\lucene-analyzers-kuromoji-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\analysis\phonetic\lucene-analyzers-phonetic-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\backward-codecs\lucene-backward-codecs-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\codecs\lucene-codecs-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\queries\lucene-queries-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\queryparser\lucene-queryparser-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\facet\lucene-facet-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\suggest\lucene-suggest-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\misc\lucene-misc-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\memory\lucene-memory-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\highlighter\lucene-highlighter-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\join\lucene-join-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\grouping\lucene-grouping-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\classification\lucene-classification-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\spatial\lucene-spatial-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\spatial3d\lucene-spatial3d-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\spatial-extras\lucene-spatial-extras-6.3.0.jar
+	Copying: C:\seemant\github\FlexLucene\lucene-6.3.0\sandbox\lucene-sandbox-6.3.0.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Extract meta information from packages
+	Adding META-INF entry to the jar:  META-INF/
+	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
+	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
+	Adding META-INF entry to the jar:  META-INF/NOTICE.txt
 	Adding META-INF entry to the jar:  META-INF/
 	Adding META-INF entry to the jar:  META-INF/MANIFEST.MF
 	Adding META-INF entry to the jar:  META-INF/LICENSE.txt
@@ -150,6 +155,8 @@
 [INFO] orig: org/apache/lucene/analysis/snowball/swedish_stop.txt;  new: FlexLucene/Analysis/Snowball/swedish_stop.txt
 [INFO] orig: org/apache/lucene/analysis/th/stopwords.txt;  new: FlexLucene/Analysis/Th/stopwords.txt
 [INFO] orig: org/apache/lucene/analysis/tr/stopwords.txt;  new: FlexLucene/Analysis/Tr/stopwords.txt
+[INFO] orig: org/apache/lucene/analysis/ja/stoptags.txt;  new: FlexLucene/Analysis/Ja/stoptags.txt
+[INFO] orig: org/apache/lucene/analysis/ja/stopwords.txt;  new: FlexLucene/Analysis/Ja/stopwords.txt
 [INFO] ------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] TASK: Copy Library files
@@ -174,6 +181,10 @@ Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spati
 [INFO] TASK: Generating mapping information
 [INFO] Renaming due to conflict: org.apache.commons.codec.language.ColognePhonetic$CologneBuffer -> int length
 [INFO] Renaming due to conflict: org.apache.commons.codec.language.bm.Rule -> java.lang.String pattern
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.CharArrayMap -> org.apache.lucene.analysis.CharArrayMap$EntrySet entrySet
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.CharArrayMap -> org.apache.lucene.analysis.CharArraySet keySet
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.ja.JapaneseNumberFilter$NumberBuffer -> int position
+[INFO] Renaming due to conflict: org.apache.lucene.analysis.ja.JapaneseTokenizer -> boolean end
 [INFO] Renaming due to conflict: org.apache.lucene.analysis.standard.ClassicTokenizerImpl -> int yychar
 [INFO] Renaming due to conflict: org.apache.lucene.analysis.standard.StandardTokenizerImpl -> int yychar
 [INFO] Renaming due to conflict: org.apache.lucene.analysis.standard.UAX29URLEmailTokenizerImpl -> int yychar
@@ -184,10 +195,7 @@ Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spati
 [INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.PackedTokenAttributeImpl -> java.lang.String type
 [INFO] Renaming due to conflict: org.apache.lucene.analysis.tokenattributes.TypeAttributeImpl -> java.lang.String type
 [INFO] Renaming due to conflict: org.apache.lucene.analysis.util.AbstractAnalysisFactory -> boolean isExplicitLuceneMatchVersion
-[INFO] Renaming due to conflict: org.apache.lucene.analysis.util.CharArrayMap -> org.apache.lucene.analysis.util.CharArrayMap$EntrySet entrySet
-[INFO] Renaming due to conflict: org.apache.lucene.analysis.util.CharArrayMap -> org.apache.lucene.analysis.util.CharArraySet keySet
 [INFO] Renaming due to conflict: org.apache.lucene.analysis.wikipedia.WikipediaTokenizerImpl -> int yychar
-[INFO] Renaming due to conflict: org.apache.lucene.codecs.BlockTermState -> boolean isRealTerm
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.StoredFieldsWriter$MergeVisitor -> org.apache.lucene.util.BytesRef binaryValue
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.StoredFieldsWriter$MergeVisitor -> java.lang.String stringValue
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.StoredFieldsWriter$MergeVisitor -> java.lang.Number numericValue
@@ -239,6 +247,13 @@ Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spati
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.DocValuesFormat docValuesFormat
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.StoredFieldsFormat storedFieldsFormat
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene60.Lucene60Codec -> org.apache.lucene.codecs.NormsFormat normsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene62.Lucene62Codec -> org.apache.lucene.codecs.FieldInfosFormat fieldInfosFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene62.Lucene62Codec -> org.apache.lucene.codecs.LiveDocsFormat liveDocsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene62.Lucene62Codec -> org.apache.lucene.codecs.CompoundFormat compoundFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene62.Lucene62Codec -> org.apache.lucene.codecs.PostingsFormat postingsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene62.Lucene62Codec -> org.apache.lucene.codecs.DocValuesFormat docValuesFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene62.Lucene62Codec -> org.apache.lucene.codecs.StoredFieldsFormat storedFieldsFormat
+[INFO] Renaming due to conflict: org.apache.lucene.codecs.lucene62.Lucene62Codec -> org.apache.lucene.codecs.NormsFormat normsFormat
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectDocValuesProducer -> java.util.concurrent.atomic.AtomicLong ramBytesUsed
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$DirectField -> boolean hasOffsets
 [INFO] Renaming due to conflict: org.apache.lucene.codecs.memory.DirectPostingsFormat$DirectField -> boolean hasPayloads
@@ -340,7 +355,6 @@ Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spati
 [INFO] Renaming due to conflict: org.apache.lucene.index.LeafReaderContext -> org.apache.lucene.index.LeafReader reader
 [INFO] Renaming due to conflict: org.apache.lucene.index.LeafReaderContext -> java.util.List leaves
 [INFO] Renaming due to conflict: org.apache.lucene.index.MergeReaderWrapper -> org.apache.lucene.codecs.FieldsProducer fields
-[INFO] Renaming due to conflict: org.apache.lucene.index.MergeState$NoDelDocMap -> int maxDoc
 [INFO] Renaming due to conflict: org.apache.lucene.index.MergedPrefixCodedTermsIterator -> java.lang.String field
 [INFO] Renaming due to conflict: org.apache.lucene.index.MultiDocValues$OrdinalMap -> long ramBytesUsed
 [INFO] Renaming due to conflict: org.apache.lucene.index.MultiDocValues$OrdinalMap$SegmentMap -> int[] newToOld
@@ -381,6 +395,7 @@ Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spati
 [INFO] Renaming due to conflict: org.apache.lucene.index.memory.MemoryIndex$MemoryIndexReader$MemoryPostingsEnum -> int endOffset
 [INFO] Renaming due to conflict: org.apache.lucene.queries.function.FunctionQuery$AllScorer -> org.apache.lucene.search.DocIdSetIterator iterator
 [INFO] Renaming due to conflict: org.apache.lucene.queries.function.ValueSourceScorer -> org.apache.lucene.search.TwoPhaseIterator twoPhaseIterator
+[INFO] Renaming due to conflict: org.apache.lucene.queries.function.valuesource.ComparisonBoolFunction -> java.lang.String name
 [INFO] Renaming due to conflict: org.apache.lucene.queryparser.classic.QueryParser -> int jj_ntk
 [INFO] Renaming due to conflict: org.apache.lucene.queryparser.flexible.core.nodes.QueryNodeImpl -> boolean isLeaf
 [INFO] Renaming due to conflict: org.apache.lucene.queryparser.flexible.core.util.UnescapedCharSequence -> boolean[] wasEscaped
@@ -397,7 +412,7 @@ Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spati
 [INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> long docCount
 [INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> long sumTotalTermFreq
 [INFO] Renaming due to conflict: org.apache.lucene.search.CollectionStatistics -> long sumDocFreq
-[INFO] Renaming due to conflict: org.apache.lucene.search.ConjunctionDISI$TwoPhaseConjunctionDISI -> float matchCost
+[INFO] Renaming due to conflict: org.apache.lucene.search.ConjunctionDISI$ConjunctionTwoPhaseIterator -> float matchCost
 [INFO] Renaming due to conflict: org.apache.lucene.search.ConstantScoreScorer -> float score
 [INFO] Renaming due to conflict: org.apache.lucene.search.ConstantScoreScorer -> org.apache.lucene.search.TwoPhaseIterator twoPhaseIterator
 [INFO] Renaming due to conflict: org.apache.lucene.search.ConstantScoreWeight -> float boost
@@ -460,9 +475,12 @@ Warning: can't write resource [META-INF/MANIFEST.MF] (Duplicate zip entry [spati
 [INFO] Renaming due to conflict: org.apache.lucene.search.suggest.document.CompletionAnalyzer -> boolean preservePositionIncrements
 [INFO] Renaming due to conflict: org.apache.lucene.search.suggest.document.CompletionsTermsReader -> org.apache.lucene.search.suggest.document.NRTSuggester suggester
 [INFO] Renaming due to conflict: org.apache.lucene.search.suggest.document.ContextSuggestField -> java.util.Set contexts
+[INFO] Renaming due to conflict: org.apache.lucene.search.uhighlight.PhraseHelper -> boolean willRewrite
+[INFO] Renaming due to conflict: org.apache.lucene.search.uhighlight.PhraseHelper$MultiSpans -> long cost
+[INFO] Renaming due to conflict: org.apache.lucene.search.uhighlight.SplittingBreakIterator -> int current
+[INFO] Renaming due to conflict: org.apache.lucene.search.uhighlight.TokenStreamFromTermVector -> org.apache.lucene.search.uhighlight.TokenStreamFromTermVector$TokenLL incrementToken
 [INFO] Renaming due to conflict: org.apache.lucene.search.vectorhighlight.BaseFragListBuilder$IteratorQueue -> java.lang.Object top
 [INFO] Renaming due to conflict: org.apache.lucene.search.vectorhighlight.BaseFragmentsBuilder -> boolean discreteMultiValueHighlighting
-[INFO] Renaming due to conflict: org.apache.lucene.spatial.geopoint.search.GeoPointPrefixTermsEnum -> org.apache.lucene.spatial.geopoint.search.GeoPointPrefixTermsEnum$Range nextRange
 [INFO] Renaming due to conflict: org.apache.lucene.spatial.geopoint.search.GeoPointPrefixTermsEnum -> boolean hasNext
 [INFO] Renaming due to conflict: org.apache.lucene.spatial.prefix.tree.CellIterator -> org.apache.lucene.spatial.prefix.tree.Cell thisCell
 [INFO] Renaming due to conflict: org.apache.lucene.spatial.prefix.tree.LegacyCell -> boolean isLeaf
@@ -598,8 +616,6 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Custom.CustomAnalyzer::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Miscellaneous.LimitTokenCountAnalyzer::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Miscellaneous.PerFieldAnalyzerWrapper::toString()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Util.CharArrayMap::toString()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Util.CharArraySet::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Util.OpenStringBuilder::toString()
 [INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.ArmenianStemmer::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.ArmenianStemmer::hashCode()
@@ -649,9 +665,9 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.SwedishStemmer::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean Org.Tartarus.Snowball.Ext.TurkishStemmer::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 Org.Tartarus.Snowball.Ext.TurkishStemmer::hashCode()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.Ja.Token::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Classification.KNearestNeighborClassifier::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Classification.Utils.ConfusionMatrixGeneratorConfusionMatrix::toString()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Autoprefix.AutoPrefixPostingsFormat::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blockterms.BlockTermsReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blockterms.FixedGapTermsIndexReader::toString()
 [INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.Blockterms.TermsIndexReaderBase::close()
@@ -674,6 +690,8 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Simpletext.SimpleTextNormsFormatSimpleTextNormsProducer::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Simpletext.SimpleTextStoredFieldsReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Simpletext.SimpleTextTermVectorsReader::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.CharArrayMap::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.CharArraySet::toString()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Analysis.LegacyNumericTokenStreamLegacyNumericTermAttributeImpl::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Analysis.LegacyNumericTokenStreamLegacyNumericTermAttributeImpl::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Analysis.LegacyNumericTokenStream::toString()
@@ -718,7 +736,6 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.StoredFieldsWriter::close()
 [INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.TermVectorsReader::close()
 [INFO] Adding a shadow method for the method: System.Void FlexLucene.Codecs.TermVectorsWriter::close()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.AutoPrefixTermsWriterPrefixTerm::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.BlockTreeTermsReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.FieldReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Blocktree.Stats::toString()
@@ -743,6 +760,8 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Geo.Polygon::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Geo.Polygon::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Geo.Rectangle::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Geo.Rectangle::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Geo.Rectangle::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Index.CompositeReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ConcurrentMergeScheduler::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Index.ExitableDirectoryReader::toString()
@@ -801,6 +820,8 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.DocValuesRewriteMethod::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.DocValuesRewriteMethod::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Explanation::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Explanation::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Explanation::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.FieldDoc::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.FieldValueHitQueueEntry::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.FieldValueQuery::equals(System.Object)
@@ -836,8 +857,8 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Query::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Query::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.ScoreDoc::toString()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Sort::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Sort::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.Sort::toString()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Sort::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.SortField::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.SortField::equals(System.Object)
@@ -1067,12 +1088,9 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Join.ToChildBlockJoinQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Search.Join.ToParentBlockJoinQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Search.Join.ToParentBlockJoinQuery::hashCode()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.Memory.MemoryIndex::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SlowCompositeReaderWrapper::toString()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SortingLeafReader::toString()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Index.SortingMergePolicy::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Misc.SweetSpotSimilarity::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Misc.TermStats::toString()
-[INFO] Adding a shadow method for the method: System.String FlexLucene.Search.BlockJoinComparatorSource::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Search.DiversifiedTopDocsCollectorScoreDocKey::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Uninverting.FieldCacheCacheEntry::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Uninverting.FieldCacheSanityCheckerInsanity::toString()
@@ -1099,6 +1117,8 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.ValueSource::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.ValueSource::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Queries.Function.ValueSource::toString()
+[INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.ComparisonBoolFunction::equals(System.Object)
+[INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.ComparisonBoolFunction::hashCode()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.ConstValueSource::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Queries.Function.Valuesource.ConstValueSource::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Queries.Function.Valuesource.DocFreqValueSource::hashCode()
@@ -1229,10 +1249,14 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Idversion.IDVersionSegmentTermsEnum::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Codecs.Idversion.VersionBlockTreeTermsReader::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.BigIntegerPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.DoubleRangeField::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.FloatRangeField::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.HalfFloatPoint::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.InetAddressPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.IntRangeField::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LatLonDocValuesField::toString()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LatLonPoint::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Document.LongRangeField::toString()
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Sandbox.Queries.FuzzyLikeThisQuery::hashCode()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Sandbox.Queries.FuzzyLikeThisQuery::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Sandbox.Queries.SlowFuzzyQuery::hashCode()
@@ -1309,6 +1333,8 @@ warning IKVMC0100: Class "com.vividsolutions.jts.util.GeometricShapeFactory" not
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoCompositeMembershipShape::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoConcavePolygonEitherBound::toString()
+[INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoConvexPolygonEitherBound::toString()
 [INFO] Adding a shadow method for the method: System.Boolean FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::equals(System.Object)
 [INFO] Adding a shadow method for the method: System.Int32 FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::hashCode()
 [INFO] Adding a shadow method for the method: System.String FlexLucene.Spatial3d.Geom.GeoDegenerateVerticalLine::toString()
@@ -1411,8 +1437,8 @@ Copyright (c) Microsoft Corporation.  All rights reserved.
 
 [32m]9;8;"USERNAME"\@]9;8;"COMPUTERNAME"\ [92mC:\seemant\github\FlexLucene[90m
 [90m>[m f#\fsi.exe SmokeTests.fsx 
-Available Codecs: seq ["Lucene54"; "Lucene53"; "Lucene50"; "Lucene60"; ...]
-Postings Format : seq ["Lucene50"; "IDVersion"; "completion"; "AutoPrefix"; ...]
+Available Codecs: seq ["Lucene62"; "SimpleText"; "Lucene60"; "Lucene54"; ...]
+Postings Format : seq ["IDVersion"; "Memory"; "FST50"; "FSTOrd50"; ...]
 Tokenization Test
 Expected : seq ["hello"; "world"]
 Actual : seq ["hello"; "world"]
